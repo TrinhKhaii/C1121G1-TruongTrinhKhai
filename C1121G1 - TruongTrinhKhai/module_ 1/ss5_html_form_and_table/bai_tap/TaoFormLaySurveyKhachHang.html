@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin-left: 1rem;
+        }
+        h4 {
+            margin-top: 1rem;
+            margin-bottom: .5rem;
+        }
+        td {
+            text-align: center;
+            
+        }
+        
+    </style>
+</head>
+<body style="font-size: larger;">
+    <form action="#">
+        <h2>Market Research Survey</h2>
+        <p>Please take a few moments to complete this satisfation survey</p>
+        <hr style="border-style: dashed;">
+
+        <h4>What is your age range?</h4>
+        <select name="age" style="width: 50%;">
+            <option value=" ">18-24</option>
+            <option value=" ">25-34</option>
+            <option value=" ">35-50</option>
+            <option value=" ">50+</option>
+        </select>
+
+        <h4>What is your yearly income range?</h4>
+        <select name="salary" style="width: 50%;">
+            <option value=" ">$0 - $25,000</option>
+            <option value=" ">$25,001 - $50,000</option>
+            <option value=" ">$50,001 - $100,000</option>
+            <option value=" ">$100,000+</option>
+        </select>
+
+        <h4>Gender Identity</h4>
+        <input type="radio" name="gender" style="margin-right: 1rem;">Male <br>
+        <input type="radio" name="gender" style="margin-right: 1rem;">Female <br>
+        <input type="radio" name="gender" style="margin-right: 1rem;">Nonbinary <br>
+        <input type="radio" name="gender" style="margin-right: 1rem;">Other <br>
+        <input type="text" name="gender" style="margin-left: 2rem;">
+
+        <h4>Which of the following products have your purchased in the last 2 months. Please check all that apply.</h4>
+        <input type="checkbox" style="margin-right: 1rem;"">Product 1 <br>
+        <input type="checkbox" style="margin-right: 1rem;"">Product 2 <br>
+        <input type="checkbox" style="margin-right: 1rem;"">Product 3 <br>
+
+        <h4>How often would you use our new product?</h4>
+        <input type="radio" name="ho" style="margin-right: 1rem;">Daily <br>
+        <input type="radio" name="ho" style="margin-right: 1rem;">Weekly <br>
+        <input type="radio" name="ho" style="margin-right: 1rem;">Monthly <br>
+
+        <h4>What would you pay for the new product?</h4>
+        <p>$ <input type="text" size="13rem"> . <input type="text" size="3rem"> </p>
+        <div style="display: inline-flex; height: 3rem;">
+            <p style="margin-left: 1rem;">Dollars</p>
+            <p style="margin-left: 5rem;">Cent</p>
+        </div>
+
+        <h4>What features would you like to see in the new product.</h4>
+        <textarea rows="20" cols="200"></textarea>
+
+
+        <p>Please rate your level of agreement with the following statements.</p>
+        <table border="1 solid" cellpadding="10px" style="border-collapse: collapse;">
+            <tr style="background-color: rgba(128, 128, 128, 0.192);">
+                <td ></td>
+                <td style="width: 10rem;">Strongly Disagree</td>
+                <td style="width: 10rem;">Disagree</td>
+                <td style="width: 10rem;">Agree</td>
+                <td style="width: 10rem;">Strongly Agree</td>
+            </tr>
+            <tr>
+                <th style="width: 25rem; text-align: left">Our product are priced fairly</th>
+                <td><input name="pf" type="radio" style="display: block; margin-left: 73px;">1</td>
+                <td><input name="pf" type="radio" style="display: block; margin-left: 73px;">2</td>
+                <td><input name="pf" type="radio" style="display: block; margin-left: 73px;">3</td>
+                <td><input name="pf" type="radio" style="display: block; margin-left: 73px;">4</td>
+            </tr>
+            <tr style="background-color: rgba(128, 128, 128, 0.192);">
+                <th style="width: 15rem; text-align: left">Our product are highly quality</th>
+                <td><input name="hq" type="radio" style="display: block; margin-left: 73px;">1</td>
+                <td><input name="hq" type="radio" style="display: block; margin-left: 73px;">2</td>
+                <td><input name="hq" type="radio" style="display: block; margin-left: 73px;">3</td>
+                <td><input name="hq" type="radio" style="display: block; margin-left: 73px;">4</td>
+            </tr>
+            <tr>
+                <th style="width: 15rem; text-align: left">Your would recommend our product to a friend or cowoker</th>
+                <td><input name="fc" type="radio" style="display: block; margin-left: 73px;">1</td>
+                <td><input name="fc" type="radio" style="display: block; margin-left: 73px;">2</td>
+                <td><input name="fc" type="radio" style="display: block; margin-left: 73px;">3</td>
+                <td><input name="fc" type="radio" style="display: block; margin-left: 73px;">4</td>
+            </tr>
+
+        </table>
+    </form> <br>
+
+    <input type="submit" name="submit" value="submit" style="width: 5rem">
+</body>
+</html>
