@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Bai tap 1:</h2>
+    <button type="button" id="btn1">Click Me 1</button>
+
+	<h2>Bai tap 2:</h2>
+	<div id="altmess"></div>
+	<button type="button" id="btn2">Click Me 2</button>
+
+	<h2>Bai tap 3:</h2>
+	<div id="altmess2"></div>
+	<button type="button" id="btn3">Click Me 3</button>
+
+	<h2>Bai tap 4:</h2>
+	<button type="button" id="btn4">Click Me 4</button>
+
+    <script>
+      var mybtn1 = document.getElementById("btn1");
+      mybtn1.addEventListener("click", btn1);
+      function btn1() {
+        alert("Hello");
+      }
+
+	  var mybtn2 = document.getElementById("btn2")
+	  mybtn2.addEventListener("click", btn2)
+	  function btn2() {
+		  document.getElementById("altmess").innerHTML = "Hello"
+	  }
+
+	  var mybtn3 = document.getElementById("btn3")
+	  mybtn3.addEventListener("click", btn3)
+	  function btn3() {
+		  document.write("Hello")
+	  }
+
+	  var mybtn4 = document.getElementById("btn4")
+	  mybtn4.addEventListener("click", btn4)
+	  function btn4() {
+		  console.log("Hello i'm here :>")
+	  }
+    </script>
+  </body>
+</html>
