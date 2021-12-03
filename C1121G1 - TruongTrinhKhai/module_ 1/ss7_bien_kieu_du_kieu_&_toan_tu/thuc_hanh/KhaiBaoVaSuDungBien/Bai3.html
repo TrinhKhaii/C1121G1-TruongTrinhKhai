@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Ket qua: </h3>
+    <h5 id="result"></h5>
+</body>
+<script>
+    let a = prompt("Nhap so a: ")
+    let b = prompt("Nhap so b: ")
+    if (a % b == 0) {
+        document.getElementById("result").innerHTML = "a la boi so cua b"
+    } 
+    else {
+        document.getElementById("result").innerHTML = "a khong phai la boi so cua b"
+    }
+    
+</script>
+</html>

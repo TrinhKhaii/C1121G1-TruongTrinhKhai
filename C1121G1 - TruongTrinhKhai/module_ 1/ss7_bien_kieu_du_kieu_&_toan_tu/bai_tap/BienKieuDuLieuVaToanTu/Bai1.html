@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhap diem Ly</h3>
+    <input type="text" id="ly">
+    <h3>Nhap diem Hoa</h3>
+    <input type="text" id="hoa">
+    <h3>Nhap diem Sinh</h3>
+    <input type="text" id="sinh"> <br> <br>
+    <button id="myClick">Enter</button>
+    <h2>Diem Trung Binh: </h2>
+    <h1 id="diemtb"></h1> <br><br>
+    <h2 >Tong Diem</h2>
+    <h1 id="tongdiem"></h1>
+
+</body>
+<script>
+    let ly = document.getElementById("ly").value;
+    let hoa = document.getElementById("hoa").value;
+    let sinh = document.getElementById("sinh").value;
+    ly = parseFloat(ly)
+    hoa = parseFloat(hoa)
+    sinh = parseFloat(sinh)
+    let sum = ly + hoa + sinh
+    let avg = (ly + hoa+ sinh) / 3
+    let click = document.getElementById("myClick")
+    click.addEventListener("click", clickFunc)
+    function clickFunc() {
+        document.getElementById("diemtb").innerHTML = avg.toFixed(2);
+        document.getElementById("tongdiem").innerHTML = avg.toFixed(2)
+    }
+    
+</script>
+</html>

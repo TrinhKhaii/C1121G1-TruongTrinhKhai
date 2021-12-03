@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Tinh diem Trung Binh: </h1>
+    <h3>Nhap diem Toan:</h3>
+    <input type="text" id="toan">
+    <h3>Nhap diem Ly:</h3>
+    <input type="text" id="ly">
+    <h3>Nhap diem Hoa:</h3>
+    <input type="text" id="hoa"> <br> <br>
+    <button id="myClick">Enter</button>
+    <h3>Ket qua:</h3>
+    <h4 id="result"></h4>
+    
+</body>
+<script>
+    var myClick = document.getElementById("myClick");
+    myClick.addEventListener("click", clickFunc)
+    function clickFunc() {
+        var m = document.getElementById("toan").value;
+        var l = document.getElementById("ly").value;
+        var h = document.getElementById("hoa").value;
+        m = parseFloat(m)
+        l = parseFloat(l)
+        h = parseFloat(h)
+        var sum = (m + l + h) / 3
+        document.getElementById("result").innerHTML = sum.toFixed(2)
+    }
+</script>
+</html>
