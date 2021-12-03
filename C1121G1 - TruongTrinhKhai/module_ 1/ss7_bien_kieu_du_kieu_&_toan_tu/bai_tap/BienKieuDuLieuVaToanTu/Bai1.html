@@ -21,19 +21,21 @@
 
 </body>
 <script>
-    let ly = document.getElementById("ly").value;
-    let hoa = document.getElementById("hoa").value;
-    let sinh = document.getElementById("sinh").value;
-    ly = parseFloat(ly)
-    hoa = parseFloat(hoa)
-    sinh = parseFloat(sinh)
-    let sum = ly + hoa + sinh
-    let avg = (ly + hoa+ sinh) / 3
-    let click = document.getElementById("myClick")
+    
+    var click = document.getElementById("myClick")
     click.addEventListener("click", clickFunc)
+
     function clickFunc() {
+        var ly = document.getElementById("ly").value;
+        var hoa = document.getElementById("hoa").value;
+        var sinh = document.getElementById("sinh").value;
+        ly = parseFloat(ly)
+        hoa = parseFloat(hoa)
+        sinh = parseFloat(sinh)
+        var sum = ly + hoa + sinh
+        var avg = (ly + hoa+ sinh) / 3
         document.getElementById("diemtb").innerHTML = avg.toFixed(2);
-        document.getElementById("tongdiem").innerHTML = avg.toFixed(2)
+        document.getElementById("tongdiem").innerHTML = sum.toFixed(2)
     }
     
 </script>
