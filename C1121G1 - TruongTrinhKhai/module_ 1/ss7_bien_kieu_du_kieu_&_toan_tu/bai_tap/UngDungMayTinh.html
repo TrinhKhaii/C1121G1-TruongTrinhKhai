@@ -22,31 +22,52 @@
     <h4 id="result"></h4>
 </body>
 <script>
-    let add = document.getElementById("add")
-    add.addEventListener("click", addFunc)
-    let sub = document.getElementById("sub")
-    sub.addEventListener("click", subFunc)
-    let mul = document.getElementById("mul")
-    mul.addEventListener("click", mulFunc)
-    let div = document.getElementById("div")
-    div.addEventListener("click", divFunc)
     
-    let firstNum = document.getElementById("firstNum").value;
-    let secondNum = document.getElementById("secondNum").value;
-    let result
+    let add = document.getElementById("add");
+    add.addEventListener("click", addFunc);
+    let sub = document.getElementById("sub");
+    sub.addEventListener("click", subFunc);
+    let mul = document.getElementById("mul");
+    mul.addEventListener("click", mulFunc);
+    let div = document.getElementById("div");
+    div.addEventListener("click", divFunc);
+
     function addFunc() {
-        result = firstNum + secondNum;
+        let firstNum = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+        firstNum = parseInt(firstNum)
+        secondNum = parseInt(secondNum)
+        let result
+        result = firstNum + secondNum
+        document.getElementById("result").innerHTML = result
     }
     function subFunc() {
-        result = firstNum - secondNum;
+        let firstNum = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+        firstNum = parseInt(firstNum)
+        secondNum = parseInt(secondNum)
+        let result
+        result = firstNum - secondNum
+        document.getElementById("result").innerHTML = result
     }
     function mulFunc() {
-        result = firstNum * secondNum;
+        let firstNum = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+        firstNum = parseInt(firstNum)
+        secondNum = parseInt(secondNum)
+        let result
+        result = firstNum * secondNum
+        document.getElementById("result").innerHTML = result
     }
     function divFunc() {
-        result = firstNum / secondNum;
+        let firstNum = document.getElementById("firstNum").value;
+        let secondNum = document.getElementById("secondNum").value;
+        firstNum = parseInt(firstNum)
+        secondNum = parseInt(secondNum)
+        let result
+        result = firstNum / secondNum
+        document.getElementById("result").innerHTML = result
     }
     
-    document.getElementById("result").innerHTML = result;
 </script>
 </html>
