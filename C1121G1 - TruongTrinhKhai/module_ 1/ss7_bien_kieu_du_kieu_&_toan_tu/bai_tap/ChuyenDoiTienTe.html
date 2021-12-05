@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="display: flex;">
+        <div style="margin-right: 3rem;">
+            <h4>Amount</h4>
+            <input type="text" id="myInput">
+        </div>
+        <div style="margin-right: 3rem;">
+            <h4>From Currency</h4>
+            <select id="fromCur">
+                <option id="fromVN">VietNam</option>
+                <option id="fromUSD">USD</option>
+                <option id="fromCN">China</option>
+            </select>
+        </div>
+        <div style="margin-right: 1rem;">
+            <h4>To Currency</h4>
+            <select id="toCur">
+                <option id="toUSD">USD</option>
+                <option id="toVN">VietNam</option>
+                <option id="toCN">China</option>
+            </select>
+        </div>
+        <div style="margin-top: 60px;">
+            <button id="myClick" style="background-color: navy; color: aliceblue;">Convert</button>
+        </div>
+    </div>
+    <h3>Result: </h3>
+    <h2 id="result"></h2>
+</body>
+<script>
+    let myClick = document.getElementById("myClick");
+    myClick.addEventListener("click", currencyConversion);
+    function currencyConversion() {
+        let myInput = document.getElementById("myInput").value;
+        let fromCur = document.getElementById("fromCur");
+        let fromValue = fromCur.options[fromCur.selectedIndex].text;
+        let toCur = document.getElementById("toCur");
+        let toValue = toCur.options[toCur.selectedIndex].text;
+        let result
+        if ((fromValue == "VietNam") && (toValue == "USD")) {
+            result = myInput / 22851
+        }
+        else if ((fromValue == "USD") && (toValue == "USD")) {
+            result = "Error"
+        }
+        else if ((fromValue == "China") && (toValue == "USD")) {
+            result = myInput * 0.16
+        }
+        else if ((fromValue == "VietNam") && (toValue == "VietNam")) {
+            result = "Error"
+        }
+        else if ((fromValue == "USD") && (toValue == "VietNam")) {
+            result = myInput * 22851
+        }
+        else if ((fromValue == "China") && (toValue == "VietNam")) {
+            result = myInput * 3581.96
+        }
+        else if ((fromValue == "VietNam") && (toValue == "China")) {
+            result = myInput * 0.00028
+        }
+        else if ((fromValue == "USD") && (toValue == "China")) {
+            result = myInput * 6.38
+        }
+        else if ((fromValue == "China") && (toValue == "China")) {
+            result = "Error"
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</html>

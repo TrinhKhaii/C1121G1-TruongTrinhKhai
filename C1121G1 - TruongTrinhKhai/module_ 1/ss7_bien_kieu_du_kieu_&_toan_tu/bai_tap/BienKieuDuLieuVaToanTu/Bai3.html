@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhap ban kinh hinh tron: </h3>
+    <input type="text" id="radius"> <br> <br>
+    <button id="myClick">Enter</button>
+    <h3>Dien tinh hinh tron: </h3>
+    <h4 id="area"></h4>
+</body>
+<script>
+    let myClick = document.getElementById("myClick");
+    myClick.addEventListener("click", circleArea);
+    function circleArea() {
+        let radius = document.getElementById("radius").value;
+        let area = radius * radius * 3.141592654;
+        document.getElementById("area").innerHTML = area.toFixed(2)
+    }
+</script>
+</html>

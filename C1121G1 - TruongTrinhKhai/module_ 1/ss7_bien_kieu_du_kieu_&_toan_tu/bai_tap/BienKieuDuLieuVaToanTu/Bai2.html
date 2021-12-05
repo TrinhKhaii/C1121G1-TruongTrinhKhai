@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhap do C: </h3>
+    <input type="text" id="celsius"> <br> <br>
+    <button id="myClick">Enter</button>
+    <h3>Do F la: </h3>
+    <h4 id="fahrenheit"></h4>
+</body>
+<script>
+    let myClick = document.getElementById("myClick")
+    myClick.addEventListener("click", transferCToF)
+    function transferCToF() {
+        let celsius = document.getElementById("celsius").value;
+        let fahrenheit = (9 * celsius) / 5 + 32;
+        document.getElementById("fahrenheit").innerHTML = fahrenheit;
+    }
+</script>
+</html>

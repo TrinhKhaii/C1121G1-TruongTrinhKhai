@@ -12,19 +12,19 @@
     <input type="text" id="money">
     <h3>Nhap so nguoi:</h3>
     <input type="text" id="people"> <br> <br>
-    <button onclick="hello()">Click</button>
+    <button onclick="calculate()">Click</button>
     <h1> Kết quả: </h1>
     <h2 id="display"></h2>
 </body>
 <script >
 
-    function hello() {
+    function calculate() {
         let bill = document.getElementById("money").value;
         let amount = document.getElementById("people").value;
         bill = parseFloat(bill)
         amount = parseInt(amount)
-        let r = bill / amount ;
-        document.getElementById('display').innerHTML = r.toFixed(2);
+        let result = bill / amount ;
+        document.getElementById('display').innerHTML = result.toFixed(2);
     }
 </script>
 </html>

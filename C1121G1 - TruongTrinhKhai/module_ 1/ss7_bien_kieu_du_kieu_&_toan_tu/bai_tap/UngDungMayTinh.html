@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Caculator</h3>
+    <div style="display: flex;">
+        <input type="text" id="firstNum">
+        <input type="text" id="secondNum">
+    </div>
+    <div style="display: flex;">
+        <button id="add">Addition(+)</button>
+        <button id="sub">Subtraction(-)</button>
+        <button id="mul">Multiplication(*)</button>
+        <button id="div">Division(/)</button>
+    </div>
+    <h3>Result: </h3>
+    <h4 id="result"></h4>
+</body>
+<script>
+    let add = document.getElementById("add")
+    add.addEventListener("click", addFunc)
+    let sub = document.getElementById("sub")
+    sub.addEventListener("click", subFunc)
+    let mul = document.getElementById("mul")
+    mul.addEventListener("click", mulFunc)
+    let div = document.getElementById("div")
+    div.addEventListener("click", divFunc)
+    
+    let firstNum = document.getElementById("firstNum").value;
+    let secondNum = document.getElementById("secondNum").value;
+    let result
+    function addFunc() {
+        result = firstNum + secondNum;
+    }
+    function subFunc() {
+        result = firstNum - secondNum;
+    }
+    function mulFunc() {
+        result = firstNum * secondNum;
+    }
+    function divFunc() {
+        result = firstNum / secondNum;
+    }
+    
+    document.getElementById("result").innerHTML = result;
+</script>
+</html>

@@ -9,28 +9,28 @@
 <body>
     <h1>Tinh diem Trung Binh: </h1>
     <h3>Nhap diem Toan:</h3>
-    <input type="text" id="toan">
+    <input type="text" id="maths">
     <h3>Nhap diem Ly:</h3>
-    <input type="text" id="ly">
+    <input type="text" id="physics">
     <h3>Nhap diem Hoa:</h3>
-    <input type="text" id="hoa"> <br> <br>
+    <input type="text" id="chemistry"> <br> <br>
     <button id="myClick">Enter</button>
     <h3>Ket qua:</h3>
     <h4 id="result"></h4>
     
 </body>
 <script>
-    var myClick = document.getElementById("myClick");
-    myClick.addEventListener("click", clickFunc)
-    function clickFunc() {
-        var m = document.getElementById("toan").value;
-        var l = document.getElementById("ly").value;
-        var h = document.getElementById("hoa").value;
-        m = parseFloat(m)
-        l = parseFloat(l)
-        h = parseFloat(h)
-        var sum = (m + l + h) / 3
-        document.getElementById("result").innerHTML = sum.toFixed(2)
+    let myClick = document.getElementById("myClick");
+    myClick.addEventListener("click", average)
+    function average() {
+        let maths = document.getElementById("maths").value;
+        let physics = document.getElementById("physics").value;
+        let chemistry = document.getElementById("chemistry").value;
+        maths = parseFloat(maths)
+        physics = parseFloat(physics)
+        chemistry = parseFloat(chemistry)
+        let avg = (maths + physics + chemistry) / 3
+        document.getElementById("result").innerHTML = avg.toFixed(2)
     }
 </script>
 </html>
