@@ -32,39 +32,39 @@
     let div = document.getElementById("div");
     div.addEventListener("click", divFunc);
 
+    let firstNum;
+    let secondNum;
+    let result;
     function addFunc() {
-        let firstNum = document.getElementById("firstNum").value;
-        let secondNum = document.getElementById("secondNum").value;
+        firstNum = document.getElementById("firstNum").value;
+        secondNum = document.getElementById("secondNum").value;
         firstNum = parseInt(firstNum)
         secondNum = parseInt(secondNum)
-        let result
+        result
         result = firstNum + secondNum
         document.getElementById("result").innerHTML = result
     }
     function subFunc() {
-        let firstNum = document.getElementById("firstNum").value;
-        let secondNum = document.getElementById("secondNum").value;
+        firstNum = document.getElementById("firstNum").value;
+        secondNum = document.getElementById("secondNum").value;
         firstNum = parseInt(firstNum)
         secondNum = parseInt(secondNum)
-        let result
         result = firstNum - secondNum
         document.getElementById("result").innerHTML = result
     }
     function mulFunc() {
-        let firstNum = document.getElementById("firstNum").value;
-        let secondNum = document.getElementById("secondNum").value;
+        firstNum = document.getElementById("firstNum").value;
+        secondNum = document.getElementById("secondNum").value;
         firstNum = parseInt(firstNum)
         secondNum = parseInt(secondNum)
-        let result
         result = firstNum * secondNum
         document.getElementById("result").innerHTML = result
     }
     function divFunc() {
-        let firstNum = document.getElementById("firstNum").value;
-        let secondNum = document.getElementById("secondNum").value;
+        firstNum = document.getElementById("firstNum").value;
+        secondNum = document.getElementById("secondNum").value;
         firstNum = parseInt(firstNum)
         secondNum = parseInt(secondNum)
-        let result
         result = firstNum / secondNum
         document.getElementById("result").innerHTML = result
     }
