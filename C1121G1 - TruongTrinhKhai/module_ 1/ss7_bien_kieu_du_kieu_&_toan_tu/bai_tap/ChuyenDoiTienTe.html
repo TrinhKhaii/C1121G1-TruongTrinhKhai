@@ -45,32 +45,32 @@
         let toCur = document.getElementById("toCur");
         let toValue = toCur.options[toCur.selectedIndex].text;
         let result
-        if ((fromValue == "VietNam") && (toValue == "USD")) {
-            result = myInput / 22851
-        }
-        else if ((fromValue == "USD") && (toValue == "USD")) {
-            result = "Error"
-        }
-        else if ((fromValue == "China") && (toValue == "USD")) {
-            result = myInput * 0.16
-        }
-        else if ((fromValue == "VietNam") && (toValue == "VietNam")) {
-            result = "Error"
-        }
-        else if ((fromValue == "USD") && (toValue == "VietNam")) {
-            result = myInput * 22851
-        }
-        else if ((fromValue == "China") && (toValue == "VietNam")) {
-            result = myInput * 3581.96
-        }
-        else if ((fromValue == "VietNam") && (toValue == "China")) {
-            result = myInput * 0.00028
-        }
-        else if ((fromValue == "USD") && (toValue == "China")) {
-            result = myInput * 6.38
-        }
-        else if ((fromValue == "China") && (toValue == "China")) {
-            result = "Error"
+
+
+        if (fromValue == "VietNam") {
+            if (toValue == "USD") {
+                result = myInput / 22851
+            } else if (toValue == "VietNam") {
+                result = "Error"
+            } else if (toValue == "China") {
+                result = myInput * 0.00028
+            }
+        } else if (fromValue == "USD") {
+            if (toValue == "USD") {
+                result = "Error"
+            } else if (toValue == "VietNam") {
+                result = myInput * 22851
+            } else if (toValue == "China") {
+                result = myInput * 6.38
+            }
+        } else if (fromValue == "China") {
+            if (toValue == "USD") {
+                result = myInput * 0.16
+            } else if (toValue == "VietNam") {
+                result = myInput * 3581.96
+            } else if (toValue == "China") {
+                result = "Error"
+            }
         }
         document.getElementById("result").innerHTML = result;
     }
