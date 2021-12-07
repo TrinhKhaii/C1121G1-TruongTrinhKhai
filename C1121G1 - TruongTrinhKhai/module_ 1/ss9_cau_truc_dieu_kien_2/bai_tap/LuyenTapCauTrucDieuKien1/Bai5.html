@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ktMieng = parseFloat(prompt("Nhap diem kt mieng: "))
+    let kt15p = parseFloat(prompt("Nhap diem kt 15p: "))
+    let kt1Tiet = parseFloat(prompt("Nhap diem kt 1 tiet: "))
+    let ktGiuaKy = parseFloat(prompt("Nhap diem kt giua ky: "))
+    let ktCuoiKy = parseFloat(prompt("Nhap diem kt cuoi ky: "))
+    let result = (ktMieng + kt15p + (kt1Tiet * 2) + (ktGiuaKy * 3) + (ktCuoiKy * 3)) / 10;
+    if (result > 8) {
+        if (result > 9) {
+            alert("Diem trung binh cua ban la: " + result + ". Hoc luc Xuat Sac")
+        } else {
+            alert("Diem trung binh cua ban la: " + result + ". Hoc luc Gioi")
+        }
+    } else if (result > 6.5) {
+        alert("Diem trung binh cua ban la: " + result + " .Hoc luc Kha")
+    } else if (result > 4.5) {
+        alert("Diem trung binh cua ban la: " + result + " .Hoc luc Trung Binh")
+    } else {
+        alert("Diem trung binh cua ban la: " + result + " .Hoc luc Kem")
+    }
+</script>
+</html>

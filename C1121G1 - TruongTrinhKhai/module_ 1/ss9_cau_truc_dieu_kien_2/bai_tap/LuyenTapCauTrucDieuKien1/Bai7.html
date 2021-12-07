@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- Phí thuê bao bắt buộc là 25 nghìn.
+600 đồng cho mỗi phút gọi của 50 phút đầu tiên.
+400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên -->
+
+<script>
+    let totalMinutesUsed = parseFloat(prompt("Nhap so phut da su dung: "))
+    let fixedCharge = 25000;
+    let charge;
+    if (totalMinutesUsed < 50) {
+        charge = 600 * totalMinutesUsed;
+    } else if (totalMinutesUsed < 200) {
+        charge = (600 * 50) + (400 * (totalMinutesUsed - 50));
+    } else {
+        charge = (600 * 50) + (400 * 150) + (200 * (totalMinutesUsed - 200));
+    }
+    let totalCharge = fixedCharge + charge;
+    alert("Phi phai tra: " + totalCharge)
+</script>
+</html>

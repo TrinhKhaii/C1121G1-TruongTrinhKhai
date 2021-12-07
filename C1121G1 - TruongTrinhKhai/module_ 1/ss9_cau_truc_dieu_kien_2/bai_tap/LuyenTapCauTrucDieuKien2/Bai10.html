@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- 
+TT        Số kWh sử dụng            Giá bán điện (đồng/kWh)
+Bậc 1	  Cho kWh từ 0 - 50	          1.678
+Bậc 2	  Cho kWh từ 51 - 100	      1.734
+Bậc 3	  Cho kWh từ 101 - 200	      2.014
+Bậc 4	  Cho kWh từ 201 - 300	      2.536
+Bậc 5	  Cho kWh từ 301 - 400	      2.834
+Bậc 6	  Cho kWh từ 401 trở lên	  2.927 
+-->
+<script>
+    let electricityUsed = parseFloat(prompt("Nhap so kWh da su dung: "));
+    let result;
+    if (electricityUsed <= 50) {
+        result = electricityUsed * 1.678;
+    } else if (electricityUsed <= 100) {
+        result = (50 * 1.678) + (electricityUsed - 50) * 1.734;
+    } else if (electricityUsed <= 200) {
+        result = (50 * 1.678) + (50 * 1.734) + (electricityUsed - 100) * 2.014;
+    } else if (electricityUsed <= 300) {
+        result = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (electricityUsed - 200) * 2.536;
+    } else if (electricityUsed <= 400) {
+        result = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (electricityUsed - 300) * 2.834;
+    } else {
+        result = (50 * 1.678) + (50 * 1.734) + (100 * 2.014) + (100 * 2.536) + (100 * 2.834) + (electricityUsed - 400) * 2.927;
+    }
+    alert("So tien phai tra: " + result)
+</script>
+</html>

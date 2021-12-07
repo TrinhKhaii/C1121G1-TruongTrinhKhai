@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<!-- 
+5% nếu tổng doanh số nhỏ hơn hoặc bằng 100 triệu.
+10% nếu tổng doanh số nhỏ hơn hoặc bằng 300 triệu.
+20 % nếu tổng doanh số là lớn hơn 300 triệu. 
+-->
+
+
+<script>
+    let sales = parseFloat(prompt("Nhap doanh so ban hang: "));
+    let commission;
+    if (sales <= 100000000) {
+        commission = sales * (5 / 100)
+    } else if (sales <= 300000000) {
+        commission = sales * (10 / 100)
+    } else {
+        commission = sales * (20 / 100)
+    }
+    commission = parseFloat(commission)
+    alert("Hoa hong cua ban la: " + commission)
+</script>
+</html>

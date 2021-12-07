@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .display {
+            padding: 10px;
+        
+        }
+        button {
+            padding: 30px;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="display" id="result">
+            
+        </div>
+        <div>
+            <button type="button" class="btn" value="1">1</button>
+            <button type="button" class="btn" value="2">2</button>
+            <button type="button" class="btn" value="3">3</button>
+            <button type="button" class="btn" value="+">+</button>
+        </div>
+        <div>
+            <button type="button" class="btn" value="4">4</button>
+            <button type="button" class="btn" value="5">5</button>
+            <button type="button" class="btn" value="6">6</button>
+            <button type="button" class="btn" value="-">-</button>
+        </div>
+        <div>
+            <button type="button" class="btn" value="7">7</button>
+            <button type="button" class="btn" value="8">8</button>
+            <button type="button" class="btn" value="9">9</button>
+            <button type="button" class="btn" value="*">x</button>
+        </div>
+        <div>
+            <button type="reset" class="btn" onclick="clean()">C</button>
+            <button type="button" class="btn" value="0">0</button>
+            <button type="button" class="btn" onclick="equal()">=</button>
+            <button type="button" class="btn" value="/">/</button>
+        </div>
+    </div>
+</body>
+<script>
+    let numbers = document.getElementsByClassName("btn");
+    let  result = document.getElementById("result");
+
+    for (let number of numbers) {
+        number.addEventListener("click", addValue);
+        function addValue() {
+            result.innerHTML += this.value;
+        }
+    }
+    function equal() {
+        let res = result.innerHTML;
+        let outPut = eval(res);
+        result.innerHTML = outPut;
+    }
+    function clean() {
+        result.innerHTML = " "
+    }
+</script>
+</html>

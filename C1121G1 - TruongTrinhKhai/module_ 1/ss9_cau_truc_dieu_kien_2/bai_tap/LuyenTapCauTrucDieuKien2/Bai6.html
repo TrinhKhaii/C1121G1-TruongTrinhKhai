@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    alert("Giai phuong trinh bac nhat co dang ax + b = 0");
+    let a = parseFloat(prompt("Nhap a: "));
+    let b = parseFloat(prompt("Nhap b: "));
+    if (a == 0) {
+        if (b == 0) {
+            alert("Phuong trinh vo so nghiem");
+        } else {
+            alert("Phuong trinh vo nghiem");
+        }
+    } else {
+        let result = - b / a;
+        alert("Phuong trinh " + a + "x" + "+" + b + "= 0 co 1 nghiem duy nhat: " + "x = " + result)
+    }
+</script>
+</html>

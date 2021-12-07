@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<!-- 
+Bậc 1: 4 triệu đồng/tháng               0%;
+Bậc 2: Trên 4 - 6 triệu đồng/tháng:     5%;
+Bậc 3: Trên 6 - 9 triệu đồng:           10%;
+Bậc 4: Trên 9 - 14 triệu đồng/tháng:    15%;
+Bậc 5: trên 14 - 24 triệu đồng/tháng:   20%;
+Bậc 6: Trên 24 - 44 triệu đồng/tháng:   25%;
+Bậc 7: Trên 44 - 84 triệu đồng/tháng:   30%;
+Bậc 8: Trên 84 triệu đồng: 35%. -->
+<script>
+    let personalTax = parseFloat(prompt("Nhap thu nhap ca nhan (trieu dong): "));
+    let result;
+    if (personalTax < 0) {
+        alert("Error")
+    } else if (personalTax <= 4) {
+        alert("Mien thue");
+    } else if (personalTax <= 6) {
+        result = personalTax * (5 / 100);
+    } else if (personalTax <= 9) {
+        result = personalTax * (10 / 100);
+    } else if (personalTax <= 14) {
+        result = personalTax * (15 / 100);
+    } else if (personalTax <= 24) {
+        result = personalTax * (20 / 100);
+    } else if (personalTax <= 44) {
+        result = personalTax * (25 / 100);
+    } else if (personalTax <= 84) {
+        result = personalTax * (30 / 100);
+    } else {
+        result = personalTax * (35 / 100);
+    }
+    alert("Tong tien thue cua ban (trieu dong): " + result)
+</script>
+
+</html>
