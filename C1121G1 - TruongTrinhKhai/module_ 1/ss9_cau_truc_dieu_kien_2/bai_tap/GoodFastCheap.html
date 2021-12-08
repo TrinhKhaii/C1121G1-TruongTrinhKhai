@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="range" min="0" max="0.1">
+    </div>
+    <div>
+        <button type="button" id="cheap__btn">CHEAP</button>
+    </div>
+    <div>
+        <button type="button" id="fast__btn">FAST</button>
+    </div>
+</body>
+<script>
+    let goodBtn = document.getElementById("good__btn");
+    goodBtn.addEventListener("click", changeColorGoodBtn)
+    let cheapBtn = document.getElementById("cheap__btn");
+    cheapBtn.addEventListener("click", changeColorCheapBtn)
+    let fastBtn = document.getElementById("fast__btn");
+    fastBtn.addEventListener("click", changeColorFastBtn)
+    let goodCheck = false;
+    let cheapCheck = false;
+    let fastCheck = false;
+    function changeColorGoodBtn() {
+        goodBtn.style.backgroundColor = "red";
+        goodCheck = true;
+        check();
+    }
+    function changeColorCheapBtn() {
+        cheapBtn.style.backgroundColor = "blue";
+        cheapCheck = true;
+        check();
+    }
+    function changeColorFastBtn() {
+        fastBtn.style.backgroundColor = "coral";
+        fastCheck = true;
+        check();
+    }
+    function check() {
+        if (goodCheck && cheapCheck && fastCheck) {
+            if (goodCheck && cheapCheck) {
+                fastCheck = false;
+                fastBtn.style.backgroundColor = "white";
+            } else if (goodCheck && fastCheck) {
+                cheapCheck = false;
+                cheapBtn.style.backgroundColor = "white";
+            } else if (cheapCheck && fastCheck) {
+                goodCheck = false;
+                goodCheck.style.backgroundColor = "white";
+            }
+        }
+    }
+</script>
+</html>

@@ -6,64 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .display {
-            padding: 10px;
         
-        }
-        button {
-            padding: 30px;
-            font-size: larger;
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="display" id="result">
-            
+        <div>
+            <input type="text" id="display">
         </div>
         <div>
-            <button type="button" class="btn" value="1">1</button>
-            <button type="button" class="btn" value="2">2</button>
-            <button type="button" class="btn" value="3">3</button>
-            <button type="button" class="btn" value="+">+</button>
+            <input type="button" value="1" onclick="display(this.value)">
+            <input type="button" value="2" onclick="display(this.value)">
+            <input type="button" value="3" onclick="display(this.value)">
+            <input type="button" value="+" onclick="display(this.value)">
         </div>
         <div>
-            <button type="button" class="btn" value="4">4</button>
-            <button type="button" class="btn" value="5">5</button>
-            <button type="button" class="btn" value="6">6</button>
-            <button type="button" class="btn" value="-">-</button>
+            <input type="button" value="4" onclick="display(this.value)">
+            <input type="button" value="5" onclick="display(this.value)">
+            <input type="button" value="6" onclick="display(this.value)">
+            <input type="button" value="-" onclick="display(this.value)">
         </div>
         <div>
-            <button type="button" class="btn" value="7">7</button>
-            <button type="button" class="btn" value="8">8</button>
-            <button type="button" class="btn" value="9">9</button>
-            <button type="button" class="btn" value="*">x</button>
+            <input type="button" value="7" onclick="display(this.value)">
+            <input type="button" value="8" onclick="display(this.value)">
+            <input type="button" value="9" onclick="display(this.value)">
+            <input type="button" value="*" onclick="display(this.value)">
         </div>
         <div>
-            <button type="reset" class="btn" onclick="clean()">C</button>
-            <button type="button" class="btn" value="0">0</button>
-            <button type="button" class="btn" onclick="equal()">=</button>
-            <button type="button" class="btn" value="/">/</button>
+            <input type="button" value="C" onclick="clean()">
+            <input type="button" value="0" onclick="display(this.value)">
+            <input type="button" value="=" onclick="equal()">
+            <input type="button" value="/" onclick="display(this.value)">
+        </div>
+        <div>
+            <input type="button" value="del" onclick="del()">
         </div>
     </div>
 </body>
 <script>
-    let numbers = document.getElementsByClassName("btn");
-    let  result = document.getElementById("result");
+    function display(val) {
+        let str1 = document.getElementById("display").value;
+        let check = ((val == "+") || (val == "-") || (val == "*") || (val == "/")) && ((endChar == "+") || (endChar == "-") || (endChar == "*") || (endChar == "/"))
 
-    for (let number of numbers) {
-        number.addEventListener("click", addValue);
-        function addValue() {
-            result.innerHTML += this.value;
+        let endChar = str1.slice(str1.length - 1, str1.length);
+        let checkEnd = (endChar != "+") || (endChar != "-") || (endChar != "*") || (endChar != "/")
+        if (!check && checkEnd) {
+            document.getElementById("display").value += val;
         }
     }
+    
     function equal() {
-        let res = result.innerHTML;
-        let outPut = eval(res);
-        result.innerHTML = outPut;
+        let res = document.getElementById("display").value;
+        
+
+        if (res == "") {
+            document.getElementById("display").value = "Error";
+        } else {
+            let outPut = eval(res);
+            document.getElementById("display").value = outPut;
+        } 
     }
     function clean() {
-        result.innerHTML = " "
+        document.getElementById("display").value = " "
+    }
+    function del() {
+        let cur = document.getElementById("display").value;
+        cur = String(cur);
+        document.getElementById("display").value = cur.slice(0, cur.length - 1);
     }
 </script>
 </html>
