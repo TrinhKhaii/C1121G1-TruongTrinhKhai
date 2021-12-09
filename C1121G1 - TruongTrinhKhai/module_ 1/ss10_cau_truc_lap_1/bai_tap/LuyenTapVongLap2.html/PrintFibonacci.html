@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let num = parseInt(prompt("Nhap gioi han cho day Fibonacci: "));
+    let a1 = 1; a2 = 1; a = 0;
+    let display = "Day fibonacci la: "
+    if (num == 1) {
+        display += num;
+    } else if (num == 2) {
+        display = display + 1 + ", " + 1;
+    } else {
+        display = display + 1 + ", " + 1 + ", ";
+        let i = 3;
+        while (i <= num) {
+            a = a1 + a2;
+            a1 = a2;
+            a2 = a;
+            i++;
+            display = display + a + ", ";
+        }
+    }
+    document.write(display);
+</script>
+</html>

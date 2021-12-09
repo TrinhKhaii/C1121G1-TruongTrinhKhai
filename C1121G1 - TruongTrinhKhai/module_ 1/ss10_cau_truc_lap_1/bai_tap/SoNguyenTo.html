@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>So nguyen to: </h3>
+</body>
+<script>
+    let num = parseInt(prompt("Nhap gioi han: "));
+    let result = "";
+
+    for (let primeNum = 2; primeNum <= num; primeNum++) {
+
+        let count = 0; // đếm ước của số cần xét
+
+        for (let i = 2; i <= Math.sqrt(primeNum); i++) {
+
+            if (primeNum % i == 0) {
+                count++;
+            }
+
+        }
+        if (count == 0) { // số a chia hết cho số b trong khoảng từ 2 đến căn của a thì a không phải là số nguyên tố
+            result += primeNum + ", ";
+        }
+    }
+    document.write(result);
+</script>
+</html>
