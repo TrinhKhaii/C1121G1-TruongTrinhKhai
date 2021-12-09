@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // vong lap for long nhau 
+    // let display = "<table border='1' width='300' cellspacing='0' cellpadding='3'>"
+    // for(let i = 1; i <= 10; i++) {
+    //     display += "<tr>";
+    //     for (let j = 1; j <= 10; j++) {
+    //         display = display + "<td>" + (i * j) + "</td>";
+    //     }
+    //     display += "</tr>";
+    // }
+    // display += "</table>";
+    // document.write(display)
+
+    // vong lap while long nhau 
+    let i = j = 1;
+    let display = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    while(i <= 10) {
+        display += "<tr>";
+        while (j <= 10) {
+            display = display + "<td>" + (i * j) + "</td>";
+            j++;
+        }
+        display += "</tr>";
+        j = 1;
+        i++;
+    }
+    display += "</table>"
+    alert(display)
+    document.write(display);
+</script>
+</html>

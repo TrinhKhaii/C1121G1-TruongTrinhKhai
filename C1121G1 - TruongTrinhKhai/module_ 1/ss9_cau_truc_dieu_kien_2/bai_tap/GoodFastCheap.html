@@ -8,52 +8,37 @@
 </head>
 <body>
     <div>
-        <input type="range" min="0" max="0.1">
+        GOOD <input id="good__btn" type="range" min="0" max="1" value="0" onclick="choose('good')">
     </div>
     <div>
-        <button type="button" id="cheap__btn">CHEAP</button>
+        CHEAP <input id="cheap__btn" type="range" min="0" max="1" value="0" onclick="choose('cheap')">
     </div>
     <div>
-        <button type="button" id="fast__btn">FAST</button>
+        FAST <input id="fast__btn" type="range" min="0" max="1" value="0" onclick="choose('fast')">
     </div>
 </body>
 <script>
-    let goodBtn = document.getElementById("good__btn");
-    goodBtn.addEventListener("click", changeColorGoodBtn)
-    let cheapBtn = document.getElementById("cheap__btn");
-    cheapBtn.addEventListener("click", changeColorCheapBtn)
-    let fastBtn = document.getElementById("fast__btn");
-    fastBtn.addEventListener("click", changeColorFastBtn)
-    let goodCheck = false;
-    let cheapCheck = false;
-    let fastCheck = false;
-    function changeColorGoodBtn() {
-        goodBtn.style.backgroundColor = "red";
-        goodCheck = true;
-        check();
-    }
-    function changeColorCheapBtn() {
-        cheapBtn.style.backgroundColor = "blue";
-        cheapCheck = true;
-        check();
-    }
-    function changeColorFastBtn() {
-        fastBtn.style.backgroundColor = "coral";
-        fastCheck = true;
-        check();
-    }
-    function check() {
-        if (goodCheck && cheapCheck && fastCheck) {
-            if (goodCheck && cheapCheck) {
-                fastCheck = false;
-                fastBtn.style.backgroundColor = "white";
-            } else if (goodCheck && fastCheck) {
-                cheapCheck = false;
-                cheapBtn.style.backgroundColor = "white";
-            } else if (cheapCheck && fastCheck) {
-                goodCheck = false;
-                goodCheck.style.backgroundColor = "white";
-            }
+    let good = document.getElementById("good__btn");
+    let cheap = document.getElementById("cheap__btn");
+    let fast = document.getElementById("fast__btn");
+    
+    function choose(val) {
+        switch (val) {
+            case "good":
+                if (fast.value == 1) {
+                    cheap.value = 0;
+                }
+                break;
+            case "cheap":
+                if (good.value == 1) {
+                    fast.value = 0;
+                }
+                break;
+            case "fast":
+                if (cheap.value == 1) {
+                    good.value = 0;
+                }
+                break;
         }
     }
 </script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id="hinh1" src="kim1.png" alt="kim1" style="height: 100px;width: 500px;" onclick="changePic('1')">
+    <img id="hinh2" src="tap2.png" alt="tap1" style="height: 100px;width: 500px;" onclick="changePic('2')">
+    <img id="hinh3" src="trump3.png" alt="trump1" style="height: 100px;width: 500px;" onclick="changePic('3')">
+</body>
+<script>
+    let objHinh1 = document.getElementById("hinh1");
+    let objHinh2 = document.getElementById("hinh2");
+    let objHinh3 = document.getElementById("hinh3");
+
+    function changePic(pic) {
+        switch (pic) {
+            case 1:
+                if (objHinh1.getAttribute("src") === "kim1.png") {
+                    objHinh1.src = "trump1.png";
+                } else if (objHinh1.getAttribute("src") === "trump1.png") {
+                    objHinh1.src = "tap1.png";
+                } else {
+                    objHinh1.src = "kim1.png";
+                }
+                break;
+            case 2:
+                if (objHinh2.getAttribute("src") === "kim2.png") {
+                    objHinh2.src = "trump2.png";
+                } else if (objHinh2.getAttribute("src") === "trump2.png") {
+                    objHinh2.src = "tap2.png";
+                } else {
+                    objHinh2.src = "kim2.png";
+                }
+                break;
+            case 3:
+                if (objHinh3.getAttribute("src") === "kim3.png") {
+                    objHinh3.src = "trump3.png";
+                } else if (objHinh3.getAttribute("src") === "trump3.png") {
+                    objHinh3.src = "tap3.png";
+                } else {
+                    objHinh3.src = "kim3.png";
+                }
+                break;
+        }
+    }
+</script>
+</html>
