@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="textVal">
+    <input type="button" id="addBtn" value="Add">
+    <input type="button" id="displayBtn" value="Display">
+    <div>
+        <p id="result"></p>
+    </div>
+</body>
+<script>
+    let addBtn = document.getElementById("addBtn");
+    addBtn.addEventListener("click", addElementToArr);
+    let displayBtn = document.getElementById("displayBtn");
+    displayBtn.addEventListener("click", displayArr);
+
+    let arr = [];
+    let idx = 0;
+    function addElementToArr() {
+        arr[idx] = document.getElementById("textVal").value;
+        alert("Element: " + arr[idx] + " added at index " + idx);
+        idx++;
+        document.getElementById("textVal").value = "";
+    }
+    
+    
+    function displayArr() {
+        let display = "<hr>";
+        for (let i = 0; i < arr.length; i++) {
+            display = display + "Element " + i + " = " + arr[i] + "<br>";
+        }
+        document.getElementById("result").innerHTML = display;
+    }
+
+</script>
+</html>

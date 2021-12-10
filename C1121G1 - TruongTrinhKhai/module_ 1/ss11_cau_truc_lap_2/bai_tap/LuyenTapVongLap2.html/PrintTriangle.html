@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let display1 = "";
+    for (let i = 0; i < 5; i++) {
+        for (let j = 0; j < i + 1; j++) {
+            display1 += "*";
+        }
+        display1 += "<br>";
+    }
+    document.write(display1)
+
+    document.write("<br>")
+    let display2 = "";
+    for (let i = 5; i > 0; i--) {
+        for (let j = 0; j < i; j++) {
+            display2 += "*";
+        }
+        display2 += "<br>";
+    }
+    document.write(display2)
+
+    document.write("<br>")
+    let display3 = "";
+    for (let i = 0; i < 5; i++) {
+        for (let k = 4 - i; k > 0; k--) {
+            display3 += "&nbsp;&nbsp;";
+        }
+        for (let j = 0; j < i + 1; j++) {
+            display3 += "*"
+        }
+        display3 += "<br>";
+    }
+    document.write(display3)
+
+    document.write("<br>")
+    let display4 = "";
+    for (let i = 0; i < 5; i++) {
+        for (let k = 0; k < i; k++) {
+            display4 += "&nbsp;&nbsp;";
+        }
+        for (let j = 5 - i; j > 0; j--) {
+            display4 += "*"
+        }
+        display4 += "<br>";
+    }
+    document.write(display4)
+
+</script>
+</html>

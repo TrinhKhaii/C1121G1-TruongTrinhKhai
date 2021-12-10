@@ -17,11 +17,11 @@
             let start = parseInt(prompt("Nhap khoang gioi han ban muon doan. Tu: "));
             let end = parseInt(prompt("Den: "));
             let input = parseInt(prompt("Con so gi day con so gi day, doan xem nao!"));
-            let randomNum = Math.floor(Math.random() * end) + start;
+            let randomNum = Math.floor(Math.random() * (start - end)) + end;
             if (input == randomNum) {
-                alert("Chuc mung ban da doan dung!")
+                alert("Chuc mung ban da doan dung!");
             } else {
-                alert("Sai roi baby, choi lai chu? ;) ")
+                alert("Sai roi baby, choi lai chu? ;) ");
                 count++;    
             }
         } while (count < 3)
