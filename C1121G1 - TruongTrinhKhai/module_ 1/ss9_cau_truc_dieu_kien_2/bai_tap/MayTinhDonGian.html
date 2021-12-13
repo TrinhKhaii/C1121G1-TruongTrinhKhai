@@ -46,9 +46,9 @@
 <script>
     function display(val) {
         let str1 = document.getElementById("display").value;
-        let check = ((val == "+") || (val == "-") || (val == "*") || (val == "/")) && ((endChar == "+") || (endChar == "-") || (endChar == "*") || (endChar == "/"))
-
         let endChar = str1.slice(str1.length - 1, str1.length);
+        
+        let check = ((val == "+") || (val == "-") || (val == "*") || (val == "/")) && ((endChar == "+") || (endChar == "-") || (endChar == "*") || (endChar == "/"))
         let checkEnd = (endChar != "+") || (endChar != "-") || (endChar != "*") || (endChar != "/")
         if (!check && checkEnd) {
             document.getElementById("display").value += val;
@@ -58,7 +58,6 @@
     function equal() {
         let res = document.getElementById("display").value;
         
-
         if (res == "") {
             document.getElementById("display").value = "Error";
         } else {

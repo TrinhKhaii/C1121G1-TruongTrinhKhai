@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let input = prompt("Nhap 1 chuoi: ");
+    let UPPER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let LOWER = "abcdefghijklmnopqrstuvwxyz";
+    let result = [];
+    for (let i = 0; i < input.length; i++) {
+        if (UPPER.indexOf(input[i]) != -1) {
+            result.push(input[i].toLowerCase());
+        } else if (LOWER.indexOf(input[i]) != -1) {
+            result.push(input[i].toUpperCase());
+        } else {
+            result.push(input[i]);
+        }
+    }
+    document.write(result.join(""));
+</script>
+</html>

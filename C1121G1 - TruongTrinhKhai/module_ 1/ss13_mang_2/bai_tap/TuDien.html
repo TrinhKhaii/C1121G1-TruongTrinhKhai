@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Từ Điển Anh-Việt</h3>
+    <input type="text" id="en"> 
+    <input type="text" id="vi"> <br> <br>
+    <input type="button" id="submit" value="Translate"> 
+</body>
+<script>
+    let submit = document.getElementById("submit");
+    submit.addEventListener("click", translate);
+
+    function translate() {
+        let english = ["dog", "cat", "phone"];
+        let vietnamese = ["con chó", "con mèo", "điện thoại"];
+        let input = document.getElementById("en").value;
+        let output = document.getElementById("vi").value;
+        let index;
+        for (let i = 0; i < english.length; i++) {
+            let flag = false;
+            if (input == english[i]) {
+                flag = true;
+                index = i;
+                break;
+            }
+        }
+        if (flag) {
+            alert("haha")
+            output = vietnamese[index];
+        }
+    }
+</script>
+</html>

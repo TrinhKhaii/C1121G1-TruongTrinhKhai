@@ -10,24 +10,25 @@
     <h3>So nguyen to: </h3>
 </body>
 <script>
-    // bai nay em lam chua xong nha thay :v
     let num = parseInt(prompt("Nhap gioi han: "));
+    let count = 0;
     let result = "";
-
-    for (let primeNum = 2; primeNum <= num; primeNum++) {
-
-        let count = 0; // đếm ước của số cần xét
-
-        for (let i = 2; i <= Math.sqrt(primeNum); i++) {
-
-            if (primeNum % i == 0) {
-                count++;
+    let n = 2;
+    while (count < num) {
+        let flag = true;
+        
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                flag = false;
+                break;
             }
-
         }
-        if (count == 0) { // số a chia hết cho số b trong khoảng từ 2 đến căn của a thì a không phải là số nguyên tố
-            result += primeNum + ", ";
+        
+        if (flag) {
+            count++;
+            result += n + ", ";
         }
+        n++;
     }
     document.write(result);
 </script>
