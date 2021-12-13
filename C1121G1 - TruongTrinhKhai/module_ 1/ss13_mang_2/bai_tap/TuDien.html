@@ -19,11 +19,10 @@
     function translate() {
         let english = ["dog", "cat", "phone"];
         let vietnamese = ["con chó", "con mèo", "điện thoại"];
-        let input = document.getElementById("en").value;
-        let output = document.getElementById("vi").value;
+        let input = document.getElementById("en").value;   
         let index;
+        let flag = false;
         for (let i = 0; i < english.length; i++) {
-            let flag = false;
             if (input == english[i]) {
                 flag = true;
                 index = i;
@@ -31,8 +30,7 @@
             }
         }
         if (flag) {
-            alert("haha")
-            output = vietnamese[index];
+            document.getElementById("vi").value = vietnamese[index];
         }
     }
 </script>

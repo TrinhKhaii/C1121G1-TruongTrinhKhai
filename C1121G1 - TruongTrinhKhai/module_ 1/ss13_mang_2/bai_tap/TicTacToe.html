@@ -8,9 +8,7 @@
 </head>
 <body>
     <h3>Caro Game Simple</h3>
-    <p id="carogame" />
-    <input type="button" value="player1" onclick="changeValue1()">
-    <input type="button" value="player2" onclick="changeValue2()">
+    <p id="carogame"></p>
 </body>
 <script>
     let b = document.getElementById("carogame");
@@ -30,7 +28,8 @@
 
     
     function check() {
-        
+
+        // Check đường ngang
         for (let i = 1; i < 5; i++) {
             for (let j = 1; j < 4; j++) {
                 if ((board[i - 1][j - 1] == board[i - 1][j]) && (board[i - 1][j] == board[i - 1][j + 1])) {
@@ -42,6 +41,7 @@
                 }
             }
         }
+        // Check đường dọc
         for (let i = 1; i < 4; i++) {
             for (let j = 1; j < 5; j++) {
                 if ((board[i - 1][j - 1] == board[i][j - 1]) && (board[i][j - 1] == board[i + 1][j - 1])) {
@@ -53,9 +53,22 @@
                 }
             }
         }
+        // Check đường chéo 1
         for (let i = 1; i < 4; i++) {
             for (let j = 1; j < 4; j++) {
                 if ((board[i - 1][j - 1] == board[i][j]) && (board[i][j] == board[i + 1][j + 1])) {
+                    if (board[i][j] == "x") {
+                        return "1win";
+                    } else if (board[i][j] == "o") {
+                        return "2win";
+                    }
+                }
+            }
+        }
+        // Check đường chéo 2
+        for (let i = 1; i < 4; i++) {
+            for (let j = 3; j > 0; j--) {
+                if ((board[i - 1][j + 1] == board[i][j]) && (board[i][j] == board[i + 1][j - 1])) {
                     if (board[i][j] == "x") {
                         return "1win";
                     } else if (board[i][j] == "o") {

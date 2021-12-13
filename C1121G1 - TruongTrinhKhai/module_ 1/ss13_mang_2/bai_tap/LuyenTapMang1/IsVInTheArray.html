@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let size;
+    let check;
+    let flag = false;
+    do {
+        size = prompt("Nhap size cua mang: ");
+        check = parseInt(size) == size;
+    } while(!check);
+    let arr = new Array(parseInt(size));
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("Nhap phan tu thu " + i + ": "));
+    }
+    alert(arr);
+    let V;
+    do {
+        V = parseInt(prompt("Nhap phan tu so nguyen V: "));
+        check = parseInt(V) == V;
+    } while(!check);
+    for (let i = 0; i < arr.length; i++) {
+        if (V === arr[i]) {
+            flag = true;
+        }
+    }
+    if (flag) {
+        alert("V is in the array");
+    } else {
+        alert("V is not in the array");
+    }
+</script>
+</html>
