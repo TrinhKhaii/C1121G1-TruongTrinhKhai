@@ -7,16 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    
 </body>
 <script>
-    let arr = [1, 23, -4, 8, 10, 9, -21, 11, 6, -17];
+    let str = "abc-1-544-def-2";
     let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] < 0) {
-            count++;
+    let arr = new Array();
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] == "-") {
+            let check = false;
+            let temp = "";
+            for (let j = i + 1; j < str.length; j++) {
+                if (str[j] == parseInt(str[j])) {
+                    check = true;
+                    temp += str[j];
+                } else {
+                    break;
+                }
+            }
+            if (check){
+                arr[count] = -temp;
+                count++;
+            }
         }
     }
-    document.write("Co " + count + " so nguyen am");
+    document.write("Co " + count + " so nguyen am: " + arr);
 </script>
 </html>

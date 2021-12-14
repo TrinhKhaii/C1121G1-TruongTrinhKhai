@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let size;
+    let check;
+    do {
+        size = prompt("Nhap size cua mang thu 1: ");
+        check = parseInt(size) == size;
+    } while(!check);
+    let arr1 = new  Array(parseInt(size));
+    for (let i = 0; i < arr1.length; i++) {
+        arr1[i] = parseInt(prompt("Nhap phan tu thu " + i + " cua mang thu 1"));
+    }
+    alert(arr1);
+    do {
+        size = prompt("Nhap size cua mang thu 2: ");
+        check = parseInt(size) == size;
+    } while(!check);
+    let arr2 = new Array(parseInt(size));
+    for (let i = 0; i < arr2.length; i++) {
+        arr2[i] = parseInt(prompt("Nhap phan tu thu " + i + " cua mang thu 2"));
+    }
+    alert(arr2);
+    let arr3 = arr2.concat(arr1);
+    alert(arr3);
+</script>
+</html>

@@ -15,28 +15,15 @@
     do {
         size = prompt("Nhap size cua mang: ");
         check = parseInt(size) == size;
-    } while (!check);
+    } while (!check)
     let arr = new Array(parseInt(size));
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = parseInt(prompt("Nhap phan tu thu " + i));
+        arr[i] = prompt("Nhap phan tu thu " + i);
     }
     alert(arr);
-
-    // sắp xếp
-    let min = 0;
-    for (let i = 0; i < arr.length - 1; i++) {
-        min = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-            }
-        }
-        if (min != i) {
-            let temp = arr[min];
-            arr[min] = arr[i];
-            arr[i] = temp;
-        }
-    }
+    arr.reverse();
     alert(arr);
+    alert(arr.join(""));
+    
 </script>
 </html>

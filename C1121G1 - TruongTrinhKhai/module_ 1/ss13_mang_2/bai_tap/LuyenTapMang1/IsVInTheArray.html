@@ -18,8 +18,18 @@
         check = parseInt(size) == size;
     } while(!check);
     let arr = new Array(parseInt(size));
+    
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = parseInt(prompt("Nhap phan tu thu " + i + ": "));
+        do {
+            check = true;
+            arr[i] = parseInt(prompt("Nhap phan tu thu " + i + ": "));
+            for (let j = 0; j < i; j++) {
+                if (arr[j] == arr[i]) {
+                    check = false;
+                    break;
+                }
+            }
+        } while (!check)
     }
     alert(arr);
     let V;
