@@ -10,12 +10,16 @@
     
 </body>
 <script>
-    let num = prompt("Nhap 1 so: ");
+    let number = prompt("Nhap 1 so: ");
     function isPositiveInteger(num) {
         let check;
-        check = (num == parseInt(num) && num > 0);
-        return check;
+        check = (num == parseInt(num) && num >= 0);
+        return check; 
     }
-    
+    if (isPositiveInteger(number)) {
+        alert("True");
+    } else {
+        alert("False");
+    }
 </script>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let num1 = parseInt(prompt("Nhap so nguyen a: "));
+    let num2 = parseInt(prompt("Nhap so nguyen b: "));
+    let arr = [num1, num2];
+    function swap2Number(arr) {
+        let temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
+        
+    }
+    swap2Number(arr);
+    alert("Sau khi doi: a: " + arr[0] + ", b: " + arr[1]);
+    
+</script>
+</html>

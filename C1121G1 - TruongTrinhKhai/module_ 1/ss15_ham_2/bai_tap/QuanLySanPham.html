@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="add">
+    <input type="button" id="addButton" value="Add" onclick="addItem()">
+    <input type="text" id="search" oninput="searchItem()" onchange="searchItem()">
+    <input type="button" id="searchButton" value="Search">
+    <p id="display"></p>
+</body>
+<script>
+    let data = new Array("Samsung", "Apple", "Nokia");
+
+    function display(data) {
+        let tableDisplay = '<table border="1px solid black" style="width: 500px; border-collapse: collapse">';
+        tableDisplay += '<tr><th>STT</th><th>Ten san pham</th><th colspan="2">Option</th></tr>'
+        for (let i = 0; i < data.length; i++) {
+            tableDisplay += '<tr><td>' + (i + 1) + '</td>';
+            tableDisplay += '<td>' + data[i] + '</td>';
+            tableDisplay += '<td><input type="button" id="editButton" value="Edit" onclick="editItem(' + i + ' )"></td><td><input type="button" id="deleteButton" value="Delete" onclick="deleteItem(' + i + ')"></td></tr>';
+        }
+        tableDisplay += '</table>';
+        document.getElementById("display").innerHTML = tableDisplay;
+    }
+    function addItem() {
+        let add = document.getElementById("add").value;
+        if (add != "" && add != null) {
+            data.push(add);
+        } else {
+            alert("Can nhap thong tin san pham");
+        }
+        document.getElementById("add").value = "";
+        display(data);
+    }
+    function editItem(i) {
+        let edit = prompt("Edit: ");
+        if (edit != "" && edit != null) {
+            data[i] = edit;
+        }
+        
+        display(data);
+    }
+    function deleteItem(i) {
+        let flag = confirm("Are you sure: ");
+        if (flag) {
+            data.splice(i, 1);
+        }
+        display(data);
+    }
+    function searchItem() {
+        let search = document.getElementById("search").value;   
+        let dataSearch = new Array();
+        if (search == "") {
+            display(data);
+        } else {
+            for (let i = 0; i < data.length; i++) {
+                let char = data[i];
+                if (data[i].includes(search)) {
+                    dataSearch.push(char);
+                }
+            }
+            display(dataSearch);
+        }
+    }
+    display(data);
+
+</script>
+</html>
