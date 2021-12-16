@@ -7,15 +7,21 @@
     <title>Document</title>
 </head>
 <body>
+    
 </body>
 <script>
-    function enter2Number(num1, num2) {
-        if (num1 > num2) {
-            alert("Số thứ nhất lớn hơn số thứ hai");
+    let input = prompt("Nhap 1 ky tu: ");
+    function isNumber(num) {
+        if (num == parseInt(num)) {
+            return true;
         } else {
-            alert("Tổng của 2 số: " + (num1 + num2));
+            return false;
         }
     }
-    enter2Number(4, 5);
+    if (isNumber(input)) {
+        alert("Dung roi");
+    } else {
+        alert("Sai roi");
+    }
 </script>
 </html>

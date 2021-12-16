@@ -7,15 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    
 </body>
 <script>
-    function enter2Number(num1, num2) {
-        if (num1 > num2) {
-            alert("Số thứ nhất lớn hơn số thứ hai");
-        } else {
-            alert("Tổng của 2 số: " + (num1 + num2));
-        }
+    let num = parseInt(prompt("Nhap 1 so bat ky: "));
+    function squareOfNumber(num) {
+        return (num * num);
     }
-    enter2Number(4, 5);
+    document.write(squareOfNumber(num));
 </script>
 </html>

@@ -7,15 +7,17 @@
     <title>Document</title>
 </head>
 <body>
+    
 </body>
 <script>
-    function enter2Number(num1, num2) {
-        if (num1 > num2) {
-            alert("Số thứ nhất lớn hơn số thứ hai");
+    let num = parseInt(prompt("Nhap 1 so bat ky: "));
+    function factorial(num) {
+        if (num == 1) {
+            return 1;
         } else {
-            alert("Tổng của 2 số: " + (num1 + num2));
+            return num * factorial(num - 1)
         }
     }
-    enter2Number(4, 5);
+    alert("Ket qua: " + factorial(num));
 </script>
 </html>
