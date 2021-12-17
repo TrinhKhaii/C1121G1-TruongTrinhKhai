@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let height = parseInt(prompt("Nhap chieu cao: "));
+    for (let i = 1; i < height + 1; i++) {
+        for (let j = height - i; j > 0; j--) {
+            document.write("&ensp;");
+        }
+        for (let k = 0; k < ((i * 2) - 1); k++) {
+            if (i == 1 || i == height || k == i) {
+                document.write("*")
+            } else {
+                document.write("&ensp;");
+            }
+        }
+        for (let j = height - i; j > 0; j--) {
+            document.write("&ensp;");
+        }
+        document.write("<br/>");
+    }
+</script>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Date {
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        getDay() {
+            return this.day;
+        }
+        getMonth() {
+            return this.month;
+        }
+        getYear() {
+            return this.year;
+        }
+        setDay(day) {
+            this.day = day;
+        }
+        setMonth(month) {
+            this.month = month;
+        }
+        setYear(year) {
+            this.year = year;
+        }
+        setDate(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        toString() {
+            alert(this.day + "/" + this.month + "/" + this.year);
+        }
+    }
+    let today = new Date();
+    today.setDate(17, 12, 2021);
+    today.setMonth(11);
+    today.toString();
+    alert("Hom nay la ngay " + today.getDay() + ", thang " + today.getMonth() + ", năm " + today.getYear());
+</script>
+</html>
