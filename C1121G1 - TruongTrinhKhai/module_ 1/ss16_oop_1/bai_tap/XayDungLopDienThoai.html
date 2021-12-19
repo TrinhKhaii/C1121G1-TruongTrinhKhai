@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Mobile {
+        constructor(pin) {
+            this.pin = pin;
+            this.messageBeingEdited = "";
+            this.messageInInbox = "";
+            this.messageSent = "";
+            this.statusOfPhone = false;
+
+        }
+        status() {
+            if (this.statusOfPhone === true) {
+                return "ON";
+            } else {
+                return "OFF";
+            }
+        }
+
+        turnOn() {
+            this.statusOfPhone = true;
+        }
+
+        turnOff() {
+            this.statusOfPhone = false;
+        }
+
+        charg() {
+            this.pin += 10;
+        }
+
+        viewPin() {
+            return this.pin;
+        }
+
+        // Soạn tn
+        composeMessages(text) {
+            if (this.statusOfPhone === true) {
+                this.messageBeingEdited += text;
+                this.pin--;
+            } else {
+                alert("Dien thoai chua duoc mo");
+            }
+
+        }
+
+        sendMessages(another) {
+            if (this.statusOfPhone === true) {
+                another.messageInInbox += this.messageBeingEdited;
+                this.messageSent += this.messageBeingEdited;
+                this.pin--;
+            } else {
+                alert("Dien thoai chua duoc mo");
+            }
+
+        }
+
+        // Nhan tn
+        // receiveMessages(another) {
+        //     this.messageInInbox += another.messageBeingEdited + "<br/>";
+        //     this.pin--;
+        // }
+
+        // Xem tn trong inbox
+        viewMessagesInInbox() {
+            if (this.statusOfPhone === true) {
+                this.pin--;
+                return this.messageInInbox;
+            } else {
+                return "Dien thoai chua duoc mo";
+            }
+        }
+
+        viewSentMessages() {
+            if (this.statusOfPhone === true) {
+                this.pin--;
+                return this.messageSent;
+            } else {
+                alert("Dien thoai chua duoc mo");
+            }
+        }
+    }
+
+    let nokia = new Mobile(50);
+    let iphone = new Mobile(100);
+    alert("Nokia status: " + nokia.status());
+    nokia.turnOn();
+    iphone.turnOn();
+    alert("Nokia status: " + nokia.status());
+    // alert("Nokia pin: " + nokia.viewPin());
+    // nokia.charg();
+    // alert("Nokia pin: " + nokia.viewPin());
+    nokia.composeMessages("Hom nay nhieu may cuc!");
+    nokia.composeMessages("Hom nay nhieu mua cuc!");
+    // alert("xem tn trong inbox nokia: " + nokia.viewMessagesInInbox());
+    nokia.sendMessages(iphone);
+    alert("xem tn trong inbox iphone: " + iphone.viewMessagesInInbox());
+    document.write("tn da gui cua nokia: " + nokia.viewSentMessages());
+</script>
+</html>

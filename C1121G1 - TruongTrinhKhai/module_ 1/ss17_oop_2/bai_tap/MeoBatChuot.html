@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Animal {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+        say(text) {
+            document.write(this.name + " say: " + text + "<br/>");
+        }
+        getName() {
+            return this.name;
+        }
+        getWeight() {
+            return this.weight;
+        }
+        getSpeed() {
+            return this.speed;
+        }
+    }
+
+    class Mouse extends Animal {
+        constructor(name, weight, speed, status) {
+            super(name, weight, speed);
+            this.status = status;
+        }
+    }
+
+    class Cat extends Animal {
+        constructor(name, weight, speed) {
+            super(name, weight, speed);
+        }
+        catchMouse(mouse) {
+            if (!mouse.status) {
+                document.write("Bắt chuột: "+ mouse.name + " đã ngủm," + this.name + " không thèm bắt. <br/>");
+            } else {
+                if (this.speed <= mouse.speed) {
+                    document.write("Bắt chuột: Không thể bắt " + mouse.name + " vì tốc độ của " + this.name +" chậm hơn hoặc bằng " + mouse.name + ". <br/>");
+                } else {
+                    document.write("Bắt chuột: Có thể bắt " + mouse.name + " vì tốc độ của " + this.name + " nhanh hơn " + mouse.name + ". <br/>");
+                }
+            }
+        }
+        eatMouse(mouse) {
+            if (mouse.status && this.speed > mouse.speed) {
+                document.write( "Ăn chuột: " + this.name + " đã ăn "+ mouse.name +". <br/>");
+                this.weight += mouse.weight;
+            } else if (mouse.status && this.speed <= mouse.speed) {
+                document.write("Ăn chuột: " + this.name + " chạy theo không còn không kịp " + mouse.name + " thì làm sao mà ăn. <br/>");
+            } else {
+                document.write("Ăn chuột: " + mouse.name + " đã ngủm," + this.name + " không thèm ăn. <br/>");
+            }
+        }
+    }
+
+    let jerry = new Mouse("Jerry", 10, 20, true);
+    let tom = new Cat("Tom", 20, 30);
+    tom.say("meow meow");
+    jerry.say("chit chit");
+    tom.catchMouse(jerry);
+    document.write(tom.getName() + " trước khi ăn " + jerry.getName() + ": " + tom.getWeight() + "kg" + "<br/>");
+    document.write("Cân nặng của " + jerry.getName() + ": "+ jerry.getWeight() +"kg <br/>");
+    tom.eatMouse(jerry);
+    document.write(tom.getName() + " sau khi ăn " + jerry.getName() + ": " + tom.getWeight() + "kg" + "<br/>");
+</script>
+</html>

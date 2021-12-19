@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+            this.celsius = celsius;
+        }
+        toFahrenheit() {
+            return  9 / 5 * this.celsius + 32;
+        }
+        toKelvin() {
+            return this.celsius + 273.15;
+        }
+    }
+    let tem = new Temperature(25);
+    alert("Do F: " + tem.toFahrenheit());
+    alert("Do Kelvin: " + tem.toKelvin());
+
+</script>
+</html>

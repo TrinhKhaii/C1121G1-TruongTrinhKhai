@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Remote {
+        constructor(code) {
+            this.code = code;
+            this.tivi = new Tivi();
+        }
+        connectToTivi(tivi) {
+            this.tivi = tivi;
+        }
+        turnOn() {
+            tivi.status = true;
+        }
+        turnOff() {
+            tivi.status =  false;
+        }
+
+        switchChannelControl(code) {
+            if (this.tivi.status) {
+                this.tivi.channel = code;
+                document.write("Đã chuyển đến kênh " + code + "<br/>");
+            } else if (!this.tivi.status) {
+                document.write("Tivi chưa được bật! <br/>");
+            } else {
+                document.write("Invalid Syntax <br/>");
+            }
+
+        }
+
+        volumeControl(option, num) {
+            if (this.tivi.status) {
+                if (option === "up") {
+                    this.tivi.volume += num;
+                } else if (option === "down" && this.tivi.volume < num) {
+                    this.tivi.volume = 0;
+                } else if (option === "down") {
+                    this.tivi.volume -= num;
+                } else {
+                    document.write("Invalid Syntax <br/>");
+                }
+            } else if (!this.tivi.status) {
+                document.write("Tivi chưa được bật! <br/>");
+            } else {
+                document.write("Invalid Syntax <br/>");
+            }
+
+        }
+
+        setChannel(code) {
+            if (tivi.status) {
+                tivi.channel = code;
+            } else if (!tivi.status) {
+                document.write("Tivi chưa được bật! <br/>");
+            } else {
+                document.write("Invalid Syntax <br/>");
+            }
+        }
+
+        setVolume(vol) {
+            if (tivi.status) {
+                tivi.volume = vol;
+            } else if (!tivi.status) {
+                document.write("Tivi chưa được bật! <br/>");
+            } else {
+                document.write("Invalid Syntax <br/>");
+            }
+        }
+    }
+
+    class Tivi {
+        constructor() {
+            this.channel = "";
+            this.volume = 0;
+            this.status = "";
+        }
+
+        currentChannel() {
+            return this.channel;
+        }
+        currentVolume() {
+            return this.volume;
+        }
+        getStatus() {
+            if (this.status) {
+                document.write("Tivi đang bật. <br/>");
+            } else if (!this.status) {
+                document.write("Tivi đang tắt. <br/>");
+            } else {
+                document.write("Invalid Syntax. <br/>");
+            }
+        }
+    }
+    let tivi = new Tivi();
+    let remote = new Remote();
+    remote.connectToTivi(tivi);
+    remote.turnOn();
+    tivi.getStatus();
+    remote.setChannel(7)
+    document.write("Current channel: " + tivi.currentChannel() + "<br/>");
+    remote.switchChannelControl(3);
+    document.write("Current channel: " + tivi.currentChannel() + "<br/>");
+    remote.setVolume(20);
+    document.write("Current volume: " + tivi.currentVolume() + "<br/>");
+    remote.volumeControl("down", 5);
+    document.write("Current volume: " + tivi.currentVolume() + "<br/>");
+    remote.turnOff();
+    tivi.getStatus();
+    remote.setChannel(7);
+    remote.switchChannelControl(3);
+    remote.setVolume(20);
+    remote.volumeControl("down", 5);
+</script>
+</html>

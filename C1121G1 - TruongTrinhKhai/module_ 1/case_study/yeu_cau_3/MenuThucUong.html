@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let order = parseInt(prompt("Menu\n" +
+        "1. Cafe\n" +
+        "2. Cam vắt\n" +
+        "3. Nước ép cà rốt\n" +
+        "4. Nước ép cà chua\n" +
+        "5. Nước lọc\n" +
+        "6. Nước dừa\n" +
+        "7. Thoat\n" +
+        "Chon mon: "));
+    do {
+        let check = false;
+        function payment(option, cost) {
+            let amount = parseInt(prompt(option + ": " + cost + "d" +"\n" +
+                                        "Nhập số lượng: "));
+            alert("Tổng số tiền: " + amount * cost + "d");
+            check = true;
+        }
+        switch (order) {
+            case 1: {
+                payment("Cafe", 15000);
+                break;
+            }
+            case 2: {
+                payment("Cam vắt", 20000);
+                break;
+            }
+            case 3: {
+                payment("Nước ép cà rốt", 15000);
+                break;
+            }
+            case 4: {
+                payment("Nước ép cà chua", 15000);
+                break;
+            }
+            case 5: {
+                payment("Nước lọc", 10000);
+                break;
+            }
+            case 6: {
+                payment("Nước dừa", 15000);
+                break;
+            }
+        }
+        if (!check) {
+            break;
+        }
+    } while (order !== 7);
+
+</script>
+</html>

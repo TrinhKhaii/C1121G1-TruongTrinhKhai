@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+
+        decrease() {
+            if (this.weight > 0) {
+                this.weight--;
+                return true;
+            } else {
+                alert("Đã ăn hết apple!");
+                return false;
+            }
+
+        }
+
+        isEmpty() {
+            if (this.weight > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+    }
+
+    class Human {
+        constructor() {
+            this.name = "";
+            this.gender = true;
+            this.weight = 0;
+        }
+
+        isMale() {
+            return this.gender;
+        }
+
+        setGender(sex) {
+            this.gender = sex;
+        }
+
+        eat(apple) {
+            if (apple.decrease()) {
+                this.weight++;
+            }
+
+
+        }
+
+        say(text) {
+            console.log(text);
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getWeight() {
+            return this.weight;
+        }
+
+        setWeight(weight) {
+            this.weight = weight;
+        }
+    }
+
+    let apple = new Apple();
+    let adam = new Human();
+    adam.setName("Adam");
+    adam.setGender(true);
+    adam.setWeight(50);
+
+    let eva = new Human();
+    eva.setName("Eva");
+    eva.setGender(false);
+    eva.setWeight(40);
+
+    adam.eat(apple);
+    alert("apple sau khi adam an: " + apple.getWeight());
+    alert("adam sau khi an apple: " + adam.getWeight());
+    eva.eat(apple);
+    alert("apple sau khi eva an: " + apple.getWeight());
+    alert("eva sau khi an apple: " + eva.getWeight());
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.eat(apple);
+    eva.say("hello");
+    alert("apple sau khi eva an: " + apple.getWeight());
+    alert("eva sau khi an apple: " + eva.getWeight());
+    eva.eat(apple);
+    alert("apple sau khi eva an: " + apple.getWeight());
+    alert("eva sau khi an apple: " + eva.getWeight());
+</script>
+</html>

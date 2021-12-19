@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="gameCanvas" width="500px" height="500px"></canvas>
+<div id="game"></div>
+</body>
+<script>
+    class Doremon {
+        constructor(image, top, left, size) {
+            this.image = image;
+            this.top = top;
+            this.left = left;
+            this.size = size;
+        }
+
+        getDoremonElement() {
+            return '<img width="' + this.size + '' +
+                '" height="' + this.size + '" src="' + this.image +
+                '" style="top: ' + this.top + 'px; left:' +
+                this.left + 'px; position: absolute;" /> '
+        }
+        moveRight() {
+            this.left += 20;
+        }
+        start() {
+            if (doremon.left < window.innerWidth - doremon.size) {
+                doremon.moveRight();
+            }
+            document.getElementById('game').innerHTML = doremon.getDoremonElement();
+        }
+    }
+    class GameBoard {
+        constructor() {
+            this.doremon = new Doremon();
+            this.ctx = undefined;
+        }
+        start() {
+            this.ctx = document.getElementById("gameCanvas").getContext("2d");
+
+        }
+    }
+    let doremon = new Doremon('doremon.png', 20, 30, 200);
+    doremon.start();
+</script>
+</html>

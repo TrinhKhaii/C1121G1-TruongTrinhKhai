@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    const VOWEL_UPPER = "AEIOU";
+    const VOWEL_LOWER = "aeiou";
+    const CONSONANT_UPPER = "BCDFGHJKLMNPQRSTVXYZ";
+    const CONSONANT_LOWER = "bcdfghjklmnpqrstvxyz";
+    let char = prompt("Nhap ky tu bat ky: ");
+    let flag;
+    for (let i = 0; i < VOWEL_UPPER.length; i++) {
+        if (char == VOWEL_UPPER[i] || char == VOWEL_LOWER[i]) {
+            flag = true;
+        }
+    }
+    for (let i = 0; i < CONSONANT_UPPER.length; i++) {
+        if (char == CONSONANT_UPPER[i] || char == CONSONANT_LOWER[i]) {
+            flag = false;
+        }
+    }
+    if (flag) {
+        alert("Ky tu vua nhap la nguyen am!");
+    } else if (flag == false) {
+        alert("Ky tu vua nhap la phu am!");
+    } else {
+        alert("Ky tu khong hop le!");
+    }
+</script>
+</html>

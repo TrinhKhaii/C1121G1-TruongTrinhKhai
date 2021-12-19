@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let input = parseInt(prompt("Nhap luong (trieu): "));
+    let tax = 0;
+    if (input < 7) {
+        tax = input * (5 / 100);
+    } else if (input < 15) {
+        tax = input * (10 / 100);
+    } else {
+        tax = input * (20 / 100);
+    }
+    let salary = input - tax;
+    document.write("Thue thu nhap: " + tax.toFixed(2) + "<br/>");
+    document.write("Luong rong`: " + salary.toFixed(2));
+</script>
+</html>
