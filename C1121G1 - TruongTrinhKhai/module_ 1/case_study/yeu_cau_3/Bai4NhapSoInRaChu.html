@@ -9,31 +9,14 @@
 </body>
 <script>
     // let num = parseInt(prompt("Nhap 1 so bat ky: "));
-    let num = "12345";
-    let arr = num.split("");
-    let result = "";
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 1) {
-            result += "một ";
-        } else if (arr[i] === 2) {
-            result += "hai ";
-        } else if (arr[i] === 3) {
-            result += "ba ";
-        } else if (arr[i] === 4) {
-            result += "bốn ";
-        } else if (arr[i] === 5) {
-            result += "năm ";
-        } else if (arr[i] === 6) {
-            result += "sáu ";
-        } else if (arr[i] === 7) {
-            result += "bảy ";
-        } else if (arr[i] === 8) {
-            result += "tám ";
-        } else if (arr[i] === 9) {
-            result += "chín ";
-        }
+    let num = "123459687";
+    let arr = ["không ", "một ", "hai ", "ba ", "bốn ", "năm ", "sáu ", "bảy ", "tám ", "chín "]
+    let arrNum = num.split("");
+    let char = "";
+    alert(arrNum);
+    for (let i = 0; i < arrNum.length; i++) {
+        char += arr[parseInt(num[i])];
     }
-    alert(result);
-
+    alert(char);
 </script>
 </html>

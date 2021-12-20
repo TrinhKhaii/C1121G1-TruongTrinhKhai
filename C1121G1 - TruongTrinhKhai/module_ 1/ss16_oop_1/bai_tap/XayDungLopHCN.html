@@ -32,8 +32,7 @@
 
         drawRectangle() {
             let ctx = document.getElementById("myCanvas").getContext("2d");
-            let rec = new Rectangle(this.height, this.width);
-            ctx.fillRect(50, 50, rec.width, rec.height);
+            ctx.fillRect(50, 50, this.width, this.height);
         }
     }
     let rec = new Rectangle();

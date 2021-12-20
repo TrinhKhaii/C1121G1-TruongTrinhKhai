@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>ID</td>
+        <td><input type="text" id="add_id"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" id="add_name"></td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td><input type="text" id="add_price"></td>
+    </tr>
+    <tr>
+        <td>Color</td>
+        <td><input type="text" id="add_color"></td>
+    </tr>
+</table>
+<input type="button" id="addButton" value="Add" onclick="addItem()"> <br/>
+
+<input type="text" id="search" oninput="searchItem()" onchange="searchItem()">
+<input type="button" id="searchButton" value="Search">
+<p id="display"></p>
+</body>
+<script>
+    class Product {
+        constructor(id, name, price, color) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+            this.color = color;
+        }
+        setId(id) {
+            this.id = id;
+        }
+        getId() {
+            return this.id;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getName() {
+            return this.name;
+        }
+        setPrice(price) {
+            this.price = price;
+        }
+        getPrice() {
+            return this.price;
+        }
+        setColor(color) {
+            this.color = color;
+        }
+        getColor() {
+            return this.color;
+        }
+    }
+
+    function display(data) {
+        let tableDisplay = '<table border="1px solid black" style="width: 500px; border-collapse: collapse">';
+        tableDisplay += '<tr><th>ID</th><th>Name</th><th>Price</th><th>Color</th><th colspan="2">Option</th></tr>';
+
+        for (let i = 0; i < data.length; i++) {
+            tableDisplay += '<tr><td>' + data[i].id + '</td>';
+            tableDisplay += '<td>' + data[i].name + '</td>';
+            tableDisplay += '<td>' + data[i].price + ' vnd</td>';
+            tableDisplay += '<td>' + data[i].color + '</td>';
+            tableDisplay += '<td><input type="button" id="editButton" value="Edit" onclick="editItem(' + i + ' )"></td><td><input type="button" id="deleteButton" value="Delete" onclick="deleteItem(' + i + ')"></td></tr>';
+        }
+        tableDisplay += '</table>';
+        document.getElementById("display").innerHTML = tableDisplay;
+    }
+
+    function addItem() {
+        let addId = document.getElementById("add_id").value;
+        let addName = document.getElementById("add_name").value;
+        let addPrice = document.getElementById("add_price").value;
+        let addColor = document.getElementById("add_color").value;
+        if (addId != "" && addId != null && addName != "" && addName != null && addPrice != "" && addPrice != null && addColor != "" && addColor != null) {
+            let newProduct = new Product(addId, addName, addPrice, addColor);
+            data.push(newProduct);
+        } else {
+            alert("Can nhap thong tin san pham");
+        }
+        document.getElementById("add_id").value = "";
+        document.getElementById("add_name").value = "";
+        document.getElementById("add_price").value = "";
+        document.getElementById("add_color").value = "";
+        display(data);
+    }
+    function deleteItem(i) {
+        let flag = confirm("Are you sure: ");
+        if (flag) {
+            data.splice(i, 1);
+        }
+        display(data);
+    }
+    function searchItem() {
+        let search = document.getElementById("search").value;
+        let dataSearch = new Array();
+        if (search == "") {
+            display(data);
+        } else {
+            for (let i = 0; i < data.length; i++) {
+                let char = data[i];
+                if (data[i].includes(search)) {
+                    dataSearch.push(char);
+                }
+            }
+            display(dataSearch);
+        }
+    }
+
+    let iphone12 = new Product(1, "Iphone 12", 30000000, "Pacific blue");
+    let iphoneX = new Product(2, "Iphone X", 15000000, "Black");
+
+    let data = new Array();
+    data.push(iphone12)
+    data.push(iphoneX);
+    display(data);
+
+</script>
+</html>

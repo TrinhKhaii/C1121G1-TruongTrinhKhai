@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = "cabca";
+
+    document.write("Chuoi ban dau: " + str + "<br/>");
+    function differentSymbolsNaive(str) {
+        let arr = str.split("");
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (str[i] === str[j]) {
+                    arr.splice(j, 1);
+                    i--;
+                }
+            }
+        }
+        return arr.length
+    }
+    document.write("Ket qua: " + differentSymbolsNaive(str) + "<br/>");
+
+
+</script>
+</html>
