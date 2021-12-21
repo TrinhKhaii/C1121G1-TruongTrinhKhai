@@ -12,16 +12,25 @@
     let s2 = "adcaa";
 
     function commonCharacterCount(s1, s2) {
+        arr1 = s1.split("");
+        arr2 = s2.split("");
+        let result = new Array();
         let count = 0;
-        for (let i = 0; i < s1.length; i++) {
-            for (let j = 0; j < s2.length; j++) {
-                if (s1[i] == s2[j]) {
+        for (let i = 0; i < arr1.length; i++) {
+            for (let j = 0; j < arr2.length; j++) {
+                if (arr1[i] == arr2[j]) {
                     count++;
-                    
+                    result.push(arr1[i]);
+                    arr1.splice(i, 1);
+                    arr2.splice(j, 1);
+                    i--;
+                    j--;
                 }
             }
         }
+        return result;
     }
-    commonCharacterCount(s1, s2);
+    let result = commonCharacterCount(s1, s2);
+    document.write("2 xâu s1 và s2 có " + result.length + " kí tự chung, đó chính là: " + result);
 </script>
 </html>

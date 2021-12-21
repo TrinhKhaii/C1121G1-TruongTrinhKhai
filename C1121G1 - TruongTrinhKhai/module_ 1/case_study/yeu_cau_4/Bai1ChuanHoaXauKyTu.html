@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = "   tRuong    TaN   HAI   ";
+    str.trim();
+    let arr = str.split(" ");
+
+    let newArr = new Array();
+    for (let i = 0; i <arr.length; i++) {
+        if (arr[i] != "") {
+            newArr.push(arr[i]);
+        }
+    }
+    for (let i = 0; i < newArr.length; i++) {
+        newArr[i] = newArr[i].toLowerCase();
+
+    }
+    for (let i = 0; i < newArr.length; i++) {
+        newArr[i][0] = newArr[i][0].toUpperCase();
+    }
+    newArr[0][0] = "T"
+    document.write(newArr)
+
+</script>
+</html>
