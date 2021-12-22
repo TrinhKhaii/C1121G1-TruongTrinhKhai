@@ -7,25 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 </body>
 <script>
-    let height = parseInt(prompt("Nhap chieu cao: "));
-    for (let i = 1; i < height + 1; i++) {
-        for (let j = height - i; j > 0; j--) {
-            document.write("&ensp;");
+    let h = parseInt(prompt("Nhap chieu cao h: "));
+    for (let i = 1; i <= h; i++) {
+        for (let k = h; k >= i; k--) {
+            document.write("&ensp;")
         }
-        for (let k = 0; k < ((i * 2) - 1); k++) {
-            if (i == 1 || i == height || k == i) {
-                document.write("*")
+        for (let j = 0; j < (i * 2) - 1; j++) {
+            if (i != 0 && i != h && j != 0 && j != (2 * i) - 2) {
+                document.write("&ensp;")
             } else {
-                document.write("&ensp;");
+                document.write("*");
             }
         }
-        for (let j = height - i; j > 0; j--) {
-            document.write("&ensp;");
-        }
-        document.write("<br/>");
+        document.write('<br>');
     }
 </script>
 </html>

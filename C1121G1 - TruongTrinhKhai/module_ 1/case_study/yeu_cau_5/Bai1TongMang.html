@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    function sumOfEvenNumbersInMatrix(arr, m, n) {
+        let sum = 0;
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                if (arr[i][j] % 2 == 0) {
+                    sum += arr[i][j];
+                }
+            }
+        }
+        document.write("Sum: " + sum);
+    }
+    let m = parseInt(prompt("Nhap so cot cua mang 2 chieu: "));
+    let n = parseInt(prompt("Nhap so hang cua mang 2 chieu: "));
+    let arr = new Array();
+    for (let i = 0; i < m; i++) {
+        arr[i] = new Array();
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("Nhap phan tu [" + i + "][" + j + "]: "));
+        }
+    }
+    sumOfEvenNumbersInMatrix(arr, m, n);
+
+</script>
+</html>

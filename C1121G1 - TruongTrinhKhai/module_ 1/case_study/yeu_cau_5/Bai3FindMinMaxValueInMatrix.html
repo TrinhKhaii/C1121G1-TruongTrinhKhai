@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let m = parseInt(prompt("Nhap so cot cua mang 2 chieu: "));
+    let n = parseInt(prompt("Nhap so hang cua mang 2 chieu: "));
+    let arr = new Array();
+    for (let i = 0; i < m; i++) {
+        arr[i] = new Array();
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("Nhap phan tu [" + i + "][" + j + "]: "));
+        }
+    }
+    function findMinMaxInMatrix(arr, m, n) {
+        let min = arr[0][0];
+        let max = arr[0][0];
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                if (max < arr[i][j]) {
+                    max = arr[i][j];
+                } else if (min > arr[i][j]) {
+                    min = arr[i][j];
+                }
+            }
+        }
+        document.write("Max: " + max + "<br/>");
+        document.write("Min: " + min);
+    }
+    findMinMaxInMatrix(arr, m, n);
+</script>
+</html>

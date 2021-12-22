@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Xổ số CodeGym</h2>
+<p id="display"></p>
+<br/> <br/>
+<input type="button" value="Mua vé" onclick="option()">
+<input type="button" value="Xem kết quả" onclick="checkResult()">
+<p id="final_result"></p>
+<p id="display_result"></p>
+</body>
+<script>
+    class VietLot {
+        constructor() {
+            this.num1 = 0;
+            this.num2 = 0;
+            this.num3 = 0;
+            this.num4 = 0;
+            this.num5 = 0;
+            this.num6 = 0;
+        }
+        getNum1() {
+            return this.num1;
+        }
+        getNum2() {
+            return this.num2;
+        }
+        getNum3() {
+            return this.num3;
+        }
+        getNum4() {
+            return this.num4;
+        }
+        getNum5() {
+            return this.num5;
+        }
+        getNum6() {
+            return this.num6;
+        }
+
+        setNum(num1, num2, num3, num4, num5, num6) {
+            this.num1 = num1;
+            this.num2 = num2;
+            this.num3 = num3;
+            this.num4 = num4;
+            this.num5 = num5;
+            this.num6 = num6;
+        }
+    }
+
+    function display(data) {
+        let numberDisplay = "";
+        for (let i = 0; i < data.length; i++) {
+            numberDisplay += '<input type="number" style="width: 70px" value="' + data[i].getNum1() + '">\n' +
+                '<input type="number" style="width: 70px" value="' + data[i].getNum2() + '">\n' +
+                '<input type="number" style="width: 70px" value="' + data[i].getNum3() + '">\n' +
+                '<input type="number" style="width: 70px" value="' + data[i].getNum4() + '">\n' +
+                '<input type="number" style="width: 70px" value="' + data[i].getNum5() + '">\n' +
+                '<input type="number" style="width: 70px" value="' + data[i].getNum6() + '">\n';
+            numberDisplay += "<br/><br/>"
+        }
+        document.getElementById("display").innerHTML = numberDisplay;
+    }
+
+    function displayInput() {
+        let userInput = '<input id="number1" type="number" style="width: 70px" >\n' +
+            '<input id="number2" type="number" style="width: 70px" >\n' +
+            '<input id="number3" type="number" style="width: 70px" >\n' +
+            '<input id="number4" type="number" style="width: 70px" >\n' +
+            '<input id="number5" type="number" style="width: 70px" >\n' +
+            '<input id="number6" type="number" style="width: 70px">\n';
+        userInput += "<br/>";
+        userInput += '<input type="button" value="OK" onclick="userInput()">'
+        document.getElementById("display").innerHTML += userInput;
+    }
+
+    function random() {
+        let num1 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num2 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num3 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num4 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num5 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num6 = parseInt((Math.random() * (99 - 1)) + 1);
+        let newRandomArr = new VietLot();
+        newRandomArr.setNum(num1, num2, num3, num4, num5, num6);
+        data.push(newRandomArr);
+        display(data);
+    }
+
+    function userInput() {
+        let n1 = document.getElementById("number1").value;
+        let n2 = document.getElementById("number2").value;
+        let n3 = document.getElementById("number3").value;
+        let n4 = document.getElementById("number4").value;
+        let n5 = document.getElementById("number5").value;
+        let n6 = document.getElementById("number6").value;
+        let newInputArr = new VietLot();
+        newInputArr.setNum(n1, n2, n3, n4, n5, n6);
+        data.push(newInputArr);
+        display(data);
+    }
+
+    function option() {
+        let input = 0;
+        input = parseInt(prompt("Bạn có 2 lựa chọn: \n\n" +
+            "1. Bạn muốn tự lựa chọn số.\n" +
+            "2. Hệ thống tự random."));
+
+        if (input == 2) {
+            random();
+        } else if (input == 1) {
+            displayInput();
+        }
+    }
+    function checkResult() {
+        let check = new VietLot();
+        let num1 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num2 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num3 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num4 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num5 = parseInt((Math.random() * (99 - 1)) + 1);
+        let num6 = parseInt((Math.random() * (99 - 1)) + 1);
+        check.setNum(num1, num2, num3, num4, num5, num6);
+        let result = new Array();
+        for (let i = 0; i < data.length; i++) {
+            let check1 = true;
+            let check2 = true;
+            let check3 = true;
+            let check4 = true;
+            let check5 = true;
+            let check6 = true;
+            if(data[i].getNum1() != check.getNum1()) {
+                check1 = false;
+            }
+            if(data[i].getNum2() != check.getNum2()) {
+                check2 = false;
+            }
+            if(data[i].getNum3() != check.getNum3()) {
+                check3 = false;
+            }
+            if(data[i].getNum4() != check.getNum4()) {
+                check4 = false;
+            }
+            if(data[i].getNum5() != check.getNum5()) {
+                check5 = false;
+            }
+            if(data[i].getNum6() != check.getNum6()) {
+                check6 = false;
+            }
+            if (check1 == true && check2 == true && check3 == true && check4 == true && check5 == true && check6 == true) {
+                result.push("Chuc mung ban dat giai nhat (Ve thu " + (i + 1)+ ")");
+            } else if (check2 == true && check3 == true && check4 == true && check5 == true && check6 == true) {
+                result.push("Chuc mung ban dat giai nhi (Ve thu " + (i + 1)+ ")");
+            } else if (check4 == true && check5 == true && check6 == true) {
+                result.push("Chuc mung ban dat giai khuyen khich (Ve thu " + (i + 1)+ ")");
+            } else {
+                result.push("Chuc ban may man lan sau (Ve thu " + (i + 1)+ ")");
+            }
+        }
+
+        let displayResult = "";
+        for (let i = 0; i < result.length; i++) {
+            displayResult += result[i];
+            displayResult += "<br/>";
+        }
+        document.getElementById("final_result").innerHTML = displayResult;
+
+        let hihi = 'Ket qua: ' + check.getNum1() + ', ' + check.getNum2() + ', ' + check.getNum3() + ', ' +check.getNum4() + ', ' +
+            check.getNum5() + ', ' +check.getNum6();
+        document.getElementById("display_result").innerHTML = hihi;
+    }
+
+    let data = new Array();
+</script>
+</html>

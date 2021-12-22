@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let m = parseInt(prompt("Nhap so cot cua mang 2 chieu: "));
+    let n = parseInt(prompt("Nhap so hang cua mang 2 chieu: "));
+    let arr = new Array();
+    for (let i = 0; i < m; i++) {
+        arr[i] = new Array();
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("Nhap phan tu [" + i + "][" + j + "]: "));
+        }
+    }
+    function countPrimeInMatrix(arr, m, n) {
+        let count = 0;
+        let primeArr = new Array();
+        for (let i = 0; i < m; i++) {
+            for (let j = 0; j < n; j++) {
+                let check = true;
+                if (arr[i][j] < 2) {
+                    check = false;
+                }
+                for (let k = 2; k <= Math.sqrt(arr[i][j]); k++) {
+                    if (arr[i][j] % k == 0) {
+                        check = false;
+                        break;
+                    }
+                }
+                if (check) {
+                    count++;
+                    primeArr.push(arr[i][j]);
+                }
+
+            }
+        }
+        document.write("Co " + count + " so nguyen to, do la: " + primeArr);
+    }
+    countPrimeInMatrix(arr, m, n)
+</script>
+</html>
