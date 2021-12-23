@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    class Customer {
+        constructor(name, cmnd, dateOfBirth, address, type, discount, ) {
+            this.name = "";
+            this.cmnd = "";
+            this.dateOfBirth = "dd/mm/yyyy";
+            this.address = "";
+            this.customerType = ""; // Diamond, Platinum, Gold, Silver, Member
+            this.discount = 0; // giảm giá (%)
+            this.numberOfChaperones = 0; // số lượng người đi kèm
+            this.rentDays = 0;
+            this.serviceType = ""; // loại dịch vụ: Villa, House, Room
+            this.roomType = ""; // Vip, Business,  Normal
+        }
+        setName(name) {
+            this.name = name;
+        }
+        setCmnd(cmnd) {
+            this.cmnd = cmnd;
+        }
+        setDateOfBirth(dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+        }
+        setAddress(address) {
+            this.address = address;
+        }
+        setCustomerType(customerType) {
+            this.customerType = customerType;
+        }
+        setDiscount(discount) {
+            this.discount = discount;
+        }
+        setNumberOfChaperones(numberOfChaperones) {
+            this.numberOfChaperones = numberOfChaperones;
+        }
+        setRentDays(rentDays) {
+            this.rentDays = rentDays;
+        }
+        setServiceType(serviceType) {
+            this.serviceType = serviceType;
+        }
+        setRoomType(roomType) {
+            this.roomType = roomType;
+        }
+
+        getName() {
+            return this.name;
+        }
+        getCmnd() {
+            return this.cmnd;
+        }
+        getDateOfBirth() {
+            return this.dateOfBirth;
+        }
+        getAddress() {
+            return this.address;
+        }
+        getCustomerType() {
+            return this.customerType;
+        }
+        getDiscount() {
+            return this.discount;
+        }
+        getNumberOfChaperones() {
+            return this.numberOfChaperones;
+        }
+        getRentDays() {
+            return this.rentDays;
+        }
+        getServiceType() {
+            return this.serviceType;
+        }
+        getRoomType() {
+            return this.roomType;
+        }
+
+        setCustomer(name, cmnd, dateOfBirth, address, customerType, discount, numberOfChaperones, rentDays, serviceType, roomType) {
+            this.name = name;
+            this.cmnd = cmnd;
+            this.dateOfBirth = dateOfBirth;
+            this.address = address;
+            this.customerType = customerType;
+            this.discount = discount;
+            this.numberOfChaperones = numberOfChaperones;
+            this.rentDays = rentDays;
+            this.serviceType = serviceType;
+            this.roomType = roomType;
+        }
+
+    }
+
+    function displayData(data) {
+        let displayAlert = 0;
+        do {
+            for (let i = 0; i < data.length; i++) {
+                displayAlert = parseInt(prompt("Nhập thông tin: \n" +
+                    "1. Tên: " + data[i].getName() + "\n" +
+                    "2. CMND: " + data[i].getCmnd() + "\n" +
+                    "3. Ngày sinh: " + data[i].getDateOfBirth() + "\n" +
+                    "4. Địa chỉ:" + data[i].getAddress() + "\n" +
+                    "5. Kiểu khách hàng: " + data[i].getCustomerType() + "\n" +
+                    "6. Giảm giá (%): " + data[i].getDiscount() + "\n" +
+                    "7. Số lượng người đi kèm: " + data[i].getNumberOfChaperones() + "\n" +
+                    "8. Số ngày thuê: " + data[i].getRentDays() + "\n" +
+                    "9. Kiểu dịch vụ: " + data[i].getServiceType() + "\n" +
+                    "10. Kiểu phòng: " + data[i].getRoomType() + "\n" +
+                    "11. Exit.\n\n" +
+                    "Điền thông tin số: "));
+            }
+        } while (displayAlert < 1 || displayAlert > 10);
+        return;
+
+    }
+    function displayOption(data) {
+        let displayAlert = 0;
+        let newCus = new Customer();
+        data.push(newCus);
+        do {
+            displayAlert = parseInt(prompt("Nhập thông tin: \n" +
+                "1. Tên.\n" +
+                "2. CMND.\n" +
+                "3. Ngày sinh.\n" +
+                "4. Địa chỉ.\n" +
+                "5. Kiểu khách hàng.\n" +
+                "6. Giảm giá (%).\n" +
+                "7. Số lượng người đi kèm.\n" +
+                "8. Số ngày thuê.\n" +
+                "9. Kiểu dịch vụ.\n" +
+                "10. Kiểu phòng.\n" +
+                "11. Exit.\n\n" +
+                "Nhập 1 số: "));
+            switch (displayAlert) {
+                case 1: {
+                    let name = prompt("Nhập họ và tên: ");
+                    newCus.setName(name);
+                    displayData(data);
+                    break;
+                }
+                case 2: {
+                    let cmnd = prompt("Nhap cmnd: ");
+                    newCus.setCmnd(cmnd);
+                    displayData(data);
+                    break;
+                }
+
+            }
+        } while (displayAlert < 1 || displayAlert > 11);
+        do {
+            // switch (displayAlert) {
+            //     case 1: {
+            //         let name = prompt("Nhập họ và tên: ");
+            //         newCus.setName(name);
+            //         displayData(data);
+            //         break;
+            //     }
+            //     case 2: {
+            //         let cmnd = prompt("Nhap cmnd: ");
+            //         newCus.setCmnd(cmnd);
+            //         displayData(data);
+            //         break;
+            //     }
+            //
+            // }
+        } while (displayAlert !== 11)
+
+    }
+    function display() {
+        let cusChoose = 0;
+        do {
+            cusChoose = parseInt(prompt('Bảng giá dịch vụ: \n' +
+                'Villa: 500$/ 1 ngày\n' +
+                'House: 300$/ 1 ngày\n' +
+                'Room: 100$/ 1 ngày\n\n' +
+                'Bạn muốn: \n' +
+                '1. Đăng ký thuê\n' +
+                '2. Thoát\n'));
+        } while (cusChoose < 1 || cusChoose > 2);
+
+        if (cusChoose === 1) {
+            displayOption(data);
+        } else if (cusChoose === 2) {
+            alert("Thank you, See you again!");
+        } else {
+
+        }
+    }
+    let data = new Array();
+    display();
+
+
+</script>
+</html>

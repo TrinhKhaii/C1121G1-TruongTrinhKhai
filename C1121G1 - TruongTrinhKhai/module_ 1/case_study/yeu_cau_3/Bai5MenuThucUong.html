@@ -8,22 +8,29 @@
 
 </body>
 <script>
-    let order = parseInt(prompt("Menu\n" +
+    let menu = "Menu\n" +
         "1. Cafe\n" +
         "2. Cam vắt\n" +
         "3. Nước ép cà rốt\n" +
         "4. Nước ép cà chua\n" +
         "5. Nước lọc\n" +
         "6. Nước dừa\n" +
-        "7. Thoat\n" +
-        "Chon mon: "));
+        "7. Tính tiền và thoát\n";
+
+    let sum = 0;
+    let ordered = "";
+    let check = true;
     do {
-        let check = false;
+        let order = parseInt(prompt(menu + "\nNhững món đã chọn:\n" + ordered + "\n\nChọn món:"));
+
         function payment(option, cost) {
             let amount = parseInt(prompt(option + ": " + cost + "d" +"\n" +
                                         "Nhập số lượng: "));
-            alert("Tổng số tiền: " + amount * cost + "d");
-            check = true;
+            sum +=  amount * cost;
+            ordered += amount + " " + option + ": " + cost * amount + "d\n";
+        }
+        function total() {
+            alert(ordered + "\nTổng số tiền:" + sum + "d");
         }
         switch (order) {
             case 1: {
@@ -50,11 +57,15 @@
                 payment("Nước dừa", 15000);
                 break;
             }
+            case 7: {
+                total();
+                check = false;
+            }
         }
-        if (!check) {
-            break;
-        }
-    } while (order !== 7);
+        // if (!check) {
+        //     break;
+        // }
+    } while (check);
 
 </script>
 </html>
