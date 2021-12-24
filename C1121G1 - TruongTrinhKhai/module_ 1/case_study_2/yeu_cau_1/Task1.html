@@ -98,32 +98,13 @@
 
     }
 
-    function displayData(data) {
-        let displayAlert = 0;
-        do {
-            for (let i = 0; i < data.length; i++) {
-                displayAlert = parseInt(prompt("Nhập thông tin: \n" +
-                    "1. Tên: " + data[i].getName() + "\n" +
-                    "2. CMND: " + data[i].getCmnd() + "\n" +
-                    "3. Ngày sinh: " + data[i].getDateOfBirth() + "\n" +
-                    "4. Địa chỉ:" + data[i].getAddress() + "\n" +
-                    "5. Kiểu khách hàng: " + data[i].getCustomerType() + "\n" +
-                    "6. Giảm giá (%): " + data[i].getDiscount() + "\n" +
-                    "7. Số lượng người đi kèm: " + data[i].getNumberOfChaperones() + "\n" +
-                    "8. Số ngày thuê: " + data[i].getRentDays() + "\n" +
-                    "9. Kiểu dịch vụ: " + data[i].getServiceType() + "\n" +
-                    "10. Kiểu phòng: " + data[i].getRoomType() + "\n" +
-                    "11. Exit.\n\n" +
-                    "Điền thông tin số: "));
-            }
-        } while (displayAlert < 1 || displayAlert > 10);
-        return;
-
-    }
     function displayOption(data) {
+        let order = "";
+        let inputt = "";
         let displayAlert = 0;
         let newCus = new Customer();
         data.push(newCus);
+        let check = true;
         do {
             displayAlert = parseInt(prompt("Nhập thông tin: \n" +
                 "1. Tên.\n" +
@@ -137,40 +118,77 @@
                 "9. Kiểu dịch vụ.\n" +
                 "10. Kiểu phòng.\n" +
                 "11. Exit.\n\n" +
-                "Nhập 1 số: "));
+                "Thông tin của bạn:\n" +
+                order +
+                "\n\nNhập 1 số: "));
+
             switch (displayAlert) {
                 case 1: {
-                    let name = prompt("Nhập họ và tên: ");
-                    newCus.setName(name);
-                    displayData(data);
+                    inputt = prompt("Nhập tên: ");
+                    order +=  "Tên: " + inputt + "\n";
+                    newCus.setName(inputt);
                     break;
                 }
                 case 2: {
-                    let cmnd = prompt("Nhap cmnd: ");
-                    newCus.setCmnd(cmnd);
-                    displayData(data);
+                    inputt = prompt("Nhập CMND: ");
+                    order += "CMND: " + inputt + "\n";
+                    newCus.setCmnd(inputt);
                     break;
                 }
-
+                case 3: {
+                    inputt = prompt("Nhập ngày sinh: ");
+                    order += "Ngày sinh: " + inputt + "\n";
+                    newCus.setDateOfBirth(inputt);
+                    break;
+                }
+                case 4: {
+                    inputt = prompt("Nhập địa chỉ: ");
+                    order += "Địa chỉ: " + inputt + "\n";
+                    newCus.setAddress(inputt);
+                    break;
+                }
+                case 5: {
+                    inputt = prompt("Nhập kiểu khách hàng (Diamond, Platinum, Gold, Silver, Member): ");
+                    order += "Kiểu khách hàng: " + inputt + "\n";
+                    newCus.setCustomerType(inputt);
+                    break;
+                }
+                case 6: {
+                    inputt = prompt("Nhập giảm giá: ");
+                    order += "Giảm giá: " + inputt + "\n";
+                    newCus.setDiscount(inputt);
+                    break;
+                }
+                case 7: {
+                    inputt = prompt("Nhập số lượng người đi kèm: ");
+                    order += "Số lượng người đi kèm: " + inputt + "\n";
+                    newCus.setNumberOfChaperones(inputt);
+                    break;
+                }
+                case 8: {
+                    inputt = prompt("Nhập số ngày thuê: ");
+                    order += "Số ngày thuê: " + inputt + "\n";
+                    newCus.setRentDays(inputt);
+                    break;
+                }
+                case 9: {
+                    inputt = prompt("Nhập loại dịch vụ (Villa, House, Room): ");
+                    order += "Loại dịch vụ: " + inputt + "\n";
+                    newCus.setServiceType(inputt);
+                    break;
+                }
+                case 10: {
+                    inputt = prompt("Nhập kiểu phòng (Vip, Business, Normal): ");
+                    order += "Kiểu phòng: " + inputt + "\n";
+                    newCus.setRoomType(inputt);
+                    break;
+                }
+                case 11: {
+                    check = false;
+                    break;
+                }
             }
-        } while (displayAlert < 1 || displayAlert > 11);
-        do {
-            // switch (displayAlert) {
-            //     case 1: {
-            //         let name = prompt("Nhập họ và tên: ");
-            //         newCus.setName(name);
-            //         displayData(data);
-            //         break;
-            //     }
-            //     case 2: {
-            //         let cmnd = prompt("Nhap cmnd: ");
-            //         newCus.setCmnd(cmnd);
-            //         displayData(data);
-            //         break;
-            //     }
-            //
-            // }
-        } while (displayAlert !== 11)
+        } while (check);
 
     }
     function display() {
@@ -195,6 +213,7 @@
     }
     let data = new Array();
     display();
+
 
 
 </script>

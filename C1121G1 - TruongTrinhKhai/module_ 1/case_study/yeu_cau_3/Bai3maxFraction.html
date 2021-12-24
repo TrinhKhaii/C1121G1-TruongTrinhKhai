@@ -12,8 +12,8 @@
     let denominators = [6, 3, 4];
     function maxFraction(numerators, denominators) {
         let index = 0;
+        let max = numerators[0] / denominators[0];
         for (let i = 0; i < numerators.length; i++) {
-            let max = numerators[0] / denominators[0];
             if (max < numerators[i] / denominators[i]) {
                 max = numerators[i] / denominators[i];
                 index = i;

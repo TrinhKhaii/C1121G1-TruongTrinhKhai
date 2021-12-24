@@ -5,30 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-
 </body>
 <script>
-    let n = 9;
-    let ar = [10, 20, 10, 10, 30, 50, 10, 20];
-            // [ 30, 50,  20]
-    function sockMerchant(n, ar) {
-        // Write your code here
-        let count = 0;
-        for (let i = 0; i < n - 1; i++) {
-            for (let j = i + 1; j < n; j++) {
-                if (ar[i] === ar[j]) {
-                    ar.splice(i, 1);
-                    i--;
-                    j--;
-                    ar.splice(j, 1);
-                    count++;
-                    n -= 2;
-                    break;
-                }
-            }
-        }
-        return count;
-    }
-    document.write(sockMerchant(n, ar));
+    
+
 </script>
 </html>
