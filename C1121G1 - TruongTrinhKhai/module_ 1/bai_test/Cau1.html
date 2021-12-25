@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Câu 1</title>
 </head>
 <body>
 
 </body>
+<script>
+    let n = 0;
+    do {
+        n = parseInt(prompt("Nhập số phần tử của mảng: "));
+    } while (n < 0 || n > 50)
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        arr[i] = parseInt(prompt("Nhập phần tử thứ " + i + ": "));
+    }
+    document.write("Mảng vừa nhập: " + arr);
+    let index = 0;
+    let sum = 0;
+    for (let i = 0; i < n; i++) {
+        if (i % 3 === 0) {
+            if (arr[i] % 5 === 0) {
+                sum += arr[i];
+                index++;
+            }
+        }
+    }
+    if (index === 0) {
+        document.write("<br/>Không có");
+    } else {
+        document.write("<br/>Kết quả: " + (sum / index));
+    }
+
+</script>
 </html>

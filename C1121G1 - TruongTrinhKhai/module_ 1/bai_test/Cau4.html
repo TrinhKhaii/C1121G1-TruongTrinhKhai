@@ -2,9 +2,114 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Câu 4</title>
 </head>
 <body>
-
+<table>
+    <tr>
+        <td>ID</td>
+        <td><input type="text" id="add_id"></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td><input type="text" id="add_name"></td>
+    </tr>
+    <tr>
+        <td>Bank name</td>
+        <td><input type="text" id="add_bank_name"></td>
+    </tr>
+    <tr>
+        <td>Total amount</td>
+        <td><input type="text" id="add_total_amount"></td>
+    </tr>
+</table>
+<input type="button" id="addButton" value="Add" onclick="addAccount()"> <br/>
+<p id="display"></p>
 </body>
+<script>
+    class BankAccount {
+        constructor(id, name, bankName, totalAmount) {
+            this.id = id;
+            this.name = name;
+            this.bankName = bankName;
+            this.totalAmount = totalAmount;
+        }
+
+        setId(id) {
+            this.id = id;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setBankName(bankName) {
+            this.bankName = bankName;
+        }
+
+        setTotalAmount(totalAmount) {
+            this.totalAmount = totalAmount;
+        }
+
+        getId() {
+            return this.id;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getBankName() {
+            return this.bankName;
+        }
+
+        getTotalAmount() {
+            return this.totalAmount;
+        }
+
+        toString() {
+            let display = "Thông tin khách hàng " + this.name + "<br/>ID: " + this.id + "<br/>Name: " + this.name +
+                "<br/>Bank name: " + this.bankName + "<br/>Total amount: " + this.totalAmount;
+            document.write(display);
+        }
+    }
+
+    function display(data) {
+        let tableDisplay = '<table border="1px solid black" style="width: 500px; border-collapse: collapse">';
+        tableDisplay += '<tr><th>ID</th><th>Name</th><th>Bank name</th><th>Total amount</th></tr>';
+
+        for (let i = 0; i < data.length; i++) {
+            tableDisplay += '<tr><td>' + data[i].id + '</td>';
+            tableDisplay += '<td>' + data[i].name + '</td>';
+            tableDisplay += '<td>' + data[i].bankName + '</td>';
+            tableDisplay += '<td>' + data[i].totalAmount + '</td>';
+        }
+        tableDisplay += '</table>';
+        document.getElementById("display").innerHTML = tableDisplay;
+    }
+
+    function addAccount() {
+        let addId = document.getElementById("add_id").value;
+        let addName = document.getElementById("add_name").value;
+        let addBankName = document.getElementById("add_bank_name").value;
+        let addTotalAmount = document.getElementById("add_total_amount").value;
+        if (addId.length === 5 && addId !== parseInt(addId)) {
+            if (addId !== "" && addId != null && addName !== "" && addName != null && addBankName !== "" && addBankName != null && addTotalAmount !== "" && addTotalAmount != null) {
+                let newBankAccount = new BankAccount(addId, addName, addBankName, addTotalAmount);
+                data.push(newBankAccount);
+            }
+        } else {
+            alert("Thông tin bị sai hoặc chưa đầy đủ");
+        }
+        document.getElementById("add_id").value = "";
+        document.getElementById("add_name").value = "";
+        document.getElementById("add_bank_name").value = "";
+        document.getElementById("add_total_amount").value = "";
+        display(data);
+    }
+
+    let data = [];
+    display(data);
+
+</script>
 </html>

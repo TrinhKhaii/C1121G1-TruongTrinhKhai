@@ -2,9 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Câu 2</title>
 </head>
 <body>
 
 </body>
+<script>
+    let str = prompt("Nhập 1 chuỗi ký tự: ");
+
+    function abbreviateString(str) {
+        str.trim();
+        let arr = str.split(" ");
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== "") {
+                newArr.push(arr[i]);
+            }
+        }
+        if (newArr.length === 1) {
+            return "Chuỗi chỉ có 1 từ nên không cần viết tắt";
+        }
+        for (let i = 0; i < newArr.length; i++) {
+            newArr[i] = newArr[i].charAt(0).toUpperCase();
+        }
+        let result = "";
+        for (let i = 0; i < newArr.length; i++) {
+            result += newArr[i];
+        }
+        return "Kết quả: " + result
+    }
+
+    document.write(abbreviateString(str));
+</script>
 </html>
