@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+
+</body>
+<script>
+    let input;
+    let check;
+    let monthInput;
+    // let checkMonth;
+    do {
+        input = prompt("Nhập tháng và năm (mm/yyyy): ");
+        // checkMonth = input.substring(0, input.indexOf("/")) === parseInt(input.substring(0, input.indexOf("/")))
+        monthInput = parseInt(input.substring(0, input.indexOf("/")));
+        if (monthInput > 0 && monthInput < 13) {
+            check = true;
+        }
+    } while (!check)
+
+    function checkMonthYear(input) {
+        let monthInput = parseInt(input.substring(0, 2));
+        let yearInput = parseInt(input.substring(3));
+        let checkYear;
+        checkYear = (yearInput % 4 === 0 && yearInput % 100 !== 0) || (yearInput % 400 === 0 && yearInput % 100 === 0);
+        let result = 0;
+        if (checkYear) {
+            switch (monthInput) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12: {
+                    result = 31;
+                    break;
+                }
+                case 2: {
+
+                    result = 29;
+                    break;
+                }
+                case 4:
+                case 6:
+                case 9:
+                case 11: {
+                    result = 30;
+                    break;
+                }
+            }
+        } else {
+            switch (monthInput) {
+                case 1:
+                case 3:
+                case 5:
+                case 7:
+                case 8:
+                case 10:
+                case 12: {
+                    result = 31;
+                    break;
+                }
+                case 2: {
+                    result = 28;
+                    break;
+                }
+                case 4:
+                case 6:
+                case 9:
+                case 11: {
+                    result = 30;
+                    break;
+                }
+            }
+        }
+        return result;
+    }
+
+    document.write("Result: " + checkMonthYear(input));
+</script>
+</html>

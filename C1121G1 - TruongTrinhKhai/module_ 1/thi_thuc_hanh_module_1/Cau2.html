@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+
+</body>
+<script>
+    let num;
+    let check;
+    do {
+        num = prompt("Nhap so nguyen duong: ");
+        check = num == parseInt(num);
+    } while (!check);
+
+    function isPerfectNumber(num) {
+        let arr = [];
+        for (let i = 1; i <= num / 2; i++) {
+            if (num % i === 0) {
+                arr.push(i);
+            }
+        }
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        if (sum == num) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    document.write("Result: " + isPerfectNumber(num));
+</script>
+</html>

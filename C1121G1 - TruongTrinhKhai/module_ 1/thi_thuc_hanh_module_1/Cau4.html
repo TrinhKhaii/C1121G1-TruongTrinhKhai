@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4</title>
+</head>
+<body>
+<h2 style="margin-left: 400px; margin-top: 100px">Quản lí công nhân</h2>
+<p id="display"></p>
+</body>
+<script>
+    class Worker {
+        constructor(name, dateOfBirth, address, salary, job) {
+            this.name = name;
+            this.dateOfBirth = dateOfBirth;
+            this.address = address;
+            this.salary = salary;
+            this.job = job;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        setDateOfBirth(dateOfBirth) {
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        setAddress(address) {
+            this.address = address;
+        }
+
+        setSalary(salary) {
+            this.salary = salary;
+        }
+
+        setJob(job) {
+            this.job = job;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        getDateOfBirth() {
+            return this.dateOfBirth;
+        }
+
+        getAddress() {
+            return this.address;
+        }
+
+        getSalary() {
+            return this.salary;
+        }
+
+        getJob() {
+            return this.job;
+        }
+    }
+    function display(data) {
+        let tableDisplay = '<table border="1px solid black" style="width: 600px; border-collapse: collapse; margin-left: 200px; margin-top: 50px">';
+        tableDisplay += '<tr><th>STT</th><th>Họ và Tên</th><th>Ngày Sinh</th><th>Địa chỉ</th><th>Lương</th><th>Chức vụ</th></tr>';
+
+        for (let i = 0; i < data.length; i++) {
+            tableDisplay += '<tr><td>' + (i + 1) + '</td>';
+            tableDisplay += '<td>' + data[i].getName() + '</td>';
+            tableDisplay += '<td>' + data[i].getDateOfBirth() + '</td>';
+            tableDisplay += '<td>' + data[i].getAddress() + '</td>';
+            tableDisplay += '<td>' + data[i].getSalary() + '</td>';
+            tableDisplay += '<td>' + data[i].getJob() + '</td></tr>';
+        }
+        tableDisplay += '</table>';
+        document.getElementById("display").innerHTML = tableDisplay;
+    }
+    function sortName(data) {
+        let arr = [];
+        for (let i = 0; i < data.length; i++) {
+            arr.push(data[i].getName().charAt(0));
+        }
+        arr.sort(function (a, b) {
+            return a.localeCompare(b);
+        });
+
+    }
+
+
+    let data = [];
+    let worker1 = new Worker("Arương Tấn A", "21/12/1998", "21 Nguyễn Khang", "1000", "Coder");
+    let worker2 = new Worker("Crương Tấn B", "21/12/1999", "22 Nguyễn Khang", "1000", "Coach");
+    let worker3 = new Worker("Bguyen Van C", "21/12/2001", "31 Nguyễn Khang", "1000", "Teacher");
+    let worker4 = new Worker("Bguyen Van A", "21/12/2001", "31 Nguyễn Khang", "1000", "Teacher");
+    data.push(worker1);
+    data.push(worker2);
+    data.push(worker3);
+    sortName(data)
+    display(data);
+</script>
+</html>
