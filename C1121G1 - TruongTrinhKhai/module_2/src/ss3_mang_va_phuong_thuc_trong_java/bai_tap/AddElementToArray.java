@@ -23,12 +23,13 @@ public class AddElementToArray {
             newArr[newElementIndex] = newElementValue;
             System.out.println("My new array: " + Arrays.toString(newArr));
         } else {
-            int[] newArr2 = new int[newElementIndex + 1];
-            for (int i = 0; i < arr.length; i++) {
-                newArr2[i] =  arr[i];
-            }
-            newArr2[newElementIndex] = newElementValue;
-            System.out.println("My new array: " + Arrays.toString(newArr2));
+            System.out.println("Your new index is greater than or less than current array!");
+//            int[] newArr2 = new int[newElementIndex + 1];
+//            for (int i = 0; i < arr.length; i++) {
+//                newArr2[i] =  arr[i];
+//            }
+//            newArr2[newElementIndex] = newElementValue;
+//            System.out.println("My new array: " + Arrays.toString(newArr2));
         }
 
 
