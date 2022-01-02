@@ -59,7 +59,7 @@ public class DisplayTypesOfDrawings {
                 case 3:
                     int heightTriangle = 5;
                     for (int i = 1; i < heightTriangle + 1; i++) {
-                        for (int j = 5 - i; j > 0; j--) {
+                        for (int j = heightTriangle - i; j > 0; j--) {
                             System.out.print(" ");
                         }
                         for (int k = 0; k < ((i * 2) - 1); k++) {
