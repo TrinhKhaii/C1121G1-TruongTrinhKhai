@@ -3,7 +3,9 @@ package ss4_lop_va_doi_tuong_trong_java.bai_tap.quadratic_equation;
 public class QuadraticEquation {
 
     // ax^2 + bx +c = 0
-    private double a, b, c;
+    private double a;
+    private double b;
+    private double c;
 
     public QuadraticEquation(double a, double b, double c) {
         this.a = a;
@@ -38,6 +40,7 @@ public class QuadraticEquation {
     public double getRoot2() {
         return (-(this.b) - Math.pow(getDiscriminant(), 0.5)) / 2 * this.a;
     }
+
 }
 
 

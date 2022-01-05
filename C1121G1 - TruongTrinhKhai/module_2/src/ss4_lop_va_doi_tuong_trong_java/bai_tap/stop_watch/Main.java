@@ -4,20 +4,21 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        StopWatch stopWatch = new StopWatch();
+
         Random rand = new Random();
         int size = 100000;
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = rand.nextInt(size);
         }
-
+        StopWatch stopWatch = new StopWatch();
         System.out.println("Start time (milliseconds): " + stopWatch.getStartTime());
+        stopWatch.start();
 
         selectionSort(arr, size);
 
         System.out.println("End time (milliseconds): " + stopWatch.getEndTime());
-
+        stopWatch.end();
         System.out.println("Total (milliseconds): " + stopWatch.getElapsedTime() + " ~ " + stopWatch.getElapsedTime() / 1000 + " seconds");
 
     }
