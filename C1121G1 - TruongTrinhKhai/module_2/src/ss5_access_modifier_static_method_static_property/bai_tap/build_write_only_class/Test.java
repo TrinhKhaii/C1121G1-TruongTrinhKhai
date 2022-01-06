@@ -9,5 +9,6 @@ public class Test {
         s1.setClassName("C1121G1");
         System.out.println("Class: " + s1.getClassName());
         System.out.println("Name: " + s1.getName());
+        System.out.println("to string: " + s1);
     }
 }
