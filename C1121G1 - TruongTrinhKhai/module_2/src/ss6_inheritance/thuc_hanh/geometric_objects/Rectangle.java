@@ -1,6 +1,8 @@
 package ss6_inheritance.thuc_hanh.geometric_objects;
 
-public class Rectangle extends Shape {
+import ss7_abstract_class_and_interface.bai_tap.interface_resizeable.Resizeable;
+
+public class Rectangle extends Shape implements Resizeable {
     private double width;
     private double length;
 
@@ -44,4 +46,9 @@ public class Rectangle extends Shape {
                 super.toString();
     }
 
+    @Override
+    public void resize(double percent) {
+        setWidth(getWidth() * percent);
+        setLength(getLength() * percent);
+    }
 }

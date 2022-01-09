@@ -1,6 +1,8 @@
 package ss6_inheritance.thuc_hanh.geometric_objects;
 
-public class Circle extends Shape {
+import ss7_abstract_class_and_interface.bai_tap.interface_resizeable.Resizeable;
+
+public class Circle extends Shape implements Resizeable {
     private double radius;
     public Circle() {
         this.radius = 1.0;
@@ -34,4 +36,8 @@ public class Circle extends Shape {
         return "A Circle with radius=" + this.radius + ", which is a subclass of " + super.toString();
     }
 
+    @Override
+    public void resize(double percent) {
+        setRadius(getRadius() * percent);
+    }
 }
