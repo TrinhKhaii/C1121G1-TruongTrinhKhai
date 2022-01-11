@@ -39,6 +39,7 @@ public class Rectangle extends Shape implements Resizeable {
     public double getArea() {
         return this.getWidth() * this.getLength();
     }
+
     @Override
     public String toString() {
         return "A Rectangle with width=" + this.getWidth() +

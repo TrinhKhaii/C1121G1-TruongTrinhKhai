@@ -14,6 +14,7 @@ public class ColorableTest {
 
         for (Shape shape : shapes) {
             System.out.println(shape);
+            System.out.println("Area: " + shape.getArea());
             if (shape instanceof Colorable) {
                 ((Colorable) shape).howToColor();
             }

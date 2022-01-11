@@ -22,6 +22,11 @@ public class Square extends Rectangle implements Resizeable, Colorable {
     }
 
     @Override
+    public double getArea() {
+        return Math.pow(getSide(), 2);
+    }
+
+    @Override
     public String toString() {
         return "A Square with side=" + this.getSide() + ", which is a subclass of "
                 + super.toString();
