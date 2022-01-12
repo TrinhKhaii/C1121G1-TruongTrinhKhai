@@ -15,20 +15,28 @@ public class MyArrayList<E> {
         elements = new Object[capacity];
     }
 
-    private void ensureCapa() {
-        int newSize = elements.length * 2;
+    private void ensureCapacity(int minCapacity) {
+        int newSize = elements.length + minCapacity;
         elements = Arrays.copyOf(elements, newSize);
     }
 
     public void add(int index, E element) {
         if(size == elements.length) {
-            ensureCapa();
+            ensureCapacity(10);
+        } else if (index > size){
+            throw new IllegalArgumentException("Index: " + index);
         }
-        for (int i = size; i > index; i++) {
-            elements[i] = elements[i - 1];
+
+        if (index == size) {
+            elements[index] = element;
+            size++;
+        } else {
+            for (int i = size; i > index; i--) {
+                elements[i] = elements[i - 1];
+            }
+            elements[index] = element;
+            size++;
         }
-        elements[index] = element;
-        size++;
     }
 
     public E remove(int index) {
@@ -43,11 +51,11 @@ public class MyArrayList<E> {
         return size;
     }
 
-    // hoi thay
-    public E clone() {
-        Object newElements = new Object[elements.length];
-        newElements = Arrays.copyOf(elements, size);
-        return (E) newElements;
+    public MyArrayList<E> clone() {
+        MyArrayList<E> newElements = new MyArrayList<>();
+        newElements.elements = Arrays.copyOf(elements, size);
+        newElements.size = this.size;
+        return newElements;
     }
 
     public boolean contains(E o) {
@@ -68,13 +76,9 @@ public class MyArrayList<E> {
         return -1;
     }
 
-    //hoi thay
     public boolean add(E e) {
+        add(size, e);
         return true;
-    }
-
-    //hoi thay
-    public void ensureCapacity(int minCapacity) {
     }
 
     public void clear() {
