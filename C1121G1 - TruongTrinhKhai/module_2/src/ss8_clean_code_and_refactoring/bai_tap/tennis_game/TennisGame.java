@@ -57,6 +57,6 @@ public class TennisGame {
     }
 
     public static void main(String[] args) {
-        System.out.println(getScore("Khai", "Khoi", 6, 6));
+        System.out.println(getScore("Khai", "Khoi", 2, 3));
     }
 }
