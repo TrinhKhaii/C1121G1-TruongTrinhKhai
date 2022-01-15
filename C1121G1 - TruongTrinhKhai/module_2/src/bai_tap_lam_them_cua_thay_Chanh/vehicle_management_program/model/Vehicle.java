@@ -1,15 +1,14 @@
 package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model;
 
-public class Vehicle {
+public abstract class Vehicle {
     private String controlPlate;
-    private String manufacturerName;
+    private Manufacturer manufacturerName;
     private int yearOfManufacture;
     private String ownerName;
 
-    public Vehicle() {
-    }
+    public Vehicle() {}
 
-    public Vehicle(String controlPlate, String manufacturerName, int yearOfManufacture, String ownerName) {
+    public Vehicle(String controlPlate, Manufacturer manufacturerName, int yearOfManufacture, String ownerName) {
         this.controlPlate = controlPlate;
         this.manufacturerName = manufacturerName;
         this.yearOfManufacture = yearOfManufacture;
@@ -25,10 +24,10 @@ public class Vehicle {
     }
 
     public String getManufacturerName() {
-        return manufacturerName;
+        return manufacturerName.getName();
     }
 
-    public void setManufacturerName(String manufacturerName) {
+    public void setManufacturerName(Manufacturer manufacturerName) {
         this.manufacturerName = manufacturerName;
     }
 
@@ -50,11 +49,9 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
-                "controlPlate='" + controlPlate + '\'' +
-                ", manufacturerName='" + manufacturerName + '\'' +
+        return "controlPlate='" + controlPlate + '\'' +
+                ", manufacturerName='" + manufacturerName.getName() + '\'' +
                 ", yearOfManufacture=" + yearOfManufacture +
-                ", ownerName='" + ownerName + '\'' +
-                '}';
+                ", ownerName='" + ownerName;
     }
 }

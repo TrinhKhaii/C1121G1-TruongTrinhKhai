@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ProductService {
+public class ProductService implements Service {
     static ArrayList<Product> productArrayList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
@@ -28,6 +28,7 @@ public class ProductService {
         Collections.sort(productArrayList, new IncreasingPriceComparator());
     }
 
+    @Override
     public void display() {
         if (productArrayList.isEmpty()) {
             System.out.println("Empty List");
@@ -44,6 +45,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void edit(int id) {
         if (productArrayList.isEmpty()) {
             System.out.println("Empty List");
@@ -79,6 +81,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void delete(int id) {
         boolean check = true;
         if (productArrayList.isEmpty()) {
@@ -97,6 +100,7 @@ public class ProductService {
         }
     }
 
+    @Override
     public void search(String input) {
         ArrayList<Product>  resultOfSearchProduct = new ArrayList<>();
         for (Product product : productArrayList) {
