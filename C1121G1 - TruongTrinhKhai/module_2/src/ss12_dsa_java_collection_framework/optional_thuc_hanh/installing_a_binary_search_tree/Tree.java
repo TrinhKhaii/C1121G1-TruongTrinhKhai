@@ -3,7 +3,9 @@ package ss12_dsa_java_collection_framework.optional_thuc_hanh.installing_a_binar
 public interface Tree<E> {
     public boolean insert(E e);
 
-    public boolean delete(E e);
+    public boolean remove(E e);
+
+    public TreeNode<E> search(E e);
 
     public void inOrder();
 

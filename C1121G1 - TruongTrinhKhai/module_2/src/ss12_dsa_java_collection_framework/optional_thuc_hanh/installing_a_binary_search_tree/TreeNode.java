@@ -8,4 +8,12 @@ public class TreeNode<E> {
     public TreeNode(E e) {
         element = e;
     }
+
+    public E getElement() {
+        return element;
+    }
+
+    public void setElement(E element) {
+        this.element = element;
+    }
 }

@@ -48,37 +48,54 @@ public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     }
 
     @Override
-    public boolean delete(E e) {
-        if (size == 1) {
-            root = null;
+    public boolean remove(E e) {
+        if (root == null) {
+            return false;
         } else {
-            TreeNode<E> parent = null;
+            TreeNode<E> parrent = null;
             TreeNode<E> current = root;
-            while (e.compareTo(current.element) != 0) {
+            while (current.element != e && current.element != null) {
                 if (e.compareTo(current.element) < 0) {
-                    parent = current;
+                    parrent = current;
                     current = current.left;
                 } else if (e.compareTo(current.element) > 0) {
-                    parent = current;
-                    current = current.right;
-                } else {
-                    return false;
+                    parrent = current;
+                    current= current.right;
                 }
             }
+            if (current.element == null) return false;
             if (current.left == null && current.right != null) {
-                parent.left = current.right;
+                parrent.right = current.right;
                 current = null;
             } else if (current.left != null && current.right == null) {
-                parent.right = current.left;
+                parrent.left = current.left;
                 current = null;
-            } else {
-                current = current.left;
-                while (current.right != null) {
-                    current = current.right;
+            } else if (current.left != null && current.right != null) {
+                TreeNode<E> temp = current.right;
+                while (temp.left != null) {
+                    temp = temp.left;
                 }
+                current = temp;
+                return false;
             }
         }
         return false;
+
+    }
+
+    @Override
+    public TreeNode<E> search(E e) {
+        return search(e, root);
+    }
+
+    public TreeNode<E> search(E e, TreeNode<E> root) {
+        if (root == null || e.compareTo(root.element) == 0)  {
+            return root;
+        }
+        if (e.compareTo(root.element) > 0) {
+            return search(e, root.right);
+        }
+        return search(e, root.left);
     }
 
 

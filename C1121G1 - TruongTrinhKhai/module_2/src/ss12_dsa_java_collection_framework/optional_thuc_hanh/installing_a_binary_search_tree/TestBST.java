@@ -13,5 +13,6 @@ public class TestBST {
         System.out.println("Inorder sort: ");
         tree.inOrder();
         System.out.println("Number of node: " + tree.getSize());
+
     }
 }
