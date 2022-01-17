@@ -2,9 +2,9 @@ package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.controller;
 
 
 
-import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.CarService;
-import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.MotocycleService;
-import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.TruckService;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls.CarService;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls.MotocycleService;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls.TruckService;
 
 import java.util.Scanner;
 

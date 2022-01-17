@@ -1,14 +1,17 @@
-package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service;
+package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls;
 
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer;
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Motorcycle;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Vehicle;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.IVehicleService;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer.manufacturerList;
 
 public class MotocycleService implements IVehicleService {
-    ArrayList<Motorcycle> motorcycleList = new ArrayList<>();
+    ArrayList<Vehicle> motorcycleList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
     @Override
     public void add() {
@@ -49,6 +52,7 @@ public class MotocycleService implements IVehicleService {
 
     @Override
     public void delete(String controlPlate) {
+        new VehicleService().delete(controlPlate, motorcycleList);
         for (int i = 0; i < motorcycleList.size(); i++) {
             if (motorcycleList.get(i).getControlPlate().equals(controlPlate)) {
                 System.out.println("Are you sure?");
@@ -79,13 +83,13 @@ public class MotocycleService implements IVehicleService {
             System.out.println("Empty list!");
         } else {
             int count = 0;
-            for (Motorcycle motorcycle : motorcycleList) {
+            for (Vehicle motorcycle : motorcycleList) {
                 System.out.println("Motocycle " + (++count));
                 System.out.println(" Control plate: " + motorcycle.getControlPlate());
                 System.out.println(" Manufactuturer's name: " + motorcycle.getManufacturerName());
                 System.out.println(" Year of manufactuture: " + motorcycle.getYearOfManufacture());
-                System.out.println(" Owner name: " + motorcycle.getOwnerName());
-                System.out.println(" Num of wattage: " + motorcycle.getWattage());
+                System.out.println(" Owner name: " + ((Motorcycle)motorcycle).getOwnerName());
+                System.out.println(" Num of wattage: " + ((Motorcycle)motorcycle).getWattage());
                 System.out.println("--------------------");
             }
         }

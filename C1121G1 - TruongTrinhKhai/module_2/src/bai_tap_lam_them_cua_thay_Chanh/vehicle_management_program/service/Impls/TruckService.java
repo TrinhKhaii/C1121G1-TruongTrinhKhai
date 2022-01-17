@@ -1,14 +1,17 @@
-package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service;
+package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls;
 
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer;
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Truck;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Vehicle;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.IVehicleService;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer.manufacturerList;
 
 public class TruckService implements IVehicleService {
-    ArrayList<Truck> truckList = new ArrayList<Truck>();
+    ArrayList<Vehicle> truckList = new ArrayList<>();
 
     Scanner sc = new Scanner(System.in);
     @Override
@@ -52,28 +55,7 @@ public class TruckService implements IVehicleService {
 
     @Override
     public void delete(String controlPlate) {
-        for (int i = 0; i < truckList.size(); i++) {
-            if (truckList.get(i).getControlPlate().equals(controlPlate)) {
-                System.out.println("Are you sure?");
-                System.out.println(" 1. YES.\n" +
-                        " 2. NO.\n");
-                boolean check = true;
-                do {
-                    System.out.print("Your choice: ");
-                    int yourChoice = Integer.parseInt(sc.nextLine());
-                    switch (yourChoice) {
-                        case 1:
-                            truckList.remove(i);
-                            System.out.println("Delete truck success!");
-                            break;
-                        case 2:
-                            break;
-                        default:
-                            check = false;
-                    }
-                } while (!check);
-            }
-        }
+        new VehicleService().delete(controlPlate, truckList);
     }
 
     @Override
@@ -82,13 +64,13 @@ public class TruckService implements IVehicleService {
             System.out.println("Empty list!");
         } else {
             int count = 0;
-            for (Truck truck : truckList) {
+            for (Vehicle truck : truckList) {
                 System.out.println("Truck " + (++count));
                 System.out.println(" Control plate: " + truck.getControlPlate());
                 System.out.println(" Manufactuturer's name: " + truck.getManufacturerName());
                 System.out.println(" Year of manufactuture: " + truck.getYearOfManufacture());
                 System.out.println(" Owner name: " + truck.getOwnerName());
-                System.out.println(" Payload: " + truck.getPayload());
+                System.out.println(" Payload: " + ((Truck)truck).getPayload());
                 System.out.println("--------------------");
             }
         }

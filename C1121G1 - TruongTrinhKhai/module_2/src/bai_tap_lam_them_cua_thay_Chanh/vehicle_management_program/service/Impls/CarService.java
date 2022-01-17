@@ -1,14 +1,17 @@
-package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service;
+package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.Impls;
 
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Car;
 import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Vehicle;
+import bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service.IVehicleService;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
 import static bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer.manufacturerList;
 
 public class CarService implements IVehicleService {
-    static ArrayList<Car> carList = new ArrayList<Car>();
+    static ArrayList<Vehicle> carList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -55,28 +58,7 @@ public class CarService implements IVehicleService {
 
     @Override
     public void delete(String controlPlate) {
-        for (int i = 0; i < carList.size(); i++) {
-            if (carList.get(i).getControlPlate().equals(controlPlate)) {
-                System.out.println("Are you sure?");
-                System.out.println(" 1. YES.\n" +
-                        " 2. NO.\n");
-                boolean check = true;
-                do {
-                    System.out.print("Your choice: ");
-                    int yourChoice = Integer.parseInt(sc.nextLine());
-                    switch (yourChoice) {
-                        case 1:
-                            carList.remove(i);
-                            System.out.println("Delete car success!");
-                            break;
-                        case 2:
-                            break;
-                        default:
-                            check = false;
-                    }
-                } while (!check);
-            }
-        }
+        new VehicleService().delete(controlPlate, carList);
     }
 
     @Override
@@ -85,14 +67,14 @@ public class CarService implements IVehicleService {
             System.out.println("Empty list!");
         } else {
             int count = 0;
-            for (Car car : carList) {
+            for (Vehicle car : carList) {
                 System.out.println("Car " + (++count));
                 System.out.println(" Control plate: " + car.getControlPlate());
                 System.out.println(" Manufactuturer's name: " + car.getManufacturerName());
                 System.out.println(" Year of manufactuture: " + car.getYearOfManufacture());
                 System.out.println(" Owner name: " + car.getOwnerName());
-                System.out.println(" Num of seats: " + car.getNumOfSeats());
-                System.out.println(" Type: " + car.getType());
+                System.out.println(" Num of seats: " + ((Car)car).getNumOfSeats());
+                System.out.println(" Type: " + ((Car)car).getType());
                 System.out.println("--------------------");
             }
         }
