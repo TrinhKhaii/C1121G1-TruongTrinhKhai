@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 import static bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.model.Manufacturer.manufacturerList;
 
-public class TruckService implements VehicleService {
+public class TruckService implements IVehicleService {
     ArrayList<Truck> truckList = new ArrayList<Truck>();
 
     Scanner sc = new Scanner(System.in);

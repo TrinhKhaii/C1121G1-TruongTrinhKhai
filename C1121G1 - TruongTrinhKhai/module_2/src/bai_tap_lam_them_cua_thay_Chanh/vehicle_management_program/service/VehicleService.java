@@ -1,10 +1,18 @@
 package bai_tap_lam_them_cua_thay_Chanh.vehicle_management_program.service;
 
+public class VehicleService implements IVehicleService{
+    @Override
+    public void add() {
 
-public interface VehicleService {
-    void add();
+    }
 
-    void delete(String controlPlate);
+    @Override
+    public void delete(String controlPlate) {
 
-    void display();
+    }
+
+    @Override
+    public void display() {
+
+    }
 }
