@@ -1,6 +1,5 @@
 package ss12_dsa_java_collection_framework.optional_thuc_hanh.installing_a_binary_search_tree;
 
-import ss11_dsa_stack_queue.optional_bai_tap.demerging_using_queue.Person;
 
 public class BST<E extends Comparable<E>> extends AbstractTree<E> {
     protected TreeNode<E> root;
