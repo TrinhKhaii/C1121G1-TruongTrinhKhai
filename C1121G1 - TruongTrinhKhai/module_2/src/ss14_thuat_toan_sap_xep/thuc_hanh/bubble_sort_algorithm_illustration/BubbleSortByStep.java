@@ -9,6 +9,7 @@ public class BubbleSortByStep {
             needNextPass = false;
             for (int j = 0; j < list.length - i; j++) {
                 if (list[j] > list[j + 1]) {
+                    System.out.println("Swap " + list[j] + " with " + list[j + 1]);
                     int temp = list[j];
                     list[j] = list[j + 1];
                     list[j + 1] = temp;
