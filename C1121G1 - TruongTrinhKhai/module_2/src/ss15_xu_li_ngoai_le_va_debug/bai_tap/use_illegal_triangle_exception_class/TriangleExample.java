@@ -20,6 +20,7 @@ public class TriangleExample {
             double side2 = Double.parseDouble(sc.nextLine());
             System.out.print("Enter side 3: ");
             double side3 = Double.parseDouble(sc.nextLine());
+
             createTriangle(side1, side2, side3);
         } catch (IllegalTriangleException e) {
             System.err.println(e.getMessage());
