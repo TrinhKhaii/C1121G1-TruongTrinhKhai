@@ -7,7 +7,7 @@ public class ClassNameExample {
     private static Pattern pattern;
     private Matcher matcher;
 
-    private static final String CLASS_NAME_REGEX = "^[C|A|P]\\d{4}[G|H|I|K|L|M]$";
+    private static final String CLASS_NAME_REGEX = "^[CAP]\\d{4}[GHIKLM]$";
 
     public ClassNameExample() {
         pattern = Pattern.compile(CLASS_NAME_REGEX);
