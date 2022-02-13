@@ -13,11 +13,11 @@ public class Main {
             byte[] buffer = new byte[1024];
 
             while ((length = fis.read(buffer)) > 0) {
+                fos.write(buffer, 0, length);
             }
-            fos.write(buffer, 0, length);
 
             System.out.println("Copy completed.");
-            System.out.println("Byte amount: " + length);
+            System.out.println("Byte amount: " + source.length());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
