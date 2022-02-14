@@ -7,7 +7,12 @@ import services.impl.SortByDate;
 import java.io.*;
 import java.util.*;
 
+import static services.impl.CustomerServiceImpl.CUSTOMER_FILE_PATH;
+
 public class ReadAndWriteCSVFile {
+     static List<Customer> customerList = ReadAndWriteCSVFile.readCustomerFromCVSFile(CUSTOMER_FILE_PATH);
+
+
     public static <E> void writeListToCSVFile(List<E> list, String filePath, boolean append) {
         File file = new File(filePath);
         FileWriter fileWriter = null;
@@ -217,8 +222,12 @@ public class ReadAndWriteCSVFile {
             String[] array = null;
             while ((line = bufferedReader.readLine()) != null) {
                 array = line.split(",");
-                Booking booking = new Booking(array[0], array[1], array[2], Integer.parseInt(array[3]), array[4], array[5]);
-                list.add(booking);
+                for (Customer element : customerList) {
+                    if (element.getId() == Integer.parseInt(array[3])) {
+                        Booking booking = new Booking(array[0], array[1], array[2], element, array[4], array[5]);
+                        list.add(booking);
+                    }
+                }
             }
             bufferedReader.close();
             fileReader.close();
@@ -242,12 +251,16 @@ public class ReadAndWriteCSVFile {
             String[] array = null;
             while ((line = bufferedReader.readLine()) != null) {
                 array = line.split(",");
-                Contract contract = new Contract(Integer.parseInt(array[0]), array[1],
-                        Float.parseFloat(array[2]), Float.parseFloat(array[3]), Integer.parseInt(array[4]));
-                list.add(contract);
+                for (Customer element : customerList) {
+                    if (element.getId() == Integer.parseInt(array[4])) {
+                        Contract contract = new Contract(Integer.parseInt(array[0]), array[1],
+                                Float.parseFloat(array[2]), Float.parseFloat(array[3]), element);
+                        list.add(contract);
+                    }
+                }
+                bufferedReader.close();
+                fileReader.close();
             }
-            bufferedReader.close();
-            fileReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

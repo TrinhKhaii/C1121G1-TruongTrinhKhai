@@ -9,11 +9,11 @@ public class Contract {
     private String bookingId;
     private float advanceDepositAmount;
     private float totalPaymentAmount;
-    private int customerId;
+    private Customer customerId;
 
     public Contract() {}
 
-    public Contract(int contractNumber, String bookingId, float advanceDepositAmount, float totalPaymentAmount, int customerId) {
+    public Contract(int contractNumber, String bookingId, float advanceDepositAmount, float totalPaymentAmount, Customer customerId) {
         this.contractNumber = contractNumber;
         this.bookingId = bookingId;
         this.advanceDepositAmount = advanceDepositAmount;
@@ -53,11 +53,11 @@ public class Contract {
         this.totalPaymentAmount = totalPaymentAmount;
     }
 
-    public int getCustomerId() {
+    public Customer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Customer customerId) {
         this.customerId = customerId;
     }
 
@@ -68,13 +68,13 @@ public class Contract {
                 ", bookingId='" + bookingId + '\'' +
                 ", advanceDepositAmount=" + advanceDepositAmount +
                 ", totalPaymentAmount=" + totalPaymentAmount +
-                ", customerId=" + customerId +
+                ", customerId=" + customerId.getId() +
                 '}';
     }
 
     public String getInfoToWriteCSV() {
         return this.getContractNumber() + "," + this.getBookingId() + "," +
                 this.getAdvanceDepositAmount() + "," + this.getTotalPaymentAmount() +
-                "," + this.getCustomerId();
+                "," + this.getCustomerId().getId();
     }
 }

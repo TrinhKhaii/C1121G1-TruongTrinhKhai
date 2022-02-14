@@ -18,17 +18,18 @@ public class BookingServiceImpl implements IBookingService {
 
     public static final String CUSTOMER_ID_REGEX = "^\\d+$";
     public static final String SERVICE_ID_REGEX = "^SV(VL|RO|HO)-\\d{4}$";
-    public static final String DATE_REGEX = "^^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$$";
+    public static final String DATE_REGEX = "^(0?[1-9]|[12][0-9]|3[01])[\\/\\-](0?[1-9]|1[012])[\\/\\-]\\d{4}$";
 
     @Override
     public void add() {
         List<Customer> customerList = ReadAndWriteCSVFile.readCustomerFromCVSFile(CUSTOMER_FILE_PATH);
         System.out.println("-----------Customer list-----------");
-        for (Customer customer: customerList) {
+        for (Customer customer : customerList) {
             System.out.println(customer);
         }
         System.out.println("-----------------------------------");
         String customerId;
+        Customer customerID = null;
         boolean flag;
         do {
             do {
@@ -40,9 +41,10 @@ public class BookingServiceImpl implements IBookingService {
                 }
             } while (!customerId.matches(CUSTOMER_ID_REGEX));
             flag = true;
-            for (Customer customer: customerList) {
+            for (Customer customer : customerList) {
                 if (customer.getId() == Integer.parseInt(customerId)) {
                     flag = false;
+                    customerID = customer;
                     break;
                 }
             }
@@ -50,6 +52,7 @@ public class BookingServiceImpl implements IBookingService {
                 System.out.println("Customer with id " + customerId + " does not exist.");
                 System.out.println("Please try again.\n");
             }
+
         } while (flag);
         System.out.println();
 
@@ -63,21 +66,21 @@ public class BookingServiceImpl implements IBookingService {
             if (!villaMap.isEmpty()) {
                 System.out.println(" Villa list: ");
                 Set<Villa> set = villaMap.keySet();
-                for (Villa key: set) {
+                for (Villa key : set) {
                     System.out.println(key + ", number of times to rent: " + villaMap.get(key));
                 }
             }
             if (!houseMap.isEmpty()) {
                 System.out.println("\n House list: ");
                 Set<House> set = houseMap.keySet();
-                for (House key: set) {
+                for (House key : set) {
                     System.out.println(key + ", number of times to rent: " + houseMap.get(key));
                 }
             }
             if (!roomMap.isEmpty()) {
                 System.out.println("\n Room list: ");
                 Set<Room> set = roomMap.keySet();
-                for (Room key: set) {
+                for (Room key : set) {
                     System.out.println(key + ", number of times to rent: " + roomMap.get(key));
                 }
             }
@@ -85,7 +88,7 @@ public class BookingServiceImpl implements IBookingService {
         System.out.println("----------------------------------");
         String serviceId;
         do {
-            do{
+            do {
                 System.out.print("Enter service id: ");
                 serviceId = sc.nextLine();
                 if (!serviceId.matches(SERVICE_ID_REGEX)) {
@@ -96,32 +99,42 @@ public class BookingServiceImpl implements IBookingService {
             flag = true;
             if (serviceId.matches(VILLA_ID_REGEX)) {
                 Set<Villa> villaSet = villaMap.keySet();
-                for (Villa key: villaSet) {
+                for (Villa key : villaSet) {
                     if ((key.getId()).equals(serviceId)) {
                         flag = false;
+                        key.setNumberOfTimesToRent(key.getNumberOfTimesToRent() + 1);
                         break;
                     }
                 }
+                ReadAndWriteCSVFile.writeMapToCSVFile(villaMap, VILLA_FILE_PATH, false);
             } else if (serviceId.matches(ROOM_ID_REGEX)) {
                 Set<Room> roomSet = roomMap.keySet();
-                for (Room key: roomSet) {
+                for (Room key : roomSet) {
                     if ((key.getId()).equals(serviceId)) {
                         flag = false;
+                        key.setNumberOfTimesToRent(key.getNumberOfTimesToRent() + 1);
                         break;
                     }
                 }
+                ReadAndWriteCSVFile.writeMapToCSVFile(roomMap, ROOM_FILE_PATH, false);
             } else if (serviceId.matches(HOUSE_ID_REGEX)) {
                 Set<House> houseSet = houseMap.keySet();
-                for (House key: houseSet) {
+                for (House key : houseSet) {
                     if ((key.getId()).equals(serviceId)) {
                         flag = false;
+                        key.setNumberOfTimesToRent(key.getNumberOfTimesToRent() + 1);
                         break;
                     }
                 }
+                ReadAndWriteCSVFile.writeMapToCSVFile(houseMap, HOUSE_FILE_PATH, false);
             }
             if (flag) {
                 System.out.println("Service with id " + serviceId + " does not exist.");
                 System.out.println("Please try again.\n");
+            } else {
+                ReadAndWriteCSVFile.writeMapToCSVFile(villaMap, FACILITY_FILE_PATH, false);
+                ReadAndWriteCSVFile.writeMapToCSVFile(roomMap, FACILITY_FILE_PATH, true);
+                ReadAndWriteCSVFile.writeMapToCSVFile(houseMap, FACILITY_FILE_PATH, true);
             }
         } while (flag);
         System.out.println();
@@ -150,7 +163,7 @@ public class BookingServiceImpl implements IBookingService {
         String bookingId = sc.nextLine();
 
         String serviceType = "";
-        String type = serviceId.substring(2,4);
+        String type = serviceId.substring(2, 4);
         switch (type) {
             case "VL":
                 serviceType = "Villa";
@@ -163,7 +176,7 @@ public class BookingServiceImpl implements IBookingService {
                 break;
         }
 
-        Booking newBooking = new Booking(bookingId, startDay, endDay, Integer.parseInt(customerId), serviceId, serviceType);
+        Booking newBooking = new Booking(bookingId, startDay, endDay, customerID, serviceId, serviceType);
         Set<Booking> bookings = new TreeSet<>(new SortByDate());
         bookings = ReadAndWriteCSVFile.readBookingFromCSVFile(BOOKING_FILE_PATH);
         bookings.add(newBooking);
@@ -175,7 +188,7 @@ public class BookingServiceImpl implements IBookingService {
     public void createNewContract() {
         Set<Booking> bookingList = ReadAndWriteCSVFile.readBookingFromCSVFile(BOOKING_HAS_NOT_YET_CREATE_A_CONTRACT_FILE_PATH);
         Queue<Booking> bookingQueue = new LinkedList<>();
-        for (Booking booking: bookingList) {
+        for (Booking booking : bookingList) {
             if (booking.getServiceType().equals("Villa") || booking.getServiceType().equals("House")) {
                 bookingQueue.add(booking);
             }
@@ -193,19 +206,15 @@ public class BookingServiceImpl implements IBookingService {
         System.out.print("Enter total payment amount: ");
         Float totalPaymentAmount = Float.parseFloat(sc.nextLine());
 
-        int customerId = booking.getCustomerId();
+        Customer customerId = booking.getCustomerId();
         Contract contract = new Contract(contractId, bookingId, advanceDepositAmount, totalPaymentAmount, customerId);
-        System.out.println("contract ne: ");
-        System.out.println(contract);
+
         List<Contract> contracts = new LinkedList<>();
         contracts.add(contract);
-
-        System.out.println("contracts ne: ");
-        System.out.println(contracts);
         ReadAndWriteCSVFile.writeListToCSVFile(contracts, CONTRACT_FILE_PATH, true);
 
         Set<Booking> newBooking = new HashSet<>();
-        for (Booking element: bookingQueue) {
+        for (Booking element : bookingQueue) {
             newBooking.add(element);
         }
         ReadAndWriteCSVFile.writeSetToCSVFile(newBooking, BOOKING_HAS_NOT_YET_CREATE_A_CONTRACT_FILE_PATH, false);
@@ -215,7 +224,7 @@ public class BookingServiceImpl implements IBookingService {
     public void displayContracts() {
         Queue<Contract> contractList = ReadAndWriteCSVFile.readContractFromCSVFile(CONTRACT_FILE_PATH);
         System.out.println("------------Contract list------------");
-        for (Contract contract: contractList) {
+        for (Contract contract : contractList) {
             System.out.println(contract);
         }
         System.out.println("------------------------------------");
@@ -225,7 +234,7 @@ public class BookingServiceImpl implements IBookingService {
     public void display() {
         System.out.println("------------Booking list------------");
         Set<Booking> bookings = ReadAndWriteCSVFile.readBookingFromCSVFile(BOOKING_FILE_PATH);
-        for (Booking booking: bookings) {
+        for (Booking booking : bookings) {
             System.out.println(booking);
         }
         System.out.println("------------------------------------");
@@ -236,7 +245,7 @@ public class BookingServiceImpl implements IBookingService {
         Queue<Contract> contractList = ReadAndWriteCSVFile.readContractFromCSVFile(CONTRACT_FILE_PATH);
         List<Contract> contracts = new ArrayList<>();
         System.out.println("------------Contract list------------");
-        for (Contract contract: contractList) {
+        for (Contract contract : contractList) {
             System.out.println(contract);
             contracts.add(contract);
         }
@@ -307,9 +316,40 @@ public class BookingServiceImpl implements IBookingService {
                         break;
                     case 5:
                         System.out.println("Current customer id: " + contracts.get(index).getCustomerId());
+                        List<Customer> customerList = ReadAndWriteCSVFile.readCustomerFromCVSFile(CUSTOMER_FILE_PATH);
+                        System.out.println("-----------Customer list-----------");
+                        for (Customer customer : customerList) {
+                            System.out.println(customer);
+                        }
+                        System.out.println("-----------------------------------");
+                        String customerId;
+                        Customer customerID = null;
+                        boolean flag1;
+                        do {
+                            do {
+                                System.out.print("Enter customer id: ");
+                                customerId = sc.nextLine();
+                                if (!customerId.matches(CUSTOMER_ID_REGEX)) {
+                                    System.out.println("Customer id must be an integer positive.");
+                                    System.out.println("Please try again.\n");
+                                }
+                            } while (!customerId.matches(CUSTOMER_ID_REGEX));
+                            flag1 = true;
+                            for (Customer customer : customerList) {
+                                if (customer.getId() == Integer.parseInt(customerId)) {
+                                    flag1 = false;
+                                    customerID = customer;
+                                    break;
+                                }
+                            }
+                            if (flag1) {
+                                System.out.println("Customer with id " + customerId + " does not exist.");
+                                System.out.println("Please try again.\n");
+                            }
+                        } while (flag1);
+                        System.out.println();
                         System.out.print("Enter new customer id: ");
-                        int newCustomerId = Integer.parseInt(sc.nextLine());
-                        contracts.get(index).setCustomerId(newCustomerId);
+                        contracts.get(index).setCustomerId(customerID);
                         break;
                     case 6:
                         flag = false;

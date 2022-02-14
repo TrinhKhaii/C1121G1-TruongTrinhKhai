@@ -28,6 +28,8 @@ public class SortByDate implements Comparator<Booking> {
                     returnNumber =  -1;
                 } else if (endDate2.before(endDate1)) {
                     returnNumber =  1;
+                } else {
+                    returnNumber = o1.getBookingId().compareTo(o2.getBookingId());
                 }
             } else if (startDate1.before(startDate2)) {
                 returnNumber =  -1;

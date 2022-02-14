@@ -14,7 +14,7 @@ import utils.ReadAndWriteCSVFile;
 import java.util.*;
 
 public class FacilityServiceImpl implements IFacilityService {
-    private static final String FACILITY_FILE_PATH = "src/data/Facility.csv";
+    public static final String FACILITY_FILE_PATH = "src/data/Facility.csv";
     public static final String VILLA_FILE_PATH = "src/data/Villa.csv";
     public static final String HOUSE_FILE_PATH = "src/data/House.csv";
     public static final String ROOM_FILE_PATH = "src/data/Room.csv";

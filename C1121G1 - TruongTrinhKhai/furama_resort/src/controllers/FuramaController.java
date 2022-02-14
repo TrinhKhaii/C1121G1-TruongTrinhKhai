@@ -5,10 +5,7 @@
 package controllers;
 
 import models.Employee;
-import services.impl.BookingServiceImpl;
-import services.impl.CustomerServiceImpl;
-import services.impl.EmployeeServiceImpl;
-import services.impl.FacilityServiceImpl;
+import services.impl.*;
 
 import java.util.Scanner;
 
@@ -19,6 +16,7 @@ public class FuramaController {
     private static final EmployeeServiceImpl employee = new EmployeeServiceImpl();
     private static final FacilityServiceImpl facility = new FacilityServiceImpl();
     private static final BookingServiceImpl booking = new BookingServiceImpl();
+    private static final PromotionServiceImpl promotion = new PromotionServiceImpl();
     static Scanner sc = new Scanner(System.in);
 
     public void displayMainMenu() {
@@ -225,6 +223,7 @@ public class FuramaController {
                     System.out.println("Display list contracts success!");
                     break;
                 case 5:
+                    booking.edit();
                     System.out.println("Edit contracts");
                     break;
                 case 6:
@@ -256,10 +255,12 @@ public class FuramaController {
             } while (!promotionChoice.matches(CHOICE_REGEX));
             switch (Integer.parseInt(promotionChoice)) {
                 case 1:
-                    System.out.println("Display list customers use service");
+                    promotion.displayListCustumersUseService();
+                    System.out.println("Display list customers use service success!");
                     break;
                 case 2:
-                    System.out.println("Display list customers get voucher");
+                    promotion.displayListCustumersGetVoucher();
+                    System.out.println("Display list customers get voucher success!");
                     break;
                 case 3:
                     System.out.println("Return main menu");

@@ -14,14 +14,14 @@ public class Booking  {
     private String bookingId;
     private String startDay;
     private String endDay;
-    private int customerId;
+    private Customer customerId;
     private String serviceId;
     private String serviceType;
 
     public Booking() {
     }
 
-    public Booking(String bookingId, String startDay, String endDay, int customerId, String serviceId, String serviceType) {
+    public Booking(String bookingId, String startDay, String endDay, Customer customerId, String serviceId, String serviceType) {
         this.bookingId = bookingId;
         this.startDay = startDay;
         this.endDay = endDay;
@@ -54,11 +54,11 @@ public class Booking  {
         this.endDay = endDay;
     }
 
-    public int getCustomerId() {
+    public Customer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(int customerId) {
+    public void setCustomerId(Customer customerId) {
         this.customerId = customerId;
     }
 
@@ -84,7 +84,7 @@ public class Booking  {
                 "bookingId='" + bookingId + '\'' +
                 ", startDay=" + startDay +
                 ", endDay=" + endDay +
-                ", customerId=" + customerId +
+                ", customerId=" + customerId.getId() +
                 ", serviceName='" + serviceId + '\'' +
                 ", serviceType='" + serviceType + '\'' +
                 '}';
@@ -92,18 +92,15 @@ public class Booking  {
 
     public String getInfoToWriteCSV() {
         return this.getBookingId() + "," + this.getStartDay() + "," + this.getEndDay() +
-                "," + this.getCustomerId() + "," + this.getServiceName() + "," + this.getServiceType();
+                "," + this.getCustomerId().getId() + "," + this.getServiceName() + "," + this.getServiceType();
     }
-
-
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
-        return Objects.equals(bookingId, booking.bookingId) &&
-                Objects.equals(startDay, booking.startDay) &&
+        return Objects.equals(startDay, booking.startDay) &&
                 Objects.equals(endDay, booking.endDay) &&
                 Objects.equals(serviceId, booking.serviceId) &&
                 Objects.equals(serviceType, booking.serviceType);
@@ -111,6 +108,6 @@ public class Booking  {
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookingId, startDay, endDay, customerId, serviceId, serviceType);
+        return Objects.hash(startDay, endDay, customerId, serviceId, serviceType);
     }
 }
