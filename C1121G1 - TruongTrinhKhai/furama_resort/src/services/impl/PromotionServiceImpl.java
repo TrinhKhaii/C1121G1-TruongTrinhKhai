@@ -20,7 +20,7 @@ public class PromotionServiceImpl implements IPromotionService {
     @Override
     public void displayListCustumersUseService() {
         Scanner sc = new Scanner(System.in);
-        System.out.println(bookingSet);
+//        System.out.println(bookingSet);
         boolean flag = false;
 
         String yearInput;
@@ -38,11 +38,10 @@ public class PromotionServiceImpl implements IPromotionService {
                 flag = true;
             }
         }
-        System.out.println("----------------------------------------------");
-
         if (!flag) {
             System.out.println("-Empty-");
         }
+        System.out.println("----------------------------------------------");
     }
 
     @Override

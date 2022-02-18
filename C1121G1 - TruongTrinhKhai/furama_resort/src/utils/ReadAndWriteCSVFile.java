@@ -258,9 +258,9 @@ public class ReadAndWriteCSVFile {
                         list.add(contract);
                     }
                 }
-                bufferedReader.close();
-                fileReader.close();
             }
+            bufferedReader.close();
+            fileReader.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

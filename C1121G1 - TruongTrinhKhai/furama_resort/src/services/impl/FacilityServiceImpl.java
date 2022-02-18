@@ -34,7 +34,8 @@ public class FacilityServiceImpl implements IFacilityService {
         String addChoice;
         boolean flag = true;
         do {
-            System.out.println("1.\tAdd New Villa\n" +
+            System.out.println("---------Add facility menu---------\n" +
+                    "1.\tAdd New Villa\n" +
                     "2.\tAdd New House\n" +
                     "3.\tAdd New Room\n" +
                     "4.\tBack to menu\n");
@@ -48,18 +49,18 @@ public class FacilityServiceImpl implements IFacilityService {
             switch (Integer.parseInt(addChoice)) {
                 case 1:
                     addNewVilla();
-                    System.out.println("Add New Villa success!");
+                    System.out.println("Add New Villa success!\n");
                     break;
                 case 2:
                     addNewHouse();
-                    System.out.println("Add New House success!");
+                    System.out.println("Add New House success!\n");
                     break;
                 case 3:
                     addNewRoom();
-                    System.out.println("Add New Room success!");
+                    System.out.println("Add New Room success!\n");
                     break;
                 case 4:
-                    System.out.println("Back to menu");
+                    System.out.println("Back to menu.\n");
                     flag = false;
                     break;
                 default:

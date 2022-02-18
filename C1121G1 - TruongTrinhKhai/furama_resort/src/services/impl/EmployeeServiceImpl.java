@@ -7,35 +7,38 @@ package services.impl;
 import models.Employee;
 import services.IEmployeeService;
 import utils.ReadAndWriteCSVFile;
+import utils.RegexData;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import static controllers.FuramaController.CHOICE_REGEX;
+import static services.impl.CustomerServiceImpl.*;
 
 public class EmployeeServiceImpl implements IEmployeeService {
     private static final String EMPLOYEE_FILE_PATH = "src/data/Employee.csv";
     public static final String EDIT_REGEX = "^\\d{1,2}$";
+    public static final String POSITIVE_NUMBER_REGEX = "^[+]?\\d+$";
     Scanner sc = new Scanner(System.in);
 
     @Override
     public void add() {
         System.out.println("-------Add new employee-------");
-        System.out.print("Enter id: ");
-        int id = Integer.parseInt(sc.nextLine());
-        System.out.print("Enter name: ");
-        String name = sc.nextLine();
-        System.out.print("Enter date of birth: ");
-        String dateOfBirth = sc.nextLine();
-        System.out.print("Enter gender: ");
-        String gender = sc.nextLine();
-        System.out.print("Enter cmnd: ");
-        String cmnd = sc.nextLine();
-        System.out.print("Enter phone number: ");
-        String phoneNumber = sc.nextLine();
-        System.out.print("Enter email: ");
-        String email = sc.nextLine();
+
+        int id = Integer.parseInt(inputId());
+
+        String name = inputName();
+
+        String dateOfBirth = inputDate();
+
+        String gender = inputGender();
+
+        String cmnd = inputCmnd();
+
+        String phoneNumber = inputPhoneNumber();
+
+        String email = inputEmail();
 
         //Qualification
         System.out.println("--------Qualification list--------");
@@ -117,8 +120,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
             }
         } while (flag2);
 
-        System.out.print("Enter salary: ");
-        int salary = Integer.parseInt(sc.nextLine());
+        int salary = Integer.parseInt(inputSalary());
 
         Employee newEmployee = new Employee(id, name, dateOfBirth, gender, cmnd, phoneNumber, email, qualification, position, salary);
         List<Employee> employeeList = new ArrayList<>();
@@ -203,43 +205,43 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     case 1:
                         System.out.println("Current id: " + employeeList.get(index).getId());
                         System.out.print("Enter new id: ");
-                        int newId = Integer.parseInt(sc.nextLine());
+                        int newId = Integer.parseInt(inputId());
                         employeeList.get(index).setId(newId);
                         break;
                     case 2:
                         System.out.println("Current name: " + employeeList.get(index).getName());
                         System.out.print("Enter new name: ");
-                        String newName = sc.nextLine();
+                        String newName = inputName();
                         employeeList.get(index).setName(newName);
                         break;
                     case 3:
                         System.out.println("Current date of birth: " + employeeList.get(index).getDateOfBirth());
                         System.out.print("Enter new date of birth: ");
-                        String newDateOfBirth = sc.nextLine();
+                        String newDateOfBirth = inputDate();
                         employeeList.get(index).setDateOfBirth(newDateOfBirth);
                         break;
                     case 4:
                         System.out.println("Current gender: " + employeeList.get(index).getGender());
                         System.out.print("Enter new gender: ");
-                        String newGender = sc.nextLine();
+                        String newGender = inputGender();
                         employeeList.get(index).setGender(newGender);
                         break;
                     case 5:
                         System.out.println("Current cmnd: " + employeeList.get(index).getCmnd());
                         System.out.print("Enter new cmnd: ");
-                        String newCmnd = sc.nextLine();
+                        String newCmnd = inputCmnd();
                         employeeList.get(index).setCmnd(newCmnd);
                         break;
                     case 6:
                         System.out.println("Current phone number: " + employeeList.get(index).getPhoneNumber());
                         System.out.print("Enter new phone number: ");
-                        String newPhoneNumber = sc.nextLine();
+                        String newPhoneNumber = inputPhoneNumber();
                         employeeList.get(index).setPhoneNumber(newPhoneNumber);
                         break;
                     case 7:
                         System.out.println("Current email: " + employeeList.get(index).getEmail());
                         System.out.print("Enter new email: ");
-                        String newEmail = sc.nextLine();
+                        String newEmail = inputEmail();
                         employeeList.get(index).setEmail(newEmail);
                         break;
                     case 8:
@@ -329,7 +331,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
                     case 10:
                         System.out.println("Current salary: " + employeeList.get(index).getPosition());
                         System.out.print("Enter new salary: ");
-                        int newSalary = Integer.parseInt(sc.nextLine());
+                        int newSalary = Integer.parseInt(inputSalary());
                         employeeList.get(index).setSalary(newSalary);
                         break;
                     case 11:
@@ -341,5 +343,45 @@ public class EmployeeServiceImpl implements IEmployeeService {
             } while (flag);
             ReadAndWriteCSVFile.writeListToCSVFile(employeeList, EMPLOYEE_FILE_PATH, false);
         }
+    }
+
+    private String inputId() {
+        System.out.print("Enter id: ");
+        return RegexData.regexStr(sc.nextLine(), ID_REGEX, "Id must be a positive number");
+    }
+
+    private String inputName() {
+        System.out.print("Enter name: ");
+        return RegexData.regexStr(sc.nextLine(), STRING_REGEX, "Name cannot have any extra spaces or no characters");
+    }
+
+    private String inputDate() {
+        System.out.print("Enter date of birth: ");
+        return RegexData.regexAge(sc.nextLine(), DATE_LEAP_YEAR);
+    }
+
+    private String inputGender() {
+        System.out.print("Enter gender: ");
+        return RegexData.regexStr(sc.nextLine(), GENDER_REGEX, "Gender must be Male, Female or Unknow");
+    }
+
+    private String inputCmnd() {
+        System.out.print("Enter cmnd: ");
+        return RegexData.regexStr(sc.nextLine(), CMND_REGEX, "Cmnd must be an 12 digit number");
+    }
+
+    private String inputPhoneNumber() {
+        System.out.print("Enter phone number: ");
+        return RegexData.regexStr(sc.nextLine(), VN_PHONE_NUMBER_REGEX, "Wrong format of phone number");
+    }
+
+    private String inputEmail() {
+        System.out.print("Enter email: ");
+        return RegexData.regexStr(sc.nextLine(), EMAIL_REGEX, "Wrong format of email");
+    }
+
+    private String inputSalary() {
+        System.out.print("Enter salary: ");
+        return RegexData.regexStr(sc.nextLine(), POSITIVE_NUMBER_REGEX, "Salary must be a positive number");
     }
 }

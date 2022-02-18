@@ -4,8 +4,9 @@
 
 package controllers;
 
-import models.Employee;
 import services.impl.*;
+import utils.exception.ControllerException;
+import utils.exception.Exceptions;
 
 import java.util.Scanner;
 
@@ -21,52 +22,54 @@ public class FuramaController {
 
     public void displayMainMenu() {
         System.out.println("Welcome to Furama Resort!");
-        String chooseMenu;
+        String chooseMenu = null;
         boolean flag = true;
         do {
-            System.out.println("--------Menu--------");
-            System.out.println("1.\tEmployee Management\n" +
+            System.out.println("--------Menu--------\n" +
+                    "1.\tEmployee Management\n" +
                     "2.\tCustomer Management\n" +
                     "3.\tFacility Management\n" +
                     "4.\tBooking Management\n" +
                     "5.\tPromotion Management\n" +
                     "6.\tExit\n");
-            do {
-                System.out.print("Your choice: ");
-                chooseMenu = sc.nextLine();
-                if (!chooseMenu.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!chooseMenu.matches(CHOICE_REGEX));
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    chooseMenu = sc.nextLine();
+                    if (!chooseMenu.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                } while (!chooseMenu.matches(CHOICE_REGEX));
+                Exceptions.CheckChoiceNumberFrom1To6(chooseMenu);
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
             switch (Integer.parseInt(chooseMenu)) {
                 case 1:
-                    displayEmployeeManagement();
+                    employeeManagement();
                     break;
                 case 2:
-                    displayCustomerManagement();
+                    customerManagement();
                     break;
                 case 3:
-                    displayFacilityManagement();
+                    facilityManagement();
                     break;
                 case 4:
-                    displayBookingManagement();
+                    bookingManagement();
                     break;
                 case 5:
-                    displayPromotionManagement();
+                    promotionManagement();
                     break;
                 case 6:
                     System.out.println("Thank you!");
                     flag = false;
                     break;
-                default:
-                    System.out.println("Please choose from 1 to 6.");
-                    System.out.println();
             }
         } while (flag);
     }
 
-    private static void displayEmployeeManagement() {
-        String employeeChoice;
+    private static void employeeManagement() {
+        String employeeChoice = null;
         boolean flag = true;
         do {
             System.out.println("--------Employee Management--------");
@@ -74,41 +77,42 @@ public class FuramaController {
                     "2\tAdd new employee\n" +
                     "3\tEdit employee\n" +
                     "4\tReturn main menu\n");
-            do {
-                System.out.print("Your choice: ");
-                employeeChoice = sc.nextLine();
-                if (!employeeChoice.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!employeeChoice.matches(CHOICE_REGEX));
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    employeeChoice = sc.nextLine();
+                    if (!employeeChoice.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                    Exceptions.CheckChoiceNumberFrom1To4(employeeChoice);
+                } while (!employeeChoice.matches(CHOICE_REGEX));
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
 
             switch (Integer.parseInt(employeeChoice)) {
                 case 1:
                     employee.display();
-                    System.out.println("Display list employees success!");
+                    System.out.println("Display list employees success!\n");
                     break;
                 case 2:
                     employee.add();
-                    System.out.println("Add new employee success!");
+                    System.out.println("Add new employee success!\n");
                     break;
                 case 3:
                     employee.edit();
-                    System.out.println("Edit employee success!");
+                    System.out.println("Edit employee success!\n");
                     break;
                 case 4:
-                    System.out.println("Return main menu");
-                    System.out.println();
+                    System.out.println("Return main menu.\n");
                     flag = false;
                     break;
-                default:
-                    System.out.println("Please choose from 1 to 4.");
-                    System.out.println();
             }
         } while (flag);
     }
 
-    private static void displayCustomerManagement() {
-        String customerChoice;
+    private static void customerManagement() {
+        String customerChoice = null;
         boolean flag = true;
         do {
             System.out.println("--------Customer Management--------");
@@ -116,40 +120,41 @@ public class FuramaController {
                     "2\tAdd new customer\n" +
                     "3\tEdit customer\n" +
                     "4\tReturn main menu\n");
-            do {
-                System.out.print("Your choice: ");
-                customerChoice = sc.nextLine();
-                if (!customerChoice.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!customerChoice.matches(CHOICE_REGEX));
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    customerChoice = sc.nextLine();
+                    if (!customerChoice.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                } while (!customerChoice.matches(CHOICE_REGEX));
+                Exceptions.CheckChoiceNumberFrom1To4(customerChoice);
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
             switch (Integer.parseInt(customerChoice)) {
                 case 1:
                     customer.display();
-                    System.out.println("Display list customers");
+                    System.out.println("Display list customers success!\n");
                     break;
                 case 2:
                     customer.add();
-                    System.out.println("Add new customer");
+                    System.out.println("Add new customer success!\n");
                     break;
                 case 3:
                     customer.edit();
-                    System.out.println("Edit customer");
+                    System.out.println("Edit customer success!\n");
                     break;
                 case 4:
-                    System.out.println("Return main menu");
-                    System.out.println();
+                    System.out.println("Return main menu.\n");
                     flag = false;
                     break;
-                default:
-                    System.out.println("Please choose from 1 to 4.");
-                    System.out.println();
             }
         } while (flag);
     }
 
-    private static void displayFacilityManagement() {
-        String facilityChoice;
+    private static void facilityManagement() {
+        String facilityChoice = null;
         boolean flag = true;
         do {
             System.out.println("--------Facility Management--------");
@@ -157,119 +162,125 @@ public class FuramaController {
                     "2\tAdd new facility\n" +
                     "3\tDisplay facility maintenance list\n" +
                     "4\tReturn main menu\n");
-            do {
-                System.out.print("Your choice: ");
-                facilityChoice = sc.nextLine();
-                if (!facilityChoice.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!facilityChoice.matches(CHOICE_REGEX));
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    facilityChoice = sc.nextLine();
+                    if (!facilityChoice.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                } while (!facilityChoice.matches(CHOICE_REGEX));
+                Exceptions.CheckChoiceNumberFrom1To4(facilityChoice);
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
             switch (Integer.parseInt(facilityChoice)) {
                 case 1:
                     facility.display();
-                    System.out.println("Display facility list success!");
+                    System.out.println("Display facility list success!\n");
                     break;
                 case 2:
                     facility.add();
-                    System.out.println("Add new facility success!");
+                    System.out.println("Add new facility success!\n");
                     break;
                 case 3:
                     facility.displayFacilityMaintenance();
-                    System.out.println("Display facility maintenance success!");
+                    System.out.println("Display facility maintenance success!\n");
                     break;
                 case 4:
-                    System.out.println("Return main menu\n");
+                    System.out.println("Return main menu.\n");
                     flag = false;
                     break;
-                default:
-                    System.err.println("Please choose from 1 to 4.\n");
             }
         } while (flag);
     }
 
-    private static void displayBookingManagement() {
-        String bookingChoice;
+    private static void bookingManagement() {
+        String bookingChoice = null;
         boolean flag = true;
         do {
-        System.out.println("--------Booking Management--------");
-        System.out.println("1.\tAdd new booking\n" +
-                "2.\tDisplay list booking\n" +
-                "3.\tCreate new constracts\n" +
-                "4.\tDisplay list contracts\n" +
-                "5.\tEdit contracts\n" +
-                "6.\tReturn main menu\n");
-            do {
-                System.out.print("Your choice: ");
-                bookingChoice = sc.nextLine();
-                if (!bookingChoice.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!bookingChoice.matches(CHOICE_REGEX));
+            System.out.println("--------Booking Management--------");
+            System.out.println("1.\tAdd new booking\n" +
+                    "2.\tDisplay list booking\n" +
+                    "3.\tCreate new constracts\n" +
+                    "4.\tDisplay list contracts\n" +
+                    "5.\tEdit contracts\n" +
+                    "6.\tReturn main menu\n");
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    bookingChoice = sc.nextLine();
+                    if (!bookingChoice.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                } while (!bookingChoice.matches(CHOICE_REGEX));
+                Exceptions.CheckChoiceNumberFrom1To6(bookingChoice);
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
             switch (Integer.parseInt(bookingChoice)) {
                 case 1:
                     booking.add();
-                    System.out.println("Add new booking success!");
+                    System.out.println("Add new booking success!\n");
                     break;
                 case 2:
                     booking.display();
-                    System.out.println("Display booking list success!");
+                    System.out.println("Display booking list success!\n");
                     break;
                 case 3:
                     booking.createNewContract();
-                    System.out.println("Create new constracts success!");
+                    System.out.println("Create new constracts success!\n");
                     break;
                 case 4:
                     booking.displayContracts();
-                    System.out.println("Display list contracts success!");
+                    System.out.println("Display list contracts success!\n");
                     break;
                 case 5:
                     booking.edit();
-                    System.out.println("Edit contracts");
+                    System.out.println("Edit contracts success!\n");
                     break;
                 case 6:
-                    System.out.println("Return main menu");
-                    System.out.println();
+                    System.out.println("Return main menu.\n");
                     flag = false;
                     break;
-                default:
-                    System.err.println("Please choose from 1 to 6.");
-                    System.out.println();
             }
         } while (flag);
     }
 
-    private static void displayPromotionManagement() {
-        String promotionChoice;
+    private static void promotionManagement() {
+        String promotionChoice = null;
         boolean flag = true;
         do {
             System.out.println("--------Promotion Management--------");
             System.out.println("1.\tDisplay list customers use service\n" +
                     "2.\tDisplay list customers get voucher\n" +
                     "3.\tReturn main menu\n");
-            do {
-                System.out.print("Your choice: ");
-                promotionChoice = sc.nextLine();
-                if (!promotionChoice.matches(CHOICE_REGEX)) {
-                    System.out.println("Please try again.\n");
-                }
-            } while (!promotionChoice.matches(CHOICE_REGEX));
+            try {
+                do {
+                    System.out.print("Your choice: ");
+                    promotionChoice = sc.nextLine();
+                    if (!promotionChoice.matches(CHOICE_REGEX)) {
+                        System.out.println("Please try again.\n");
+                    }
+                } while (!promotionChoice.matches(CHOICE_REGEX));
+                Exceptions.CheckChoiceNumberFrom1To3(promotionChoice);
+            } catch (ControllerException e) {
+                e.printStackTrace();
+            }
             switch (Integer.parseInt(promotionChoice)) {
                 case 1:
                     promotion.displayListCustumersUseService();
-                    System.out.println("Display list customers use service success!");
+                    System.out.println("Display list customers use service success!\n");
                     break;
                 case 2:
                     promotion.displayListCustumersGetVoucher();
-                    System.out.println("Display list customers get voucher success!");
+                    System.out.println("Display list customers get voucher success!\n");
                     break;
                 case 3:
-                    System.out.println("Return main menu");
+                    System.out.println("Return main menu.\n");
                     System.out.println();
                     flag = false;
                     break;
-                default:
-                    System.err.println("Please choose from 1 to 3.");
-                    System.out.println();
             }
         } while (flag);
     }

@@ -1,4 +1,5 @@
-SVVL-1234,Villa 1,100.0,10000,5,Day,6,Diamond,50.0,3
-SVVL-9876,Villa 2,150.0,15000,5,Day,0,Platinium,100.0,3
+SVVL-1234,Villa 1,100.0,10000,5,Day,7,Diamond,50.0,3
+SVVL-9876,Villa 2,150.0,15000,5,Day,1,Platinium,100.0,3
 SVRO-2468,Room 1,30.0,4000,0,Month,2,None
 SVHO-5678,House 1,70.0,5000,4,Year,1,Silver,2
+SVHO-6767,House 2,50.0,4000,2,Month,1,Diamond,2
