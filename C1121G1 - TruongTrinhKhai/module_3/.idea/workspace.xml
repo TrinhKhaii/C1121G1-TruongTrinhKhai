@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9bda0b-4402-41af-9157-6da5d8a161f2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/module_3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Thuyet Trinh/.idea/Thuyet Trinh.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../module_2/out/production/module_2/final_exam/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/out/production/module_2/final_exam/data/data.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/module_3.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_33/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module_4/module_4.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Module 1/ss2_code_org/Thực hành/test.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TaiLieuTrienKhaiLopC1121G1/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TaiLieuTrienKhaiLopC1121G1/.idea/TaiLieuTrienKhaiLopC1121G1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TaiLieuTrienKhaiLopC1121G1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TaiLieuTrienKhaiLopC1121G1/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../TaiLieuTrienKhaiLopC1121G1/.idea/vcs.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1645521592018</updated>
-      <workItem from="1645521593156" duration="4583000" />
+      <workItem from="1645521593156" duration="6391000" />
     </task>
     <servers />
   </component>
