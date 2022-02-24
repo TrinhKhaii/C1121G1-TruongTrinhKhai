@@ -2,30 +2,30 @@ create database sales_manager;
 
 use sales_manager;
 
-create table Customer (
-	cId   int         not null auto_increment primary key,
-    cName varchar(50) not null,
-    cAge  int         not null
+create table customer (
+	c_id   int         not null auto_increment primary key,
+    c_name varchar(25) not null,
+    c_age  tinyint         not null
 );
 
-create table `Order` (
-	oId int not null auto_increment primary key,
-    cId int not null,
-    oDate datetime not null,
-    oTotalPrice float default 0,
-    foreign key (cId) references Customer (cId)
+create table `order` (
+	o_id int not null auto_increment primary key,
+    c_id int not null,
+    o_date date not null,
+    o_total_price float default 0,
+    foreign key (c_id) references customer (c_id)
 );
 
-create table Product(
-	pId int not null auto_increment primary key,
-    pName varchar(50) not null,
-    pPrice float not null
+create table product(
+	p_id int not null auto_increment primary key,
+    p_name varchar(25) not null,
+    p_price float not null
 );
 
 create table OrderDetail (
-	oId int not null,
-    pId int not null,
-    odQTY varchar(50) not null,
-    foreign key (oId) references `Order` (oId),
-    foreign key (pId) references Product (pId)
+	o_id int not null,
+    p_id int not null,
+    od_qty int not null,
+    foreign key (o_id) references `Order` (o_id),
+    foreign key (p_id) references product (p_id)
 );
