@@ -945,98 +945,110 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     <collation id="273" parent="1" name="utf8mb4_zh_0900_as_cs">
       <Charset>utf8mb4</Charset>
     </collation>
-    <schema id="274" parent="1" name="information_schema">
+    <schema id="274" parent="1" name="QuanLySinhVien">
+      <Collation>utf8mb4_0900_ai_ci</Collation>
+    </schema>
+    <schema id="275" parent="1" name="information_schema">
       <Collation>utf8_general_ci</Collation>
     </schema>
-    <schema id="275" parent="1" name="my_database1">
+    <schema id="276" parent="1" name="my_database1">
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
-    <schema id="276" parent="1" name="mysql">
+    <schema id="277" parent="1" name="mysql">
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
-    <schema id="277" parent="1" name="performance_schema">
+    <schema id="278" parent="1" name="performance_schema">
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
-    <schema id="278" parent="1" name="student-management">
+    <schema id="279" parent="1" name="product_management">
+      <Collation>utf8mb4_0900_ai_ci</Collation>
+    </schema>
+    <schema id="280" parent="1" name="quan_ly_diem_thi">
+      <Collation>utf8mb4_0900_ai_ci</Collation>
+    </schema>
+    <schema id="281" parent="1" name="sales_manager">
+      <Collation>utf8mb4_0900_ai_ci</Collation>
+    </schema>
+    <schema id="282" parent="1" name="student-management">
       <Collation>utf8mb4_0900_ai_ci</Collation>
       <Current>1</Current>
     </schema>
-    <schema id="279" parent="1" name="sys">
+    <schema id="283" parent="1" name="sys">
       <Collation>utf8mb4_0900_ai_ci</Collation>
     </schema>
-    <user id="280" parent="1" name="mysql.infoschema">
+    <user id="284" parent="1" name="mysql.infoschema">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="281" parent="1" name="mysql.session">
+    <user id="285" parent="1" name="mysql.session">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="282" parent="1" name="mysql.sys">
+    <user id="286" parent="1" name="mysql.sys">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="283" parent="1" name="root">
+    <user id="287" parent="1" name="root">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="284" parent="278" name="Class"/>
-    <table id="285" parent="278" name="Student"/>
-    <table id="286" parent="278" name="Teacher"/>
-    <column id="287" parent="284" name="id">
+    <table id="288" parent="282" name="Class"/>
+    <table id="289" parent="282" name="Student"/>
+    <table id="290" parent="282" name="Teacher"/>
+    <column id="291" parent="288" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="288" parent="284" name="name">
+    <column id="292" parent="288" name="name">
       <DataType>varchar(45)|0s</DataType>
       <Position>2</Position>
     </column>
-    <key id="289" parent="284" name="PRIMARY">
+    <key id="293" parent="288" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="290" parent="285" name="idStudent">
+    <column id="294" parent="289" name="idStudent">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="291" parent="285" name="name">
+    <column id="295" parent="289" name="name">
       <DataType>varchar(45)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="292" parent="285" name="age">
+    <column id="296" parent="289" name="age">
       <DataType>varchar(45)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="293" parent="285" name="country">
+    <column id="297" parent="289" name="country">
       <DataType>varchar(45)|0s</DataType>
       <Position>4</Position>
     </column>
-    <key id="294" parent="285" name="PRIMARY">
+    <key id="298" parent="289" name="PRIMARY">
       <ColNames>idStudent</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="295" parent="286" name="id">
+    <column id="299" parent="290" name="id">
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="296" parent="286" name="name">
+    <column id="300" parent="290" name="name">
       <DataType>varchar(45)|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="297" parent="286" name="age">
+    <column id="301" parent="290" name="age">
       <DataType>varchar(45)|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="298" parent="286" name="country">
+    <column id="302" parent="290" name="country">
       <DataType>varchar(45)|0s</DataType>
       <Position>4</Position>
     </column>
-    <key id="299" parent="286" name="PRIMARY">
+    <key id="303" parent="290" name="PRIMARY">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
