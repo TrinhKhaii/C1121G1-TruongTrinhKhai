@@ -22,10 +22,10 @@ create table product(
     p_price float not null
 );
 
-create table OrderDetail (
+create table order_detail (
 	o_id int not null,
     p_id int not null,
     od_qty int not null,
-    foreign key (o_id) references `Order` (o_id),
+    foreign key (o_id) references `order` (o_id),
     foreign key (p_id) references product (p_id)
 );
