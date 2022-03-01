@@ -5,19 +5,19 @@ use furama_management;
 
 create table vi_tri(
 	ma_vi_tri  int         auto_increment not null,
-    ten_vi_tri varchar(45) not null,
+    ten_vi_tri varchar(45),
     primary key(ma_vi_tri)
 );
 
 create table trinh_do(
 	ma_trinh_do  int         auto_increment not null,
-    ten_trinh_do varchar(45) not null,
+    ten_trinh_do varchar(45),
     primary key(ma_trinh_do)
 );
 
 create table bo_phan(
 	ma_bo_phan  int         auto_increment not null,
-    ten_bo_phan varchar(45) not null,
+    ten_bo_phan varchar(45),
     primary key(ma_bo_phan)
 );
 
@@ -28,8 +28,8 @@ create table nhan_vien(
     so_cmnd       varchar(45) not null,
     luong         double      not null,
     so_dien_thoai varchar(45) not null,
-    email         varchar(45) not null,
-    dia_chi       varchar(45) not null,
+    email         varchar(45),
+    dia_chi       varchar(45),
     primary key(ma_nhan_vien),
     ma_vi_tri     int         not null,
     ma_trinh_do   int         not null,
@@ -41,7 +41,7 @@ create table nhan_vien(
 
 create table loai_khach(
 	ma_loai_khach  int         auto_increment not null,
-    ten_loai_khach varchar(45) not null,
+    ten_loai_khach varchar(45),
     primary key(ma_loai_khach)
 );
 
@@ -53,32 +53,32 @@ create table khach_hang(
     gioi_tinh     bit(1)      not null,
     so_cmnd       varchar(45) not null,
     so_dien_thoai varchar(45) not null,
-    email         varchar(45) not null,
-    dia_chi       varchar(45) not null,
+    email         varchar(45),
+    dia_chi       varchar(45),
     primary key(ma_khach_hang),
     foreign key(ma_loai_khach) references loai_khach(ma_loai_khach)
 );
 
 create table kieu_thue(
 	ma_kieu_thue  int         auto_increment not null,
-    ten_kieu_thue varchar(45) not null,
+    ten_kieu_thue varchar(45),
     primary key(ma_kieu_thue)
 );
 
 create table loai_dich_vu(
 	ma_loai_dich_vu int auto_increment not null,
-	ten_loai_dich_vu varchar(45) not null,
+	ten_loai_dich_vu varchar(45),
     primary key(ma_loai_dich_vu)
 );
 
 create table dich_vu(
 	ma_dich_vu 			 int 		 auto_increment not null,
     ten_dich_vu 		 varchar(45) not null,
-    dien_tich 			 int		 not null,
+    dien_tich 			 int,
     chi_phi_thue 		 double 	 not null,
-    so_nguoi_toi_da 	 int 		 not null,
-    tieu_chuan_phong     varchar(45) not null,
-    mo_ta_tien_nghi_khac varchar(45) not null,
+    so_nguoi_toi_da 	 int,
+    tieu_chuan_phong     varchar(45),
+    mo_ta_tien_nghi_khac varchar(45),
     dien_tich_ho_boi     double,
     so_tang              int,
     ma_kieu_thue         int 		 not null,
@@ -93,7 +93,7 @@ create table dich_vu_di_kem(
     ten_dich_vu_di_kem varchar(45) not null,
     gia                double      not null,
     don_vi             varchar(10) not null,
-    trang_thai         varchar(45) not null,
+    trang_thai         varchar(45),
     primary key(ma_dich_vu_di_kem)
 );
 
