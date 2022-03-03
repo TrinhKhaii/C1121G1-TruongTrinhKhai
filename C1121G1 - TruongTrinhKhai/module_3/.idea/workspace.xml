@@ -2,6 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a9bda0b-4402-41af-9157-6da5d8a161f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/create_a_page_to_read_short_stories/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/embedding_css_into_html/external_style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/embedding_css_into_html/inline_style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/embedding_css_into_html/internal_style.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/embedding_css_into_html/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/format_text_with_css/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /bai_tap/format_text_with_css/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ss6_css_cascading_style_stylesheet /thuc_hanh/use_css/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../module_2/out/production/module_2/final_exam/data/data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/../module_2/out/production/module_2/final_exam/data/data.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../module_33/.idea/workspace.xml" beforeDir="false" />
@@ -24,6 +32,14 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -31,7 +47,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="25SXivdvATTNo8ZMc9M3jnYpJ18" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -40,11 +58,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -55,6 +76,7 @@
       <option name="presentableId" value="Default" />
       <updated>1645521592018</updated>
       <workItem from="1645521593156" duration="7596000" />
+      <workItem from="1646297637178" duration="4529000" />
     </task>
     <servers />
   </component>
