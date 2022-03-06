@@ -1,0 +1,45 @@
+body {
+font-family: Verdanam sans-serif;
+    font-size: 0.9em;
+}
+
+header, footer {
+    padding: 10px;
+    color: white;
+    background-color: black;
+    clear: both;
+}
+
+section {
+    margin: 5px;
+    padding: 10px;
+    background-color: lightgray;
+}
+
+article {
+    margin: 5px;
+    padding: 10px;
+    background-color: white;
+}
+
+.content {
+    float: left;
+}
+
+aside {
+    width: 500px;
+    padding-left: 20px;
+    float: left;
+}
+nav {
+    background-color: lightgray;
+    padding: 5px;
+}
+nav ul {
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 5px;
+}

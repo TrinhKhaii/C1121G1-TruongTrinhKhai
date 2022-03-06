@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body {
+    background: #efefef;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #de5b5b;
+    padding: 5px 1%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav .icon {
+    font-size: 25px;
+    color: white;
+}
+
+#youtube-logo {
+    color: red;
+    font-size: 50px;
+    width: 10px;
+    margin-right: 45px;
+    margin-left: 20px;
+}
+
+.nav-left h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.nav-left ul li {
+    width: 28px;
+    margin: 0 15px;
+}
+
+.nav-right ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.nav-right ul li {
+    width: 28px;
+    margin: 0 15px;
+}
+
+.nav-user-icon img {
+    width: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-user-icon {
+    margin-left: 30px;
+    margin-right: 20px;
+}
+
+.search-box {
+    background: #efefef;
+    width: 600px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    margin-left: 200px;
+
+}
+
+.search-box img {
+    width: 18px;
+}
+
+.search-box input {
+    width: 100%;
+    background: transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+}
+
+.main-video {
+    margin-top: 25px;
+    margin-left: 25px;
+    float: left;
+}
+
+.video-title {
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.video-description-view {
+    margin-left: 10px;
+}
+.video-description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 900px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(80, 80, 80, 0.46);
+}
+
+.post-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.activity-icons div img{
+    width: 18px;
+    margin-right: 10px;
+}
+
+.activity-icons div {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.right-main {
+    padding-top: 30px;
+    padding-left: 10px;
+    float: right;
+    width: 500px;
+}
+
+.video-suggestions {
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.video-suggestions-description {
+    padding-left: 10px;
+}
+
+.video-suggestions img {
+    width: 180px;
+}
