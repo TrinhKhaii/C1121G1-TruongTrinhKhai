@@ -58,6 +58,7 @@ public class CustomerServlet extends HttpServlet {
                 break;
         }
     }
+
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.findAll();
         request.setAttribute("customers", customers);
