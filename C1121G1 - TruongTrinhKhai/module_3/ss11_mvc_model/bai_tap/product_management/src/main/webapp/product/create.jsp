@@ -10,6 +10,11 @@
 <html>
 <head>
     <title>Create new product</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <h1>Create New Product</h1>
@@ -19,19 +24,27 @@
         <table>
             <tr>
                 <td>Name: </td>
-                <td><input type="text" name="name" id="name"></td>
+                <td><input type="text" name="name" id="name">
+                    <span class="error">${error.get("name")}</span>
+                </td>
             </tr>
             <tr>
                 <td>Price: </td>
-                <td><input type="text" name="price" id="price"></td>
+                <td><input type="text" name="price" id="price">
+                    <p class="error">${error.get("price")}</p>
+                </td>
             </tr>
             <tr>
                 <td>Description: </td>
-                <td><input type="text" name="description" id="description"></td>
+                <td><input type="text" name="description" id="description">
+                    <p class="error">${error.get("description")}</p>
+                </td>
             </tr>
             <tr>
                 <td>Manufacturer: </td>
-                <td><input type="text" name="manufacturer" id="manufacturer"></td>
+                <td><input type="text" name="manufacturer" id="manufacturer">
+                    <p class="error">${error.get("manufacturer")}</p>
+                </td>
             </tr>
             <tr>
                 <td></td>

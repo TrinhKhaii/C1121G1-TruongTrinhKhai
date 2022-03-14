@@ -18,4 +18,6 @@ public interface ProductRepository {
     void remove(Integer id);
 
     List<Product> search(String name);
+
+    void save(Product product);
 }

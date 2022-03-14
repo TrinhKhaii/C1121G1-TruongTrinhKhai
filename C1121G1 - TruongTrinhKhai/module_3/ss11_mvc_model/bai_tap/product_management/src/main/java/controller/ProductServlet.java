@@ -1,6 +1,7 @@
 package controller;
 
 import model.Product;
+import model.ProductDTO;
 import service.ProductService;
 import service.impl.ProductServiceImpl;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "ProductServlet", value = {"/product", "/list", ""})
 public class ProductServlet extends HttpServlet {
@@ -33,7 +35,9 @@ public class ProductServlet extends HttpServlet {
             case "view":
                 showInforform(request, response);
                 break;
-
+            case "search":
+                showSearchForm(request, response);
+                break;
             default:
                 listProduct(request, response);
                 break;
@@ -56,9 +60,7 @@ public class ProductServlet extends HttpServlet {
             case "delete":
                 deleteForm(request, response);
                 break;
-            case "search":
-                showSearchForm(request, response);
-                break;
+
             default:
                 listProduct(request, response);
                 break;
@@ -111,15 +113,21 @@ public class ProductServlet extends HttpServlet {
 
     private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        Double price = Double.parseDouble(request.getParameter("price"));
+        String price =request.getParameter("price");
         String description = request.getParameter("description");
         String manufacturer = request.getParameter("manufacturer");
         Integer id = productService.lastId() + 1;
 
-        Product product = new Product(id, name, price, description, manufacturer);
-        this.productService.create(product);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product/create.jsp");
-        request.setAttribute("messenger", "New product was create");
+//        Product product = new Product(id, name, price, description, manufacturer);
+        ProductDTO productDTO = new ProductDTO(id, name, price, description, manufacturer);
+        Map<String, String> error = productService.save(productDTO);
+        RequestDispatcher dispatcher;
+        if (error != null) {
+            request.setAttribute("error", error);
+        } else {
+            request.setAttribute("messenger", "New product was create");
+        }
+        dispatcher = request.getRequestDispatcher("product/create.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

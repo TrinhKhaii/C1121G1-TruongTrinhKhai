@@ -95,4 +95,9 @@ public class ProductRepositoryImpl implements ProductRepository {
             return searchProductList;
         }
     }
+
+    @Override
+    public void save(Product product) {
+        create(product);
+    }
 }

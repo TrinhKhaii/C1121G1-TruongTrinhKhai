@@ -16,7 +16,8 @@
 <p>
     <a href="product?action=create">Add new product</a>
 </p>
-<form method="post" action='product?action=search&name=document.getElementById("search").value'>
+<form method="get">
+    <input type="hidden" name="action" value="search">
     <input type="text" name="search" id="search" placeholder="Search product: ">
     <input type="submit" value="Search">
 </form>
