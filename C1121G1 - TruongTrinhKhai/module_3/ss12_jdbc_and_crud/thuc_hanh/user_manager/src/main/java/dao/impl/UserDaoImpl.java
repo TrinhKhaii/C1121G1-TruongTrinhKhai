@@ -75,7 +75,7 @@ public class UserDaoImpl implements IUserDAO {
         User user = null;
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_BY_ID);) {
-            preparedStatement .setInt(1, id);
+            preparedStatement.setInt(1, id);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

@@ -13,11 +13,15 @@ import java.util.List;
 public interface IUserRepository {
     void insertUser(User user) throws SQLException;
 
-    User selectUser(Integer id);
+    User selectUserById(Integer id);
 
     List<User> selectAllUser();
 
     boolean deleteUser(Integer id) throws SQLException;
 
     boolean updateUser(User user) throws SQLException;
+
+    List<User> searchUserByCountry(String country);
+
+    List<User> sortByName();
 }
