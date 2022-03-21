@@ -26,7 +26,7 @@
 <c:if test="${message!=null}">
     <p style="color: red;text-align: center;font-size: 18px">${message}</p>
 </c:if>
-<form method="get" action="users?">
+<form method="get">
     <input type="hidden" name="action" value="search">
     <input type="text" name="search" size="45">
     <input type="submit" value="tìm kiếm">

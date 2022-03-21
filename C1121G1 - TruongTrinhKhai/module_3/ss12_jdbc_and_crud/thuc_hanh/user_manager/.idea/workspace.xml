@@ -5,6 +5,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb4dbccf-4331-4fbc-9180-7527cd690fd4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/dependencies-accessors/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/fileChanges/last-build.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/7.1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.gradle/vcs-1/gc.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/build/tmp/war/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/contract/AttachService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/contract/Contract.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/contract/ContractDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/customer/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/customer/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/Division.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/EducationDegree.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/employee/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/service/RentType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/service/Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/model/service/ServiceType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/repository/IEmployeeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/repository/impl/BaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/java/repository/impl/EmployeeRopository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../case_study_jsp_and_servlet/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_ 1/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_ 1/.idea/module_ 1.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_ 1/.idea/modules.xml" beforeDir="false" />
@@ -218,8 +266,12 @@
       <change beforePath="$PROJECT_DIR$/../../../../module_2/out/production/module_2/ss2_vong_lap_trong_java/thuc_hanh/IsPrimeNumber.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../module_2/out/production/module_2/ss2_vong_lap_trong_java/thuc_hanh/IsPrimeNumber.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss11_mvc_model/bai_tap/product_management/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss11_mvc_model/bai_tap/product_management/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../bai_tap/user_manager/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/user_manager/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../bai_tap/user_manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../bai_tap/user_manager/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss13_jdbc_querying_and_transaction/thuc_hanh/user_manager/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss13_jdbc_querying_and_transaction/thuc_hanh/user_manager/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss14_dependency_management_and_packaging/bai_tap/quadratic_equation_2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss14_dependency_management_and_packaging/bai_tap/quadratic_equation_2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../ss14_dependency_management_and_packaging/thuc_hanh/packaging_java_libraries/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss14_dependency_management_and_packaging/thuc_hanh/packaging_java_libraries/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_33/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_4/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../module_4/.idea/misc.xml" beforeDir="false" />
@@ -311,6 +363,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RunManager">
@@ -411,6 +464,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647143463869</updated>
       <workItem from="1647143465580" duration="24496000" />
+      <workItem from="1647500374011" duration="33000" />
     </task>
     <servers />
   </component>
