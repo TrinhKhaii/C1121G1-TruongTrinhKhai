@@ -6,9 +6,7 @@ package repository.impl;
 */
 
 import model.dto.FacilityDTO;
-import model.service.Facility;
-import model.service.RentType;
-import model.service.ServiceType;
+import model.service.*;
 import repository.IFacilityRepository;
 
 import java.sql.Connection;
@@ -22,15 +20,18 @@ public class FacilityRepository implements IFacilityRepository {
     BaseRepository baseRepository = new BaseRepository();
 
     private static final String SELECT_ALL_FACILITY = "select * from service";
-    private static final String SELECT_ALL_FACILITY_DTO = "select service.service_id, service.service_name, service.service_area, service.service_cost, service.service_max_people, service.standard_room,\n" +
-            "service.description_other_convenience, ifnull(service.pool_area, -1) as pool_area, ifnull(service.number_of_floors, -1) as number_of_floors, rent_type.rent_type_name, service_type.service_type_name\n" +
+    private static final String SELECT_ALL_FACILITY_DTO = "select service.service_id, service.service_code, service.service_name, service.service_area, service.service_cost, service.service_max_people, service.standard_room,\n" +
+            "service.description_other_convenience, ifnull(service.pool_area, -1) as pool_area, ifnull(service.number_of_floors, -1) as number_of_floors, rent_type.rent_type_name, service_type.service_type_name, service.free_service_included\n" +
             "from service\n" +
             "inner join rent_type on service.rent_type_id = rent_type.rent_type_id\n" +
             "inner join service_type on service.service_type_id = service_type.service_type_id\n" +
             "group by service.service_id\n" +
             "order by service.service_id;";
     private static final String SELECT_ALL_SERVICE_TYPE = "select * from service_type";
-    private static final String SELECT_ALL_RENT_TYPE = "elect * from rent_type";
+    private static final String SELECT_ALL_RENT_TYPE = "select * from rent_type";
+    private static final String INSERT_NEW_VILLA = "insert into service(service_code, service_name, service_area, service_cost, service_max_people, standard_room, description_other_convenience, pool_area, number_of_floors, rent_type_id, service_type_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?)";
+    private static final String INSERT_NEW_HOUSE = "insert into service(service_code, service_name, service_area, service_cost, service_max_people, standard_room, description_other_convenience, number_of_floors, rent_type_id, service_type_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_NEW_ROOM = "insert into service(service_code, service_name, service_area, service_cost, service_max_people, free_service_included, rent_type_id, service_type_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
 
     @Override
     public List<FacilityDTO> selectAllFacilityDTO() {
@@ -41,6 +42,7 @@ public class FacilityRepository implements IFacilityRepository {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 Integer id = rs.getInt("service_id");
+                String code = rs.getString("service_code");
                 String serviceName = rs.getString("service_name");
                 Integer serviceArea = rs.getInt("service_area");
                 Double serviceCost = rs.getDouble("service_cost");
@@ -51,8 +53,9 @@ public class FacilityRepository implements IFacilityRepository {
                 Integer numberOfFloors = rs.getInt("number_of_floors");
                 String rentTypeName = rs.getString("rent_type_name");
                 String serviceTypeName = rs.getString("service_type_name");
+                String freeServiceIncluded = rs.getString("free_service_included");
 
-                facilityDTOList.add(new FacilityDTO(id, serviceName, serviceArea, serviceCost, serviceMaxPeople, rentTypeName, serviceTypeName, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors));
+                facilityDTOList.add(new FacilityDTO(id, code, serviceName, serviceArea, serviceCost, serviceMaxPeople, rentTypeName, serviceTypeName, standardRoom, descriptionOtherConvenience, poolArea, numberOfFloors, freeServiceIncluded));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -61,18 +64,58 @@ public class FacilityRepository implements IFacilityRepository {
     }
 
     @Override
-    public void insertRoom() throws SQLException {
-
+    public void insertRoom(Room room) throws SQLException {
+        System.out.println(INSERT_NEW_ROOM);
+        try (Connection connection = baseRepository.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_ROOM)) {
+            preparedStatement.setString(1, room.getCode());
+            preparedStatement.setString(2, room.getName());
+            preparedStatement.setInt(3, room.getArea());
+            preparedStatement.setDouble(4, room.getCost());
+            preparedStatement.setInt(5, room.getMaxPeople());
+            preparedStatement.setString(6, room.getFreeServiceIncluded());
+            preparedStatement.setInt(7, room.getRentTypeId());
+            preparedStatement.setInt(8, room.getServiceTypeId());
+            preparedStatement.executeUpdate();
+        }
     }
 
     @Override
-    public void insertHouse() throws SQLException {
-
+    public void insertHouse(House house) throws SQLException {
+        System.out.println(INSERT_NEW_HOUSE);
+        try (Connection connection = baseRepository.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_HOUSE)) {
+            preparedStatement.setString(1, house.getCode());
+            preparedStatement.setString(2, house.getName());
+            preparedStatement.setInt(3, house.getArea());
+            preparedStatement.setDouble(4, house.getCost());
+            preparedStatement.setInt(5, house.getMaxPeople());
+            preparedStatement.setString(6, house.getRoomStandard());
+            preparedStatement.setString(7, house.getDescriptionOtherConvenience());
+            preparedStatement.setInt(8, house.getNumberOfFloors());
+            preparedStatement.setInt(9, house.getRentTypeId());
+            preparedStatement.setInt(10, house.getServiceTypeId());
+        }
     }
 
     @Override
-    public void insertVilla() throws SQLException {
-
+    public void insertVilla(Villa villa) throws SQLException {
+        System.out.println(INSERT_NEW_VILLA);
+        try (Connection connection = baseRepository.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_NEW_VILLA)) {
+            preparedStatement.setString(1, villa.getCode());
+            preparedStatement.setString(2, villa.getName());
+            preparedStatement.setInt(3, villa.getArea());
+            preparedStatement.setDouble(4, villa.getCost());
+            preparedStatement.setInt(5, villa.getMaxPeople());
+            preparedStatement.setString(6, villa.getRoomStandard());
+            preparedStatement.setString(7, villa.getDescriptionOtherConvenience());
+            preparedStatement.setFloat(8, villa.getPoolArea());
+            preparedStatement.setInt(9, villa.getNumberOfFloors());
+            preparedStatement.setInt(10, villa.getRentTypeId());
+            preparedStatement.setInt(11, villa.getServiceTypeId());
+            preparedStatement.executeUpdate();
+        }
     }
 
     @Override

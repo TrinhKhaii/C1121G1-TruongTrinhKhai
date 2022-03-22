@@ -6,22 +6,28 @@ package service;
 */
 
 import model.dto.FacilityDTO;
-import model.service.RentType;
-import model.service.ServiceType;
+import model.service.*;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 public interface IFacilityService {
     List<FacilityDTO> selectAllFacilityDTO();
 
-    void insertRoom() throws SQLException;
+    void insertRoom(Room room) throws SQLException;
 
-    void insertHouse() throws SQLException;
+    void insertHouse(House house) throws SQLException;
 
-    void insertVilla() throws SQLException;
+    void insertVilla(Villa villa) throws SQLException;
 
     List<RentType> findAllRentType();
 
     List<ServiceType> findAllServiceType();
+
+    Map<String, String> checkVilla(Villa villa);
+
+    Map<String, String> checkHouse(House house);
+
+    Map<String, String> checkRoom(Room room);
 }

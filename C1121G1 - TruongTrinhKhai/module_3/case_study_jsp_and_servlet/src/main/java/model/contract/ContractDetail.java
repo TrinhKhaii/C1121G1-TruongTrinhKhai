@@ -7,13 +7,13 @@ package model.contract;
 
 public class ContractDetail {
     private Integer id;
-    private Contract contractId;
-    private AttachService attachServiceId;
+    private Integer contractId;
+    private Integer attachServiceId;
     private Integer quantity;
 
     public ContractDetail() {}
 
-    public ContractDetail(Integer id, Contract contractId, AttachService attachServiceId, Integer quantity) {
+    public ContractDetail(Integer id, Integer contractId, Integer attachServiceId, Integer quantity) {
         this.id = id;
         this.contractId = contractId;
         this.attachServiceId = attachServiceId;
@@ -28,19 +28,19 @@ public class ContractDetail {
         this.id = id;
     }
 
-    public Contract getContractId() {
+    public Integer getContractId() {
         return contractId;
     }
 
-    public void setContractId(Contract contractId) {
+    public void setContractId(Integer contractId) {
         this.contractId = contractId;
     }
 
-    public AttachService getAttachServiceId() {
+    public Integer getAttachServiceId() {
         return attachServiceId;
     }
 
-    public void setAttachServiceId(AttachService attachServiceId) {
+    public void setAttachServiceId(Integer attachServiceId) {
         this.attachServiceId = attachServiceId;
     }
 
@@ -50,15 +50,5 @@ public class ContractDetail {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
-    }
-
-    @Override
-    public String toString() {
-        return "ContractDetail{" +
-                "id=" + id +
-                ", contractId=" + contractId +
-                ", attachServiceId=" + attachServiceId +
-                ", quantity=" + quantity +
-                '}';
     }
 }

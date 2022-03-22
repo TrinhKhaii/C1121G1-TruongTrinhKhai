@@ -25,6 +25,7 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -53,6 +54,7 @@ public class CustomerServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -99,15 +101,14 @@ public class CustomerServlet extends HttpServlet {
         RequestDispatcher dispatcher;
         Customer customer = new Customer(id, name, birthday, idCard, phoneNumber, email, address, code, customerTypeId, gender);
         List<CustomerType> customerTypeList = customerService.findAllCustomerType();
+        Map<String, String> error = customerService.check(customer);
         if (customerService.selectCutomerByCode(code) != null) {
             // kiểm tra customer trùng code
             request.setAttribute("customer", customer);
             request.setAttribute("customerTypeList", customerTypeList);
-            request.setAttribute("customer", customer);
+            request.setAttribute("error", error);
             request.setAttribute("code", "Customer code already exist.");
         } else {
-            Map<String, String> error = customerService.check(customer);
-
             if (error != null) {
                 request.setAttribute("customerTypeList", customerTypeList);
                 request.setAttribute("customer", customer);
@@ -143,17 +144,16 @@ public class CustomerServlet extends HttpServlet {
         Integer customerTypeId = Integer.valueOf(request.getParameter("customer_type_id"));
         Integer gender = Integer.valueOf(request.getParameter("gender"));
         Customer customer = new Customer(id, name, birthday, idCard, phoneNumber, email, address, code, customerTypeId, gender);
-//        Map<String, String> error = customerService.check(customer);
         RequestDispatcher dispatcher;
+        Map<String, String> error = customerService.check(customer);
         List<CustomerType> customerTypeList = customerService.findAllCustomerType();
-        if (customerService.selectCutomerByCode(code) != null) {
+        if (customerService.selectCutomerByCode(code) != null && customerService.selectCutomerByCode(code).getId() != id) {
             // kiểm tra customer trùng code
             request.setAttribute("customer", customer);
             request.setAttribute("customerTypeList", customerTypeList);
+            request.setAttribute("error", error);
             request.setAttribute("code", "Customer code already exist.");
         } else {
-            Map<String, String> error = customerService.check(customer);
-
             if (error != null) {
                 request.setAttribute("customerTypeList", customerTypeList);
                 request.setAttribute("customer", customer);
@@ -163,17 +163,6 @@ public class CustomerServlet extends HttpServlet {
                 request.setAttribute("messenger", "Update customer success");
             }
         }
-//        if (error != null) {
-//            request.setAttribute("customer", customer);
-//            request.setAttribute("error", error);
-//        } else {
-//            if (customerService.updateCustomer(customer)) {
-//                request.setAttribute("messenger", "Update customer success");
-//            } else {
-//                error.put("code", "Customer code already exist.");
-//                request.setAttribute("error", error);
-//            }
-//        }
         dispatcher = request.getRequestDispatcher("customer/update.jsp");
         dispatcher.forward(request, response);
     }

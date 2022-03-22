@@ -5,7 +5,7 @@ package model.service;
     Time: 08:58
 */
 
-public class Villa {
+public class Villa extends Facility{
     private String roomStandard;
     private String descriptionOtherConvenience;
     private Float poolArea;
@@ -13,7 +13,8 @@ public class Villa {
 
     public Villa() {}
 
-    public Villa(String roomStandard, String descriptionOtherConvenience, Float poolArea, Integer numberOfFloors) {
+    public Villa(Integer id, String code, String name, Integer area, Double cost, Integer maxPeople, Integer rentTypeId, Integer serviceTypeId, String roomStandard, String descriptionOtherConvenience, Float poolArea, Integer numberOfFloors) {
+        super(id, code, name, area, cost, maxPeople, rentTypeId, serviceTypeId);
         this.roomStandard = roomStandard;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;

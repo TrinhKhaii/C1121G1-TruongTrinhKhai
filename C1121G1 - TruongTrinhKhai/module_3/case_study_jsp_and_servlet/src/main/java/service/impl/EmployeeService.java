@@ -15,12 +15,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static service.impl.CustomerService.*;
+
 public class EmployeeService implements IEmployeeService {
     private final IEmployeeRepository employeeRepository = new EmployeeRepository();
 
     public static final String STRING_REGEX = "^\\w+( \\w+)*$";
     public static final String POSITIVE_NUMBER_REGEX = "^[^\\D]+(.[^\\D]*)?$";
-    public static final String DATE_REGEX = "^(?:(?:31(-)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(-)(?:0?[13-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(-)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(-)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
 
     @Override
     public List<Employee> findAllEmployee() {
@@ -73,9 +74,27 @@ public class EmployeeService implements IEmployeeService {
         if (!employee.getName().matches(STRING_REGEX)) {
             error.put("name", "Name cannot have any extra spaces or no characters");
         }
+        if (!employee.getIdCard().matches(ID_CARD_REGEX)) {
+            error.put("id_card", "ID number must be in the correct format XXXXXXXXX or XXXXXXXXXXXX (X is the number 0-9)");
+        }
 //        if (!employee.getBirthday().matches(DATE_REGEX)) {
 //            error.put("birthday", "Wrong format of date");
 //        }
+        if (employee.getSalary() <= 0) {
+            error.put("salary", "Salary must be greater than 0");
+        }
+        if (!employee.getPhoneNumber().matches(PHONE_NUMBER_REGEX)) {
+            error.put("phone_number", "Phone number must be in the correct format 090xxxxxxx or 091xxxxxxx or (+84)90xxxxxxx or (+84)91xxxxxxx where x is a natural number");
+        }
+        if (!employee.getEmail().matches(EMAIL_REGEX)) {
+            error.put("email", "Wrong format of email");
+        }
+        if (!employee.getAddress().matches(STRING_REGEX)) {
+            error.put("address", "Address cannot have any extra spaces or no characters");
+        }
+        if (!employee.getUsername().matches(STRING_REGEX)) {
+            error.put("user_name", "UserName cannot have any extra spaces or no characters");
+        }
         if (error.isEmpty()) {
             return null;
         } else {

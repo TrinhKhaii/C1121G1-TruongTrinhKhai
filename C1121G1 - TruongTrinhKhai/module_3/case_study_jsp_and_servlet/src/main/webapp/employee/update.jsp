@@ -54,7 +54,7 @@
             <tr>
                 <th>Employee Birthday:</th>
                 <td>
-                    <input type="text" name="birthday" id="birthday" size="45" value="${employee.getBirthday()}"/><br/>
+                    <input type="date" name="birthday" id="birthday" size="45" value="${employee.getBirthday()}"/><br/>
                     <small class="error">${error.get("birthday")}</small>
                 </td>
             </tr>
@@ -62,35 +62,35 @@
                 <th>Employee Id Card:</th>
                 <td>
                     <input type="text" name="id_card" id="id_card" size="45" value="${employee.getIdCard()}"/><br/>
-                    <%--                    <small class="error">${error.get("name")}</small>--%>
+                    <small class="error">${error.get("id_card")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Employee Salary:</th>
                 <td>
                     <input type="text" name="salary" id="salary" size="45" value="${employee.getSalary()}"/><br/>
-                    <%--                    <small class="error">${error.get("name")}</small>--%>
+                    <small class="error">${error.get("salary")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Employee Phone Number:</th>
                 <td>
                     <input type="text" name="phone_number" id="phone_number" size="45" value="${employee.getPhoneNumber()}"/><br/>
-                    <%--                    <small class="error">${error.get("name")}</small>--%>
+                    <small class="error">${error.get("phone_number")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Employee Email:</th>
                 <td>
                     <input type="text" name="email" id="email" size="45" value="${employee.getEmail()}"/><br/>
-                    <%--                    <small class="error">${error.get("email")}</small>--%>
+                    <small class="error">${error.get("email")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Employee Address:</th>
                 <td>
                     <input type="text" name="address" id="address" size="45" value="${employee.getAddress()}"/><br/>
-                    <%--                    <small class="error">${error.get("email")}</small>--%>
+                    <small class="error">${error.get("address")}</small>
                 </td>
             </tr>
             <tr>
@@ -149,7 +149,7 @@
                 <th>Employee User Name:</th>
                 <td>
                     <input type="text" name="user_name" id="user_name" size="45" value="${employee.getUsername()}"/><br/>
-                    <small class="error">${error.get("email")}</small>
+                    <small class="error">${error.get("user_name")}</small>
                 </td>
             </tr>
             <tr>

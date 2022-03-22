@@ -24,6 +24,7 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -52,6 +53,7 @@ public class EmployeeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -114,6 +116,12 @@ public class EmployeeServlet extends HttpServlet {
             request.setAttribute("error", error);
         } else {
             employeeService.insertEmployee(employee);
+            List<Position> positionList = employeeService.findAllPosition();
+            List<EducationDegree> educationDegreeList = employeeService.findAllEducationDegree();
+            List<Division> divisionList  = employeeService.findAllDivision();
+            request.setAttribute("positionList", positionList);
+            request.setAttribute("educationDegreeList", educationDegreeList);
+            request.setAttribute("divisionList", divisionList);
             request.setAttribute("messenger", "New employee was created");
         }
         dispatcher = request.getRequestDispatcher("employee/create.jsp");
@@ -150,6 +158,9 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee(id, name, birthday, idCard, phoneNumber, email, address, salary, positionId, educationDegreeId, division_id, username);
         Map<String, String> error = employeeService.save(employee);
         RequestDispatcher dispatcher;
+        List<Position> positionList = employeeService.findAllPosition();
+        List<EducationDegree> educationDegreeList = employeeService.findAllEducationDegree();
+        List<Division> divisionList  = employeeService.findAllDivision();
         if (error != null) {
             request.setAttribute("employee", employee);
             request.setAttribute("error", error);
@@ -157,6 +168,9 @@ public class EmployeeServlet extends HttpServlet {
             employeeService.updateEmployee(employee);
             request.setAttribute("messenger", "Update employee success");
         }
+        request.setAttribute("positionList", positionList);
+        request.setAttribute("educationDegreeList", educationDegreeList);
+        request.setAttribute("divisionList", divisionList);
         dispatcher = request.getRequestDispatcher("employee/update.jsp");
         dispatcher.forward(request, response);
     }

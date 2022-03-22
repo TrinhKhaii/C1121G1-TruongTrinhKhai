@@ -46,6 +46,7 @@
         <thead>
         <tr>
             <th>ID</th>
+            <th>Code</th>
             <th>Name</th>
             <th>Area</th>
             <th>Cost</th>
@@ -56,26 +57,42 @@
             <th>Description other convenience</th>
             <th>Pool area</th>
             <th>Number of floors</th>
-            <th>Actions</th>
+            <th>Free Service Included</th>
+<%--            <th>Actions</th>--%>
         </tr>
         </thead>
         <tbody>
         <c:forEach var="facility" items="${facilityDTOList}">
             <tr>
                 <td>${facility.getId()}</td>
+                <td>${facility.getCode()}</td>
                 <td>${facility.getName()}</td>
                 <td>${facility.getArea()}</td>
                 <td>${facility.getCost()}</td>
                 <td>${facility.getMaxPeople()}</td>
                 <td>${facility.getRentTypeName()}</td>
                 <td>${facility.getServiceTypeName()}</td>
-                <td>${facility.getRoomStandard()}</td>
-                <td>${facility.getDescriptionOtherConvenience()}</td>
+                <td>
+                    <c:if test="${facility.getRoomStandard() == null}">
+                        None
+                    </c:if>
+                    <c:if test="${facility.getRoomStandard() != null}">
+                        ${facility.getRoomStandard()}
+                    </c:if>
+                </td>
+                <td>
+                    <c:if test="${facility.getDescriptionOtherConvenience() == null}">
+                        None
+                    </c:if>
+                    <c:if test="${facility.getDescriptionOtherConvenience() != null}">
+                        ${facility.getDescriptionOtherConvenience()}
+                    </c:if>
+                </td>
                 <td>
                     <c:if test="${facility.getPoolArea() == -1}">
                         None
                     </c:if>
-                        <c:if test="${facility.getPoolArea() != -1}">
+                    <c:if test="${facility.getPoolArea() != -1}">
                         ${facility.getPoolArea()}
                     </c:if>
                 </td>
@@ -88,38 +105,46 @@
                     </c:if>
                 </td>
                 <td>
-                    <a href="employee?action=edit&id=${facility.getId()}">Edit</a>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            onclick="getId(${facility.getId()})"
-                            data-bs-target="#exampleModal">
-                        delete
-                    </button>
+                    <c:if test="${facility.getFreeServiceIncluded() == null}">
+                        None
+                    </c:if>
+                    <c:if test="${facility.getFreeServiceIncluded() != null}">
+                        ${facility.getFreeServiceIncluded()}
+                    </c:if>
                 </td>
+<%--                <td>--%>
+<%--                    <a href="employee?action=edit&id=${facility.getId()}">Edit</a>--%>
+<%--                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"--%>
+<%--                            onclick="getId(${facility.getId()})"--%>
+<%--                            data-bs-target="#exampleModal">--%>
+<%--                        delete--%>
+<%--                    </button>--%>
+<%--                </td>--%>
             </tr>
         </c:forEach>
 
         <%--  modal --%>
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <form method="get">
-                        <input type="hidden" name="action" value="delete">
-                        <input type="hidden" name="id" id="idDelete">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this employee?</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Yes or No
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>
-                            <button type="submit" class="btn btn-primary">YES</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+<%--        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">--%>
+<%--            <div class="modal-dialog">--%>
+<%--                <div class="modal-content">--%>
+<%--                    <form method="get">--%>
+<%--                        <input type="hidden" name="action" value="delete">--%>
+<%--                        <input type="hidden" name="id" id="idDelete">--%>
+<%--                        <div class="modal-header">--%>
+<%--                            <h5 class="modal-title" id="exampleModalLabel">Do you want to delete this employee?</h5>--%>
+<%--                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>--%>
+<%--                        </div>--%>
+<%--                        <div class="modal-body">--%>
+<%--                            Yes or No--%>
+<%--                        </div>--%>
+<%--                        <div class="modal-footer">--%>
+<%--                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">NO</button>--%>
+<%--                            <button type="submit" class="btn btn-primary">YES</button>--%>
+<%--                        </div>--%>
+<%--                    </form>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
         </tbody>
     </table>
 </div>

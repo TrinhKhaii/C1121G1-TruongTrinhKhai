@@ -7,6 +7,7 @@ package model.service;
 
 public class Facility {
     private Integer id;
+    private String code;
     private String name;
     private Integer area;
     private Double cost;
@@ -16,8 +17,9 @@ public class Facility {
 
     public Facility() {}
 
-    public Facility(Integer id, String name, Integer area, Double cost, Integer maxPeople, Integer rentTypeId, Integer serviceTypeId) {
+    public Facility(Integer id, String code, String name, Integer area, Double cost, Integer maxPeople, Integer rentTypeId, Integer serviceTypeId) {
         this.id = id;
+        this.code = code;
         this.name = name;
         this.area = area;
         this.cost = cost;
@@ -32,6 +34,14 @@ public class Facility {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {

@@ -5,14 +5,15 @@ package model.service;
     Time: 09:00
 */
 
-public class House {
+public class House extends Facility{
     private String roomStandard;
     private String descriptionOtherConvenience;
     private Integer numberOfFloors;
 
     public House() {}
 
-    public House(String roomStandard, String descriptionOtherConvenience, Integer numberOfFloors) {
+    public House(Integer id, String code, String name, Integer area, Double cost, Integer maxPeople, Integer rentTypeId, Integer serviceTypeId, String roomStandard, String descriptionOtherConvenience, Integer numberOfFloors) {
+        super(id, code, name, area, cost, maxPeople, rentTypeId, serviceTypeId);
         this.roomStandard = roomStandard;
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.numberOfFloors = numberOfFloors;

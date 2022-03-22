@@ -67,36 +67,36 @@
             <tr>
                 <th>Customer Birthday:</th>
                 <td>
-                    <input type="text" name="birthday" id="birthday" size="45" value="${customer.getBirthday()}"/><br/>
-                    <small class="error">${error.get("birthday")}</small>
+                    <input type="date" name="birthday" id="birthday" size="45" value="${customer.getBirthday()}"/><br/>
+<%--                    <small class="error">${error.get("birthday")}</small>--%>
                 </td>
             </tr>
             <tr>
                 <th>Customer Id Card:</th>
                 <td>
                     <input type="text" name="id_card" id="id_card" size="45" value="${customer.getIdCard()}"/><br/>
-                    <%--                    <small class="error">${error.get("name")}</small>--%>
+                    <small class="error">${error.get("id_card")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Customer Phone Number:</th>
                 <td>
                     <input type="text" name="phone_number" id="phone_number" size="45" value="${customer.getPhoneNumber()}"/><br/>
-                    <%--                    <small class="error">${error.get("name")}</small>--%>
+                    <small class="error">${error.get("phone_number")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Customer Email:</th>
                 <td>
                     <input type="text" name="email" id="email" size="45" value="${customer.getEmail()}"/><br/>
-                    <%--                    <small class="error">${error.get("email")}</small>--%>
+                    <small class="error">${error.get("email")}</small>
                 </td>
             </tr>
             <tr>
                 <th>Customer Address:</th>
                 <td>
                     <input type="text" name="address" id="address" size="45" value="${customer.getAddress()}"/><br/>
-                    <%--                    <small class="error">${error.get("email")}</small>--%>
+                    <small class="error">${error.get("address")}</small>
                 </td>
             </tr>
             <tr>

@@ -9,12 +9,12 @@ public class AttachService {
     private Integer id;
     private String name;
     private Double cost;
-    private Integer unit;
+    private String unit;
     private String status;
 
     public AttachService() {}
 
-    public AttachService(Integer id, String name, Double cost, Integer unit, String status) {
+    public AttachService(Integer id, String name, Double cost, String unit, String status) {
         this.id = id;
         this.name = name;
         this.cost = cost;
@@ -46,11 +46,11 @@ public class AttachService {
         this.cost = cost;
     }
 
-    public Integer getUnit() {
+    public String getUnit() {
         return unit;
     }
 
-    public void setUnit(Integer unit) {
+    public void setUnit(String unit) {
         this.unit = unit;
     }
 
@@ -60,16 +60,5 @@ public class AttachService {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    @Override
-    public String toString() {
-        return "AttachService{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", cost=" + cost +
-                ", unit=" + unit +
-                ", status='" + status + '\'' +
-                '}';
     }
 }

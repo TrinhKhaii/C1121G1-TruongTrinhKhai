@@ -15,13 +15,13 @@ public class Contract {
     private String endDate;
     private Double deposit;
     private Double totalMoney;
-    private Employee employeeId;
-    private Customer customerId;
-    private Facility facilityId;
+    private Integer employeeId;
+    private Integer customerId;
+    private Integer facilityId;
 
     public Contract() {}
 
-    public Contract(Integer id, String startDate, String endDate, Double deposit, Double totalMoney, Employee employeeId, Customer customerId, Facility facilityId) {
+    public Contract(Integer id, String startDate, String endDate, Double deposit, Double totalMoney, Integer employeeId, Integer customerId, Integer facilityId) {
         this.id = id;
         this.startDate = startDate;
         this.endDate = endDate;
@@ -72,41 +72,27 @@ public class Contract {
         this.totalMoney = totalMoney;
     }
 
-    public Employee getEmployeeId() {
+    public Integer getEmployeeId() {
         return employeeId;
     }
 
-    public void setEmployeeId(Employee employeeId) {
+    public void setEmployeeId(Integer employeeId) {
         this.employeeId = employeeId;
     }
 
-    public Customer getCustomerId() {
+    public Integer getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerId(Customer customerId) {
+    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 
-    public Facility getServiceId() {
+    public Integer getFacilityId() {
         return facilityId;
     }
 
-    public void setServiceId(Facility facilityId) {
+    public void setFacilityId(Integer facilityId) {
         this.facilityId = facilityId;
-    }
-
-    @Override
-    public String toString() {
-        return "Contract{" +
-                "id=" + id +
-                ", startDate='" + startDate + '\'' +
-                ", endDate='" + endDate + '\'' +
-                ", deposit=" + deposit +
-                ", totalMoney=" + totalMoney +
-                ", employeeId=" + employeeId.getId() +
-                ", customerId=" + customerId.getId() +
-                ", serviceId=" + facilityId.getId() +
-                '}';
     }
 }

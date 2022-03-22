@@ -6,9 +6,7 @@ package repository;
 */
 
 import model.dto.FacilityDTO;
-import model.service.Facility;
-import model.service.RentType;
-import model.service.ServiceType;
+import model.service.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -16,11 +14,11 @@ import java.util.List;
 public interface IFacilityRepository {
     List<FacilityDTO> selectAllFacilityDTO();
 
-    void insertRoom() throws SQLException;
+    void insertRoom(Room room) throws SQLException;
 
-    void insertHouse() throws SQLException;
+    void insertHouse(House house) throws SQLException;
 
-    void insertVilla() throws SQLException;
+    void insertVilla(Villa villa) throws SQLException;
 
     List<RentType> findAllRentType();
 

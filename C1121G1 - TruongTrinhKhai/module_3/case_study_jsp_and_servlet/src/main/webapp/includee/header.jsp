@@ -38,8 +38,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="facility">Service</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contract</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Contract</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="contract">Contract</a></li>
+                            <li><a class="dropdown-item" href="contract-detail">Contract detail</a></li>
+                        </ul>
                     </li>
                 </ul>
                 <form class="d-flex">

@@ -7,6 +7,7 @@ package model.dto;
 
 public class FacilityDTO {
     private Integer id;
+    private String code;
     private String name;
     private Integer area;
     private Double cost;
@@ -17,12 +18,23 @@ public class FacilityDTO {
     private String descriptionOtherConvenience;
     private Float poolArea;
     private Integer numberOfFloors;
+    private String freeServiceIncluded;
 
     public FacilityDTO() {
     }
 
-    public FacilityDTO(Integer id, String name, Integer area, Double cost, Integer maxPeople, String rentTypeName, String serviceTypeName, String roomStandard, String descriptionOtherConvenience, Float poolArea, Integer numberOfFloors) {
+    public FacilityDTO(Integer id, String code, String name, Integer area, Double cost, Integer maxPeople) {
         this.id = id;
+        this.code = code;
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+    }
+
+    public FacilityDTO(Integer id, String code, String name, Integer area, Double cost, Integer maxPeople, String rentTypeName, String serviceTypeName, String roomStandard, String descriptionOtherConvenience, Float poolArea, Integer numberOfFloors, String freeServiceIncluded) {
+        this.id = id;
+        this.code = code;
         this.name = name;
         this.area = area;
         this.cost = cost;
@@ -33,6 +45,7 @@ public class FacilityDTO {
         this.descriptionOtherConvenience = descriptionOtherConvenience;
         this.poolArea = poolArea;
         this.numberOfFloors = numberOfFloors;
+        this.freeServiceIncluded = freeServiceIncluded;
     }
 
     public Integer getId() {
@@ -41,6 +54,14 @@ public class FacilityDTO {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {
@@ -121,5 +142,13 @@ public class FacilityDTO {
 
     public void setNumberOfFloors(Integer numberOfFloors) {
         this.numberOfFloors = numberOfFloors;
+    }
+
+    public String getFreeServiceIncluded() {
+        return freeServiceIncluded;
+    }
+
+    public void setFreeServiceIncluded(String freeServiceIncluded) {
+        this.freeServiceIncluded = freeServiceIncluded;
     }
 }
